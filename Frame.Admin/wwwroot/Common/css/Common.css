@@ -1,0 +1,18 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+}
+
+@font-face {
+    font-family: "myFont";
+    src: url(/Common/font/RTWSYueGoTrial-LightCond.otf);
+}
+
+.layui-layer-page .layui-layer-title {
+    background-color: #bedffe !important;
+}
+
+.layui-layer-page .layui-layer-content, .layui-layer-page .layui-layer-btn {
+    padding-left: 1rem;
+    background-color: #e3f6ee !important;
+}

@@ -1,0 +1,529 @@
+【异常时间】：2019-04-15 11:39:11,540 
+The view 'chaohuo' was not found. Searched locations: /Views/Home/chaohuo.cshtml, /Views/Shared/chaohuo.cshtml, /Pages/Shared/chaohuo.cshtml
+--------------------------------------------------------------------
+【异常时间】：2019-04-15 11:39:11,739 
+An unhandled exception has occurred while executing the request.
+--------------------------------------------------------------------
+System.InvalidOperationException: The view 'chaohuo' was not found. The following locations were searched:
+/Views/Home/chaohuo.cshtml
+/Views/Shared/chaohuo.cshtml
+/Pages/Shared/chaohuo.cshtml
+   at Microsoft.AspNetCore.Mvc.ViewEngines.ViewEngineResult.EnsureSuccessful(IEnumerable`1 originalLocations)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeResultAsync(IActionResult result)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResultFilterAsync[TFilter,TFilterAsync]()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResultExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeResultFilters()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+【异常时间】：2019-04-15 11:39:41,544 
+The view 'chaohuo' was not found. Searched locations: /Views/Home/chaohuo.cshtml, /Views/Shared/chaohuo.cshtml, /Pages/Shared/chaohuo.cshtml
+--------------------------------------------------------------------
+【异常时间】：2019-04-15 11:39:41,555 
+An unhandled exception has occurred while executing the request.
+--------------------------------------------------------------------
+System.InvalidOperationException: The view 'chaohuo' was not found. The following locations were searched:
+/Views/Home/chaohuo.cshtml
+/Views/Shared/chaohuo.cshtml
+/Pages/Shared/chaohuo.cshtml
+   at Microsoft.AspNetCore.Mvc.ViewEngines.ViewEngineResult.EnsureSuccessful(IEnumerable`1 originalLocations)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeResultAsync(IActionResult result)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResultFilterAsync[TFilter,TFilterAsync]()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResultExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeResultFilters()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+【异常时间】：2019-04-15 11:47:34,748 
+The view 'chaohuo' was not found. Searched locations: /Views/Home/chaohuo.cshtml, /Views/Shared/chaohuo.cshtml, /Pages/Shared/chaohuo.cshtml
+--------------------------------------------------------------------
+【异常时间】：2019-04-15 11:47:34,867 
+An unhandled exception has occurred while executing the request.
+--------------------------------------------------------------------
+System.InvalidOperationException: The view 'chaohuo' was not found. The following locations were searched:
+/Views/Home/chaohuo.cshtml
+/Views/Shared/chaohuo.cshtml
+/Pages/Shared/chaohuo.cshtml
+   at Microsoft.AspNetCore.Mvc.ViewEngines.ViewEngineResult.EnsureSuccessful(IEnumerable`1 originalLocations)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeResultAsync(IActionResult result)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResultFilterAsync[TFilter,TFilterAsync]()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResultExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeResultFilters()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+【异常时间】：2019-04-15 11:52:31,414 
+The view 'chaohuo' was not found. Searched locations: /Views/Home/chaohuo.cshtml, /Views/Shared/chaohuo.cshtml, /Pages/Shared/chaohuo.cshtml
+--------------------------------------------------------------------
+【异常时间】：2019-04-15 11:52:31,526 
+An unhandled exception has occurred while executing the request.
+--------------------------------------------------------------------
+System.InvalidOperationException: The view 'chaohuo' was not found. The following locations were searched:
+/Views/Home/chaohuo.cshtml
+/Views/Shared/chaohuo.cshtml
+/Pages/Shared/chaohuo.cshtml
+   at Microsoft.AspNetCore.Mvc.ViewEngines.ViewEngineResult.EnsureSuccessful(IEnumerable`1 originalLocations)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeResultAsync(IActionResult result)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResultFilterAsync[TFilter,TFilterAsync]()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResultExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeResultFilters()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+【异常时间】：2019-04-15 11:56:55,540 
+The view 'chaohuo' was not found. Searched locations: /Views/Home/chaohuo.cshtml, /Views/Shared/chaohuo.cshtml, /Pages/Shared/chaohuo.cshtml
+--------------------------------------------------------------------
+【异常时间】：2019-04-15 11:56:55,645 
+An unhandled exception has occurred while executing the request.
+--------------------------------------------------------------------
+System.InvalidOperationException: The view 'chaohuo' was not found. The following locations were searched:
+/Views/Home/chaohuo.cshtml
+/Views/Shared/chaohuo.cshtml
+/Pages/Shared/chaohuo.cshtml
+   at Microsoft.AspNetCore.Mvc.ViewEngines.ViewEngineResult.EnsureSuccessful(IEnumerable`1 originalLocations)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeResultAsync(IActionResult result)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResultFilterAsync[TFilter,TFilterAsync]()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResultExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeResultFilters()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+【异常时间】：2019-04-15 12:45:50,417 
+The view 'chaohuo' was not found. Searched locations: /Views/Home/chaohuo.cshtml, /Views/Shared/chaohuo.cshtml, /Pages/Shared/chaohuo.cshtml
+--------------------------------------------------------------------
+【异常时间】：2019-04-15 12:45:50,533 
+An unhandled exception has occurred while executing the request.
+--------------------------------------------------------------------
+System.InvalidOperationException: The view 'chaohuo' was not found. The following locations were searched:
+/Views/Home/chaohuo.cshtml
+/Views/Shared/chaohuo.cshtml
+/Pages/Shared/chaohuo.cshtml
+   at Microsoft.AspNetCore.Mvc.ViewEngines.ViewEngineResult.EnsureSuccessful(IEnumerable`1 originalLocations)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeResultAsync(IActionResult result)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResultFilterAsync[TFilter,TFilterAsync]()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResultExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeResultFilters()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+【异常时间】：2019-04-15 15:52:48,249 
+【自定义错误】：报错 
+【异常类型】：Exception 
+【异常信息】：报错 
+【堆栈调用】：   at Frame.Application.Services.HomeService.Insert(UserInfoDto data) in C:\Users\admin\Desktop\myframe\Frame.Application\Services\HomeService.cs:line 24
+   at Frame.Admin.Controllers.HomeController.Index() in C:\Users\admin\Desktop\myframe\Frame.Admin\Controllers\HomeController.cs:line 26
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+--------------------------------------------------------------------
+【异常时间】：2019-04-15 15:54:28,312 
+【自定义错误】：报错 
+【异常类型】：Exception 
+【异常信息】：报错 
+【堆栈调用】：   at Frame.Application.Services.HomeService.Insert(UserInfoDto data) in C:\Users\admin\Desktop\myframe\Frame.Application\Services\HomeService.cs:line 24
+   at Frame.Admin.Controllers.HomeController.Index() in C:\Users\admin\Desktop\myframe\Frame.Admin\Controllers\HomeController.cs:line 26
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+--------------------------------------------------------------------
+【异常时间】：2019-04-15 15:57:44,816 
+【自定义错误】：报错 
+【异常类型】：Exception 
+【异常信息】：报错 
+【堆栈调用】：   at Frame.Application.Services.HomeService.Insert(UserInfoDto data) in C:\Users\admin\Desktop\myframe\Frame.Application\Services\HomeService.cs:line 24
+   at Frame.Admin.Controllers.HomeController.Index() in C:\Users\admin\Desktop\myframe\Frame.Admin\Controllers\HomeController.cs:line 26
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+--------------------------------------------------------------------
+【异常时间】：2019-04-15 16:01:31,684 
+【自定义错误】：Mapper not initialized. Call Initialize with appropriate configuration. If you are trying to use mapper instances through a container or otherwise, make sure you do not have any calls to the static Mapper.Map methods, and if you're using ProjectTo or UseAsDataSource extension methods, make sure you pass in the appropriate IConfigurationProvider instance. 
+【异常类型】：InvalidOperationException 
+【异常信息】：Mapper not initialized. Call Initialize with appropriate configuration. If you are trying to use mapper instances through a container or otherwise, make sure you do not have any calls to the static Mapper.Map methods, and if you're using ProjectTo or UseAsDataSource extension methods, make sure you pass in the appropriate IConfigurationProvider instance. 
+【堆栈调用】：   at AutoMapper.Mapper.get_Instance() in C:\projects\automapper\src\AutoMapper\Mapper.cs:line 36
+   at AutoMapper.Mapper.Map[TDestination](Object source) in C:\projects\automapper\src\AutoMapper\Mapper.cs:line 76
+   at Frame.ApplicationCore.Bases.MaperHelper.Map[TEntity,TDto](TEntity entity) in C:\Users\admin\Desktop\myframe\Frame.ApplicationCore\Bases\MaperHelper.cs:line 13
+   at Frame.Application.Services.HomeService.Insert(UserInfoDto data) in C:\Users\admin\Desktop\myframe\Frame.Application\Services\HomeService.cs:line 24
+   at Frame.Admin.Controllers.HomeController.Index() in C:\Users\admin\Desktop\myframe\Frame.Admin\Controllers\HomeController.cs:line 26
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+--------------------------------------------------------------------
+【异常时间】：2019-04-15 16:11:13,459 
+【自定义错误】：An error occurred during the activation of a particular registration. See the inner exception for details. Registration: Activator = HomeService (ReflectionActivator), Services = [Frame.Application.Interfaces.IHomeService, Frame.ApplicationCore.Bases.IServerBase], Lifetime = Autofac.Core.Lifetime.CurrentScopeLifetime, Sharing = Shared, Ownership = OwnedByLifetimeScope ---> None of the constructors found with 'Autofac.Core.Activators.Reflection.DefaultConstructorFinder' on type 'Frame.Application.Services.HomeService' can be invoked with the available services and parameters:
+Cannot resolve parameter 'Frame.ApplicationCore.Bases.IRepository`2[Frame.Core.Entitys.UserInfo,System.Guid] userRepository' of constructor 'Void .ctor(Frame.ApplicationCore.Bases.IRepository`2[Frame.Core.Entitys.UserInfo,System.Guid], AutoMapper.IMapper)'. (See inner exception for details.) 
+【异常类型】：DependencyResolutionException 
+【异常信息】：An error occurred during the activation of a particular registration. See the inner exception for details. Registration: Activator = HomeService (ReflectionActivator), Services = [Frame.Application.Interfaces.IHomeService, Frame.ApplicationCore.Bases.IServerBase], Lifetime = Autofac.Core.Lifetime.CurrentScopeLifetime, Sharing = Shared, Ownership = OwnedByLifetimeScope ---> None of the constructors found with 'Autofac.Core.Activators.Reflection.DefaultConstructorFinder' on type 'Frame.Application.Services.HomeService' can be invoked with the available services and parameters:
+Cannot resolve parameter 'Frame.ApplicationCore.Bases.IRepository`2[Frame.Core.Entitys.UserInfo,System.Guid] userRepository' of constructor 'Void .ctor(Frame.ApplicationCore.Bases.IRepository`2[Frame.Core.Entitys.UserInfo,System.Guid], AutoMapper.IMapper)'. (See inner exception for details.) 
+【堆栈调用】：   at Autofac.Core.Resolving.InstanceLookup.Activate(IEnumerable`1 parameters, Object& decoratorTarget) in C:\projects\autofac\src\Autofac\Core\Resolving\InstanceLookup.cs:line 133
+   at Autofac.Core.Lifetime.LifetimeScope.GetOrCreateAndShare(Guid id, Func`1 creator) in C:\projects\autofac\src\Autofac\Core\Lifetime\LifetimeScope.cs:line 306
+   at Autofac.Core.Resolving.InstanceLookup.Execute() in C:\projects\autofac\src\Autofac\Core\Resolving\InstanceLookup.cs:line 82
+   at Autofac.Core.Resolving.ResolveOperation.GetOrCreateInstance(ISharingLifetimeScope currentOperationScope, IComponentRegistration registration, IEnumerable`1 parameters) in C:\projects\autofac\src\Autofac\Core\Resolving\ResolveOperation.cs:line 130
+   at Autofac.Core.Resolving.ResolveOperation.Execute(IComponentRegistration registration, IEnumerable`1 parameters) in C:\projects\autofac\src\Autofac\Core\Resolving\ResolveOperation.cs:line 83
+   at Autofac.ResolutionExtensions.TryResolveService(IComponentContext context, Service service, IEnumerable`1 parameters, Object& instance) in C:\projects\autofac\src\Autofac\ResolutionExtensions.cs:line 1041
+   at Autofac.ResolutionExtensions.ResolveOptionalService(IComponentContext context, Service service, IEnumerable`1 parameters) in C:\projects\autofac\src\Autofac\ResolutionExtensions.cs:line 814
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.GetService(IServiceProvider sp, Type type, Type requiredBy, Boolean isDefaultParameterRequired)
+   at lambda_method(Closure , IServiceProvider , Object[] )
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerActivatorProvider.<>c__DisplayClass4_0.<CreateActivator>b__0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass5_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+--------------------------------------------------------------------
+【异常时间】：2019-04-15 16:14:08,405 
+【自定义错误】：An error occurred during the activation of a particular registration. See the inner exception for details. Registration: Activator = HomeService (ReflectionActivator), Services = [Frame.Application.Interfaces.IHomeService, Frame.ApplicationCore.Bases.IServerBase], Lifetime = Autofac.Core.Lifetime.CurrentScopeLifetime, Sharing = Shared, Ownership = OwnedByLifetimeScope ---> None of the constructors found with 'Autofac.Core.Activators.Reflection.DefaultConstructorFinder' on type 'Frame.Application.Services.HomeService' can be invoked with the available services and parameters:
+Cannot resolve parameter 'Frame.ApplicationCore.Bases.IRepository`2[Frame.Core.Entitys.UserInfo,System.Guid] userRepository' of constructor 'Void .ctor(Frame.ApplicationCore.Bases.IRepository`2[Frame.Core.Entitys.UserInfo,System.Guid], AutoMapper.IMapper)'. (See inner exception for details.) 
+【异常类型】：DependencyResolutionException 
+【异常信息】：An error occurred during the activation of a particular registration. See the inner exception for details. Registration: Activator = HomeService (ReflectionActivator), Services = [Frame.Application.Interfaces.IHomeService, Frame.ApplicationCore.Bases.IServerBase], Lifetime = Autofac.Core.Lifetime.CurrentScopeLifetime, Sharing = Shared, Ownership = OwnedByLifetimeScope ---> None of the constructors found with 'Autofac.Core.Activators.Reflection.DefaultConstructorFinder' on type 'Frame.Application.Services.HomeService' can be invoked with the available services and parameters:
+Cannot resolve parameter 'Frame.ApplicationCore.Bases.IRepository`2[Frame.Core.Entitys.UserInfo,System.Guid] userRepository' of constructor 'Void .ctor(Frame.ApplicationCore.Bases.IRepository`2[Frame.Core.Entitys.UserInfo,System.Guid], AutoMapper.IMapper)'. (See inner exception for details.) 
+【堆栈调用】：   at Autofac.Core.Resolving.InstanceLookup.Activate(IEnumerable`1 parameters, Object& decoratorTarget) in C:\projects\autofac\src\Autofac\Core\Resolving\InstanceLookup.cs:line 133
+   at Autofac.Core.Lifetime.LifetimeScope.GetOrCreateAndShare(Guid id, Func`1 creator) in C:\projects\autofac\src\Autofac\Core\Lifetime\LifetimeScope.cs:line 306
+   at Autofac.Core.Resolving.InstanceLookup.Execute() in C:\projects\autofac\src\Autofac\Core\Resolving\InstanceLookup.cs:line 82
+   at Autofac.Core.Resolving.ResolveOperation.GetOrCreateInstance(ISharingLifetimeScope currentOperationScope, IComponentRegistration registration, IEnumerable`1 parameters) in C:\projects\autofac\src\Autofac\Core\Resolving\ResolveOperation.cs:line 130
+   at Autofac.Core.Resolving.ResolveOperation.Execute(IComponentRegistration registration, IEnumerable`1 parameters) in C:\projects\autofac\src\Autofac\Core\Resolving\ResolveOperation.cs:line 83
+   at Autofac.ResolutionExtensions.TryResolveService(IComponentContext context, Service service, IEnumerable`1 parameters, Object& instance) in C:\projects\autofac\src\Autofac\ResolutionExtensions.cs:line 1041
+   at Autofac.ResolutionExtensions.ResolveOptionalService(IComponentContext context, Service service, IEnumerable`1 parameters) in C:\projects\autofac\src\Autofac\ResolutionExtensions.cs:line 814
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.GetService(IServiceProvider sp, Type type, Type requiredBy, Boolean isDefaultParameterRequired)
+   at lambda_method(Closure , IServiceProvider , Object[] )
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerActivatorProvider.<>c__DisplayClass4_0.<CreateActivator>b__0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass5_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+--------------------------------------------------------------------
+【异常时间】：2019-04-15 16:15:33,588 
+【自定义错误】：An error occurred during the activation of a particular registration. See the inner exception for details. Registration: Activator = HomeService (ReflectionActivator), Services = [Frame.Application.Interfaces.IHomeService, Frame.ApplicationCore.Bases.IServerBase], Lifetime = Autofac.Core.Lifetime.CurrentScopeLifetime, Sharing = Shared, Ownership = OwnedByLifetimeScope ---> None of the constructors found with 'Autofac.Core.Activators.Reflection.DefaultConstructorFinder' on type 'Frame.Application.Services.HomeService' can be invoked with the available services and parameters:
+Cannot resolve parameter 'Frame.ApplicationCore.Bases.IRepository`2[Frame.Core.Entitys.UserInfo,System.Guid] userRepository' of constructor 'Void .ctor(Frame.ApplicationCore.Bases.IRepository`2[Frame.Core.Entitys.UserInfo,System.Guid], AutoMapper.IMapper)'. (See inner exception for details.) 
+【异常类型】：DependencyResolutionException 
+【异常信息】：An error occurred during the activation of a particular registration. See the inner exception for details. Registration: Activator = HomeService (ReflectionActivator), Services = [Frame.Application.Interfaces.IHomeService, Frame.ApplicationCore.Bases.IServerBase], Lifetime = Autofac.Core.Lifetime.CurrentScopeLifetime, Sharing = Shared, Ownership = OwnedByLifetimeScope ---> None of the constructors found with 'Autofac.Core.Activators.Reflection.DefaultConstructorFinder' on type 'Frame.Application.Services.HomeService' can be invoked with the available services and parameters:
+Cannot resolve parameter 'Frame.ApplicationCore.Bases.IRepository`2[Frame.Core.Entitys.UserInfo,System.Guid] userRepository' of constructor 'Void .ctor(Frame.ApplicationCore.Bases.IRepository`2[Frame.Core.Entitys.UserInfo,System.Guid], AutoMapper.IMapper)'. (See inner exception for details.) 
+【堆栈调用】：   at Autofac.Core.Resolving.InstanceLookup.Activate(IEnumerable`1 parameters, Object& decoratorTarget) in C:\projects\autofac\src\Autofac\Core\Resolving\InstanceLookup.cs:line 133
+   at Autofac.Core.Lifetime.LifetimeScope.GetOrCreateAndShare(Guid id, Func`1 creator) in C:\projects\autofac\src\Autofac\Core\Lifetime\LifetimeScope.cs:line 306
+   at Autofac.Core.Resolving.InstanceLookup.Execute() in C:\projects\autofac\src\Autofac\Core\Resolving\InstanceLookup.cs:line 82
+   at Autofac.Core.Resolving.ResolveOperation.GetOrCreateInstance(ISharingLifetimeScope currentOperationScope, IComponentRegistration registration, IEnumerable`1 parameters) in C:\projects\autofac\src\Autofac\Core\Resolving\ResolveOperation.cs:line 130
+   at Autofac.Core.Resolving.ResolveOperation.Execute(IComponentRegistration registration, IEnumerable`1 parameters) in C:\projects\autofac\src\Autofac\Core\Resolving\ResolveOperation.cs:line 83
+   at Autofac.ResolutionExtensions.TryResolveService(IComponentContext context, Service service, IEnumerable`1 parameters, Object& instance) in C:\projects\autofac\src\Autofac\ResolutionExtensions.cs:line 1041
+   at Autofac.ResolutionExtensions.ResolveOptionalService(IComponentContext context, Service service, IEnumerable`1 parameters) in C:\projects\autofac\src\Autofac\ResolutionExtensions.cs:line 814
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.GetService(IServiceProvider sp, Type type, Type requiredBy, Boolean isDefaultParameterRequired)
+   at lambda_method(Closure , IServiceProvider , Object[] )
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerActivatorProvider.<>c__DisplayClass4_0.<CreateActivator>b__0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass5_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+--------------------------------------------------------------------
+【异常时间】：2019-04-15 16:16:46,546 
+【自定义错误】：An error occurred during the activation of a particular registration. See the inner exception for details. Registration: Activator = HomeService (ReflectionActivator), Services = [Frame.Application.Interfaces.IHomeService, Frame.ApplicationCore.Bases.IServerBase], Lifetime = Autofac.Core.Lifetime.CurrentScopeLifetime, Sharing = Shared, Ownership = OwnedByLifetimeScope ---> None of the constructors found with 'Autofac.Core.Activators.Reflection.DefaultConstructorFinder' on type 'Frame.Application.Services.HomeService' can be invoked with the available services and parameters:
+Cannot resolve parameter 'Frame.ApplicationCore.Bases.IRepository`2[Frame.Core.Entitys.UserInfo,System.Guid] userRepository' of constructor 'Void .ctor(Frame.ApplicationCore.Bases.IRepository`2[Frame.Core.Entitys.UserInfo,System.Guid], AutoMapper.IMapper)'. (See inner exception for details.) 
+【异常类型】：DependencyResolutionException 
+【异常信息】：An error occurred during the activation of a particular registration. See the inner exception for details. Registration: Activator = HomeService (ReflectionActivator), Services = [Frame.Application.Interfaces.IHomeService, Frame.ApplicationCore.Bases.IServerBase], Lifetime = Autofac.Core.Lifetime.CurrentScopeLifetime, Sharing = Shared, Ownership = OwnedByLifetimeScope ---> None of the constructors found with 'Autofac.Core.Activators.Reflection.DefaultConstructorFinder' on type 'Frame.Application.Services.HomeService' can be invoked with the available services and parameters:
+Cannot resolve parameter 'Frame.ApplicationCore.Bases.IRepository`2[Frame.Core.Entitys.UserInfo,System.Guid] userRepository' of constructor 'Void .ctor(Frame.ApplicationCore.Bases.IRepository`2[Frame.Core.Entitys.UserInfo,System.Guid], AutoMapper.IMapper)'. (See inner exception for details.) 
+【堆栈调用】：   at Autofac.Core.Resolving.InstanceLookup.Activate(IEnumerable`1 parameters, Object& decoratorTarget) in C:\projects\autofac\src\Autofac\Core\Resolving\InstanceLookup.cs:line 133
+   at Autofac.Core.Lifetime.LifetimeScope.GetOrCreateAndShare(Guid id, Func`1 creator) in C:\projects\autofac\src\Autofac\Core\Lifetime\LifetimeScope.cs:line 306
+   at Autofac.Core.Resolving.InstanceLookup.Execute() in C:\projects\autofac\src\Autofac\Core\Resolving\InstanceLookup.cs:line 82
+   at Autofac.Core.Resolving.ResolveOperation.GetOrCreateInstance(ISharingLifetimeScope currentOperationScope, IComponentRegistration registration, IEnumerable`1 parameters) in C:\projects\autofac\src\Autofac\Core\Resolving\ResolveOperation.cs:line 130
+   at Autofac.Core.Resolving.ResolveOperation.Execute(IComponentRegistration registration, IEnumerable`1 parameters) in C:\projects\autofac\src\Autofac\Core\Resolving\ResolveOperation.cs:line 83
+   at Autofac.ResolutionExtensions.TryResolveService(IComponentContext context, Service service, IEnumerable`1 parameters, Object& instance) in C:\projects\autofac\src\Autofac\ResolutionExtensions.cs:line 1041
+   at Autofac.ResolutionExtensions.ResolveOptionalService(IComponentContext context, Service service, IEnumerable`1 parameters) in C:\projects\autofac\src\Autofac\ResolutionExtensions.cs:line 814
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.GetService(IServiceProvider sp, Type type, Type requiredBy, Boolean isDefaultParameterRequired)
+   at lambda_method(Closure , IServiceProvider , Object[] )
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerActivatorProvider.<>c__DisplayClass4_0.<CreateActivator>b__0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass5_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+--------------------------------------------------------------------
+【异常时间】：2019-04-15 16:17:34,833 
+【自定义错误】：An error occurred during the activation of a particular registration. See the inner exception for details. Registration: Activator = HomeService (ReflectionActivator), Services = [Frame.Application.Interfaces.IHomeService, Frame.ApplicationCore.Bases.IServerBase], Lifetime = Autofac.Core.Lifetime.CurrentScopeLifetime, Sharing = Shared, Ownership = OwnedByLifetimeScope ---> None of the constructors found with 'Autofac.Core.Activators.Reflection.DefaultConstructorFinder' on type 'Frame.Application.Services.HomeService' can be invoked with the available services and parameters:
+Cannot resolve parameter 'Frame.ApplicationCore.Bases.IRepository`2[Frame.Core.Entitys.UserInfo,System.Guid] userRepository' of constructor 'Void .ctor(Frame.ApplicationCore.Bases.IRepository`2[Frame.Core.Entitys.UserInfo,System.Guid], AutoMapper.IMapper)'. (See inner exception for details.) 
+【异常类型】：DependencyResolutionException 
+【异常信息】：An error occurred during the activation of a particular registration. See the inner exception for details. Registration: Activator = HomeService (ReflectionActivator), Services = [Frame.Application.Interfaces.IHomeService, Frame.ApplicationCore.Bases.IServerBase], Lifetime = Autofac.Core.Lifetime.CurrentScopeLifetime, Sharing = Shared, Ownership = OwnedByLifetimeScope ---> None of the constructors found with 'Autofac.Core.Activators.Reflection.DefaultConstructorFinder' on type 'Frame.Application.Services.HomeService' can be invoked with the available services and parameters:
+Cannot resolve parameter 'Frame.ApplicationCore.Bases.IRepository`2[Frame.Core.Entitys.UserInfo,System.Guid] userRepository' of constructor 'Void .ctor(Frame.ApplicationCore.Bases.IRepository`2[Frame.Core.Entitys.UserInfo,System.Guid], AutoMapper.IMapper)'. (See inner exception for details.) 
+【堆栈调用】：   at Autofac.Core.Resolving.InstanceLookup.Activate(IEnumerable`1 parameters, Object& decoratorTarget) in C:\projects\autofac\src\Autofac\Core\Resolving\InstanceLookup.cs:line 133
+   at Autofac.Core.Lifetime.LifetimeScope.GetOrCreateAndShare(Guid id, Func`1 creator) in C:\projects\autofac\src\Autofac\Core\Lifetime\LifetimeScope.cs:line 306
+   at Autofac.Core.Resolving.InstanceLookup.Execute() in C:\projects\autofac\src\Autofac\Core\Resolving\InstanceLookup.cs:line 82
+   at Autofac.Core.Resolving.ResolveOperation.GetOrCreateInstance(ISharingLifetimeScope currentOperationScope, IComponentRegistration registration, IEnumerable`1 parameters) in C:\projects\autofac\src\Autofac\Core\Resolving\ResolveOperation.cs:line 130
+   at Autofac.Core.Resolving.ResolveOperation.Execute(IComponentRegistration registration, IEnumerable`1 parameters) in C:\projects\autofac\src\Autofac\Core\Resolving\ResolveOperation.cs:line 83
+   at Autofac.ResolutionExtensions.TryResolveService(IComponentContext context, Service service, IEnumerable`1 parameters, Object& instance) in C:\projects\autofac\src\Autofac\ResolutionExtensions.cs:line 1041
+   at Autofac.ResolutionExtensions.ResolveOptionalService(IComponentContext context, Service service, IEnumerable`1 parameters) in C:\projects\autofac\src\Autofac\ResolutionExtensions.cs:line 814
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.GetService(IServiceProvider sp, Type type, Type requiredBy, Boolean isDefaultParameterRequired)
+   at lambda_method(Closure , IServiceProvider , Object[] )
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerActivatorProvider.<>c__DisplayClass4_0.<CreateActivator>b__0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass5_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+--------------------------------------------------------------------
+【异常时间】：2019-04-15 16:42:20,872 
+【自定义错误】：An error occurred during the activation of a particular registration. See the inner exception for details. Registration: Activator = HomeService (ReflectionActivator), Services = [Frame.Application.Interfaces.IHomeService, Frame.ApplicationCore.Bases.IServerBase], Lifetime = Autofac.Core.Lifetime.CurrentScopeLifetime, Sharing = Shared, Ownership = OwnedByLifetimeScope ---> None of the constructors found with 'Autofac.Core.Activators.Reflection.DefaultConstructorFinder' on type 'Frame.Application.Services.HomeService' can be invoked with the available services and parameters:
+Cannot resolve parameter 'Frame.ApplicationCore.Bases.IRepository`2[Frame.Core.Entitys.UserInfo,System.Guid] userRepository' of constructor 'Void .ctor(Frame.ApplicationCore.Bases.IRepository`2[Frame.Core.Entitys.UserInfo,System.Guid], AutoMapper.IMapper)'. (See inner exception for details.) 
+【异常类型】：DependencyResolutionException 
+【异常信息】：An error occurred during the activation of a particular registration. See the inner exception for details. Registration: Activator = HomeService (ReflectionActivator), Services = [Frame.Application.Interfaces.IHomeService, Frame.ApplicationCore.Bases.IServerBase], Lifetime = Autofac.Core.Lifetime.CurrentScopeLifetime, Sharing = Shared, Ownership = OwnedByLifetimeScope ---> None of the constructors found with 'Autofac.Core.Activators.Reflection.DefaultConstructorFinder' on type 'Frame.Application.Services.HomeService' can be invoked with the available services and parameters:
+Cannot resolve parameter 'Frame.ApplicationCore.Bases.IRepository`2[Frame.Core.Entitys.UserInfo,System.Guid] userRepository' of constructor 'Void .ctor(Frame.ApplicationCore.Bases.IRepository`2[Frame.Core.Entitys.UserInfo,System.Guid], AutoMapper.IMapper)'. (See inner exception for details.) 
+【堆栈调用】：   at Autofac.Core.Resolving.InstanceLookup.Activate(IEnumerable`1 parameters, Object& decoratorTarget) in C:\projects\autofac\src\Autofac\Core\Resolving\InstanceLookup.cs:line 133
+   at Autofac.Core.Lifetime.LifetimeScope.GetOrCreateAndShare(Guid id, Func`1 creator) in C:\projects\autofac\src\Autofac\Core\Lifetime\LifetimeScope.cs:line 306
+   at Autofac.Core.Resolving.InstanceLookup.Execute() in C:\projects\autofac\src\Autofac\Core\Resolving\InstanceLookup.cs:line 82
+   at Autofac.Core.Resolving.ResolveOperation.GetOrCreateInstance(ISharingLifetimeScope currentOperationScope, IComponentRegistration registration, IEnumerable`1 parameters) in C:\projects\autofac\src\Autofac\Core\Resolving\ResolveOperation.cs:line 130
+   at Autofac.Core.Resolving.ResolveOperation.Execute(IComponentRegistration registration, IEnumerable`1 parameters) in C:\projects\autofac\src\Autofac\Core\Resolving\ResolveOperation.cs:line 83
+   at Autofac.ResolutionExtensions.TryResolveService(IComponentContext context, Service service, IEnumerable`1 parameters, Object& instance) in C:\projects\autofac\src\Autofac\ResolutionExtensions.cs:line 1041
+   at Autofac.ResolutionExtensions.ResolveOptionalService(IComponentContext context, Service service, IEnumerable`1 parameters) in C:\projects\autofac\src\Autofac\ResolutionExtensions.cs:line 814
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.GetService(IServiceProvider sp, Type type, Type requiredBy, Boolean isDefaultParameterRequired)
+   at lambda_method(Closure , IServiceProvider , Object[] )
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerActivatorProvider.<>c__DisplayClass4_0.<CreateActivator>b__0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass5_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+--------------------------------------------------------------------
+【异常时间】：2019-04-15 16:48:10,574 
+【自定义错误】：Unable to resolve service for type 'Frame.Application.Interfaces.IHomeService' while attempting to activate 'Frame.Admin.Controllers.HomeController'. 
+【异常类型】：InvalidOperationException 
+【异常信息】：Unable to resolve service for type 'Frame.Application.Interfaces.IHomeService' while attempting to activate 'Frame.Admin.Controllers.HomeController'. 
+【堆栈调用】：   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.GetService(IServiceProvider sp, Type type, Type requiredBy, Boolean isDefaultParameterRequired)
+   at lambda_method(Closure , IServiceProvider , Object[] )
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerActivatorProvider.<>c__DisplayClass4_0.<CreateActivator>b__0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass5_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+--------------------------------------------------------------------
+【异常时间】：2019-04-15 16:52:17,591 
+【自定义错误】：Unable to resolve service for type 'Frame.Application.Interfaces.IHomeService' while attempting to activate 'Frame.Admin.Controllers.HomeController'. 
+【异常类型】：InvalidOperationException 
+【异常信息】：Unable to resolve service for type 'Frame.Application.Interfaces.IHomeService' while attempting to activate 'Frame.Admin.Controllers.HomeController'. 
+【堆栈调用】：   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.GetService(IServiceProvider sp, Type type, Type requiredBy, Boolean isDefaultParameterRequired)
+   at lambda_method(Closure , IServiceProvider , Object[] )
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerActivatorProvider.<>c__DisplayClass4_0.<CreateActivator>b__0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass5_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+--------------------------------------------------------------------
+【异常时间】：2019-04-15 17:05:29,499 
+【自定义错误】：An error occurred during the activation of a particular registration. See the inner exception for details. Registration: Activator = HomeService (ReflectionActivator), Services = [Frame.Application.Interfaces.IHomeService, Frame.ApplicationCore.Bases.IServerBase], Lifetime = Autofac.Core.Lifetime.CurrentScopeLifetime, Sharing = None, Ownership = OwnedByLifetimeScope ---> None of the constructors found with 'Autofac.Core.Activators.Reflection.DefaultConstructorFinder' on type 'Frame.Application.Services.HomeService' can be invoked with the available services and parameters:
+Cannot resolve parameter 'Frame.ApplicationCore.Bases.IRepository`2[Frame.Core.Entitys.UserInfo,System.Guid] userRepository' of constructor 'Void .ctor(Frame.ApplicationCore.Bases.IRepository`2[Frame.Core.Entitys.UserInfo,System.Guid], AutoMapper.IMapper)'. (See inner exception for details.) 
+【异常类型】：DependencyResolutionException 
+【异常信息】：An error occurred during the activation of a particular registration. See the inner exception for details. Registration: Activator = HomeService (ReflectionActivator), Services = [Frame.Application.Interfaces.IHomeService, Frame.ApplicationCore.Bases.IServerBase], Lifetime = Autofac.Core.Lifetime.CurrentScopeLifetime, Sharing = None, Ownership = OwnedByLifetimeScope ---> None of the constructors found with 'Autofac.Core.Activators.Reflection.DefaultConstructorFinder' on type 'Frame.Application.Services.HomeService' can be invoked with the available services and parameters:
+Cannot resolve parameter 'Frame.ApplicationCore.Bases.IRepository`2[Frame.Core.Entitys.UserInfo,System.Guid] userRepository' of constructor 'Void .ctor(Frame.ApplicationCore.Bases.IRepository`2[Frame.Core.Entitys.UserInfo,System.Guid], AutoMapper.IMapper)'. (See inner exception for details.) 
+【堆栈调用】：   at Autofac.Core.Resolving.InstanceLookup.Activate(IEnumerable`1 parameters, Object& decoratorTarget) in C:\projects\autofac\src\Autofac\Core\Resolving\InstanceLookup.cs:line 133
+   at Autofac.Core.Resolving.InstanceLookup.Execute() in C:\projects\autofac\src\Autofac\Core\Resolving\InstanceLookup.cs:line 82
+   at Autofac.Core.Resolving.ResolveOperation.GetOrCreateInstance(ISharingLifetimeScope currentOperationScope, IComponentRegistration registration, IEnumerable`1 parameters) in C:\projects\autofac\src\Autofac\Core\Resolving\ResolveOperation.cs:line 130
+   at Autofac.Core.Resolving.ResolveOperation.Execute(IComponentRegistration registration, IEnumerable`1 parameters) in C:\projects\autofac\src\Autofac\Core\Resolving\ResolveOperation.cs:line 83
+   at Autofac.ResolutionExtensions.TryResolveService(IComponentContext context, Service service, IEnumerable`1 parameters, Object& instance) in C:\projects\autofac\src\Autofac\ResolutionExtensions.cs:line 1041
+   at Autofac.ResolutionExtensions.ResolveOptionalService(IComponentContext context, Service service, IEnumerable`1 parameters) in C:\projects\autofac\src\Autofac\ResolutionExtensions.cs:line 814
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.GetService(IServiceProvider sp, Type type, Type requiredBy, Boolean isDefaultParameterRequired)
+   at lambda_method(Closure , IServiceProvider , Object[] )
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerActivatorProvider.<>c__DisplayClass4_0.<CreateActivator>b__0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass5_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+--------------------------------------------------------------------
+【异常时间】：2019-04-15 17:09:56,022 
+【自定义错误】：An error occurred during the activation of a particular registration. See the inner exception for details. Registration: Activator = HomeService (ReflectionActivator), Services = [Frame.Application.Interfaces.IHomeService, Frame.ApplicationCore.Bases.IServerBase], Lifetime = Autofac.Core.Lifetime.CurrentScopeLifetime, Sharing = None, Ownership = OwnedByLifetimeScope ---> None of the constructors found with 'Autofac.Core.Activators.Reflection.DefaultConstructorFinder' on type 'Frame.Application.Services.HomeService' can be invoked with the available services and parameters:
+Cannot resolve parameter 'Frame.ApplicationCore.Bases.IRepository`2[Frame.Core.Entitys.UserInfo,System.Guid] userRepository' of constructor 'Void .ctor(Frame.ApplicationCore.Bases.IRepository`2[Frame.Core.Entitys.UserInfo,System.Guid], AutoMapper.IMapper)'. (See inner exception for details.) 
+【异常类型】：DependencyResolutionException 
+【异常信息】：An error occurred during the activation of a particular registration. See the inner exception for details. Registration: Activator = HomeService (ReflectionActivator), Services = [Frame.Application.Interfaces.IHomeService, Frame.ApplicationCore.Bases.IServerBase], Lifetime = Autofac.Core.Lifetime.CurrentScopeLifetime, Sharing = None, Ownership = OwnedByLifetimeScope ---> None of the constructors found with 'Autofac.Core.Activators.Reflection.DefaultConstructorFinder' on type 'Frame.Application.Services.HomeService' can be invoked with the available services and parameters:
+Cannot resolve parameter 'Frame.ApplicationCore.Bases.IRepository`2[Frame.Core.Entitys.UserInfo,System.Guid] userRepository' of constructor 'Void .ctor(Frame.ApplicationCore.Bases.IRepository`2[Frame.Core.Entitys.UserInfo,System.Guid], AutoMapper.IMapper)'. (See inner exception for details.) 
+【堆栈调用】：   at Autofac.Core.Resolving.InstanceLookup.Activate(IEnumerable`1 parameters, Object& decoratorTarget) in C:\projects\autofac\src\Autofac\Core\Resolving\InstanceLookup.cs:line 133
+   at Autofac.Core.Resolving.InstanceLookup.Execute() in C:\projects\autofac\src\Autofac\Core\Resolving\InstanceLookup.cs:line 82
+   at Autofac.Core.Resolving.ResolveOperation.GetOrCreateInstance(ISharingLifetimeScope currentOperationScope, IComponentRegistration registration, IEnumerable`1 parameters) in C:\projects\autofac\src\Autofac\Core\Resolving\ResolveOperation.cs:line 130
+   at Autofac.Core.Resolving.ResolveOperation.Execute(IComponentRegistration registration, IEnumerable`1 parameters) in C:\projects\autofac\src\Autofac\Core\Resolving\ResolveOperation.cs:line 83
+   at Autofac.ResolutionExtensions.TryResolveService(IComponentContext context, Service service, IEnumerable`1 parameters, Object& instance) in C:\projects\autofac\src\Autofac\ResolutionExtensions.cs:line 1041
+   at Autofac.ResolutionExtensions.ResolveOptionalService(IComponentContext context, Service service, IEnumerable`1 parameters) in C:\projects\autofac\src\Autofac\ResolutionExtensions.cs:line 814
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.GetService(IServiceProvider sp, Type type, Type requiredBy, Boolean isDefaultParameterRequired)
+   at lambda_method(Closure , IServiceProvider , Object[] )
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerActivatorProvider.<>c__DisplayClass4_0.<CreateActivator>b__0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass5_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+--------------------------------------------------------------------
+【异常时间】：2019-04-15 17:10:41,582 
+【自定义错误】：An error occurred during the activation of a particular registration. See the inner exception for details. Registration: Activator = HomeService (ReflectionActivator), Services = [Frame.Application.Interfaces.IHomeService], Lifetime = Autofac.Core.Lifetime.CurrentScopeLifetime, Sharing = None, Ownership = OwnedByLifetimeScope ---> None of the constructors found with 'Autofac.Core.Activators.Reflection.DefaultConstructorFinder' on type 'Frame.Application.Services.HomeService' can be invoked with the available services and parameters:
+Cannot resolve parameter 'Frame.ApplicationCore.Bases.IRepository`2[Frame.Core.Entitys.UserInfo,System.Guid] userRepository' of constructor 'Void .ctor(Frame.ApplicationCore.Bases.IRepository`2[Frame.Core.Entitys.UserInfo,System.Guid], AutoMapper.IMapper)'. (See inner exception for details.) 
+【异常类型】：DependencyResolutionException 
+【异常信息】：An error occurred during the activation of a particular registration. See the inner exception for details. Registration: Activator = HomeService (ReflectionActivator), Services = [Frame.Application.Interfaces.IHomeService], Lifetime = Autofac.Core.Lifetime.CurrentScopeLifetime, Sharing = None, Ownership = OwnedByLifetimeScope ---> None of the constructors found with 'Autofac.Core.Activators.Reflection.DefaultConstructorFinder' on type 'Frame.Application.Services.HomeService' can be invoked with the available services and parameters:
+Cannot resolve parameter 'Frame.ApplicationCore.Bases.IRepository`2[Frame.Core.Entitys.UserInfo,System.Guid] userRepository' of constructor 'Void .ctor(Frame.ApplicationCore.Bases.IRepository`2[Frame.Core.Entitys.UserInfo,System.Guid], AutoMapper.IMapper)'. (See inner exception for details.) 
+【堆栈调用】：   at Autofac.Core.Resolving.InstanceLookup.Activate(IEnumerable`1 parameters, Object& decoratorTarget) in C:\projects\autofac\src\Autofac\Core\Resolving\InstanceLookup.cs:line 133
+   at Autofac.Core.Resolving.InstanceLookup.Execute() in C:\projects\autofac\src\Autofac\Core\Resolving\InstanceLookup.cs:line 82
+   at Autofac.Core.Resolving.ResolveOperation.GetOrCreateInstance(ISharingLifetimeScope currentOperationScope, IComponentRegistration registration, IEnumerable`1 parameters) in C:\projects\autofac\src\Autofac\Core\Resolving\ResolveOperation.cs:line 130
+   at Autofac.Core.Resolving.ResolveOperation.Execute(IComponentRegistration registration, IEnumerable`1 parameters) in C:\projects\autofac\src\Autofac\Core\Resolving\ResolveOperation.cs:line 83
+   at Autofac.ResolutionExtensions.TryResolveService(IComponentContext context, Service service, IEnumerable`1 parameters, Object& instance) in C:\projects\autofac\src\Autofac\ResolutionExtensions.cs:line 1041
+   at Autofac.ResolutionExtensions.ResolveOptionalService(IComponentContext context, Service service, IEnumerable`1 parameters) in C:\projects\autofac\src\Autofac\ResolutionExtensions.cs:line 814
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.GetService(IServiceProvider sp, Type type, Type requiredBy, Boolean isDefaultParameterRequired)
+   at lambda_method(Closure , IServiceProvider , Object[] )
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerActivatorProvider.<>c__DisplayClass4_0.<CreateActivator>b__0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass5_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+--------------------------------------------------------------------
+【异常时间】：2019-04-15 17:14:19,538 
+【自定义错误】：An error occurred during the activation of a particular registration. See the inner exception for details. Registration: Activator = HomeService (ReflectionActivator), Services = [Frame.Application.Interfaces.IHomeService], Lifetime = Autofac.Core.Lifetime.CurrentScopeLifetime, Sharing = None, Ownership = OwnedByLifetimeScope ---> None of the constructors found with 'Autofac.Core.Activators.Reflection.DefaultConstructorFinder' on type 'Frame.Application.Services.HomeService' can be invoked with the available services and parameters:
+Cannot resolve parameter 'Frame.ApplicationCore.Bases.IRepository`2[Frame.Core.Entitys.UserInfo,System.Guid] userRepository' of constructor 'Void .ctor(Frame.ApplicationCore.Bases.IRepository`2[Frame.Core.Entitys.UserInfo,System.Guid], AutoMapper.IMapper)'. (See inner exception for details.) 
+【异常类型】：DependencyResolutionException 
+【异常信息】：An error occurred during the activation of a particular registration. See the inner exception for details. Registration: Activator = HomeService (ReflectionActivator), Services = [Frame.Application.Interfaces.IHomeService], Lifetime = Autofac.Core.Lifetime.CurrentScopeLifetime, Sharing = None, Ownership = OwnedByLifetimeScope ---> None of the constructors found with 'Autofac.Core.Activators.Reflection.DefaultConstructorFinder' on type 'Frame.Application.Services.HomeService' can be invoked with the available services and parameters:
+Cannot resolve parameter 'Frame.ApplicationCore.Bases.IRepository`2[Frame.Core.Entitys.UserInfo,System.Guid] userRepository' of constructor 'Void .ctor(Frame.ApplicationCore.Bases.IRepository`2[Frame.Core.Entitys.UserInfo,System.Guid], AutoMapper.IMapper)'. (See inner exception for details.) 
+【堆栈调用】：   at Autofac.Core.Resolving.InstanceLookup.Activate(IEnumerable`1 parameters, Object& decoratorTarget) in C:\projects\autofac\src\Autofac\Core\Resolving\InstanceLookup.cs:line 133
+   at Autofac.Core.Resolving.InstanceLookup.Execute() in C:\projects\autofac\src\Autofac\Core\Resolving\InstanceLookup.cs:line 82
+   at Autofac.Core.Resolving.ResolveOperation.GetOrCreateInstance(ISharingLifetimeScope currentOperationScope, IComponentRegistration registration, IEnumerable`1 parameters) in C:\projects\autofac\src\Autofac\Core\Resolving\ResolveOperation.cs:line 130
+   at Autofac.Core.Resolving.ResolveOperation.Execute(IComponentRegistration registration, IEnumerable`1 parameters) in C:\projects\autofac\src\Autofac\Core\Resolving\ResolveOperation.cs:line 83
+   at Autofac.ResolutionExtensions.TryResolveService(IComponentContext context, Service service, IEnumerable`1 parameters, Object& instance) in C:\projects\autofac\src\Autofac\ResolutionExtensions.cs:line 1041
+   at Autofac.ResolutionExtensions.ResolveOptionalService(IComponentContext context, Service service, IEnumerable`1 parameters) in C:\projects\autofac\src\Autofac\ResolutionExtensions.cs:line 814
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.GetService(IServiceProvider sp, Type type, Type requiredBy, Boolean isDefaultParameterRequired)
+   at lambda_method(Closure , IServiceProvider , Object[] )
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerActivatorProvider.<>c__DisplayClass4_0.<CreateActivator>b__0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass5_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+--------------------------------------------------------------------
+【异常时间】：2019-04-15 17:15:58,263 
+【自定义错误】：An error occurred during the activation of a particular registration. See the inner exception for details. Registration: Activator = HomeService (ReflectionActivator), Services = [Frame.Application.Interfaces.IHomeService], Lifetime = Autofac.Core.Lifetime.CurrentScopeLifetime, Sharing = None, Ownership = OwnedByLifetimeScope ---> None of the constructors found with 'Autofac.Core.Activators.Reflection.DefaultConstructorFinder' on type 'Frame.Application.Services.HomeService' can be invoked with the available services and parameters:
+Cannot resolve parameter 'Frame.ApplicationCore.Bases.IRepository`2[Frame.Core.Entitys.UserInfo,System.Guid] userRepository' of constructor 'Void .ctor(Frame.ApplicationCore.Bases.IRepository`2[Frame.Core.Entitys.UserInfo,System.Guid], AutoMapper.IMapper)'. (See inner exception for details.) 
+【异常类型】：DependencyResolutionException 
+【异常信息】：An error occurred during the activation of a particular registration. See the inner exception for details. Registration: Activator = HomeService (ReflectionActivator), Services = [Frame.Application.Interfaces.IHomeService], Lifetime = Autofac.Core.Lifetime.CurrentScopeLifetime, Sharing = None, Ownership = OwnedByLifetimeScope ---> None of the constructors found with 'Autofac.Core.Activators.Reflection.DefaultConstructorFinder' on type 'Frame.Application.Services.HomeService' can be invoked with the available services and parameters:
+Cannot resolve parameter 'Frame.ApplicationCore.Bases.IRepository`2[Frame.Core.Entitys.UserInfo,System.Guid] userRepository' of constructor 'Void .ctor(Frame.ApplicationCore.Bases.IRepository`2[Frame.Core.Entitys.UserInfo,System.Guid], AutoMapper.IMapper)'. (See inner exception for details.) 
+【堆栈调用】：   at Autofac.Core.Resolving.InstanceLookup.Activate(IEnumerable`1 parameters, Object& decoratorTarget) in C:\projects\autofac\src\Autofac\Core\Resolving\InstanceLookup.cs:line 133
+   at Autofac.Core.Resolving.InstanceLookup.Execute() in C:\projects\autofac\src\Autofac\Core\Resolving\InstanceLookup.cs:line 82
+   at Autofac.Core.Resolving.ResolveOperation.GetOrCreateInstance(ISharingLifetimeScope currentOperationScope, IComponentRegistration registration, IEnumerable`1 parameters) in C:\projects\autofac\src\Autofac\Core\Resolving\ResolveOperation.cs:line 130
+   at Autofac.Core.Resolving.ResolveOperation.Execute(IComponentRegistration registration, IEnumerable`1 parameters) in C:\projects\autofac\src\Autofac\Core\Resolving\ResolveOperation.cs:line 83
+   at Autofac.ResolutionExtensions.TryResolveService(IComponentContext context, Service service, IEnumerable`1 parameters, Object& instance) in C:\projects\autofac\src\Autofac\ResolutionExtensions.cs:line 1041
+   at Autofac.ResolutionExtensions.ResolveOptionalService(IComponentContext context, Service service, IEnumerable`1 parameters) in C:\projects\autofac\src\Autofac\ResolutionExtensions.cs:line 814
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.GetService(IServiceProvider sp, Type type, Type requiredBy, Boolean isDefaultParameterRequired)
+   at lambda_method(Closure , IServiceProvider , Object[] )
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerActivatorProvider.<>c__DisplayClass4_0.<CreateActivator>b__0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass5_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+--------------------------------------------------------------------
+【异常时间】：2019-04-15 17:21:09,596 
+【自定义错误】：Unable to resolve service for type 'Frame.Application.Interfaces.IHomeService' while attempting to activate 'Frame.Admin.Controllers.HomeController'. 
+【异常类型】：InvalidOperationException 
+【异常信息】：Unable to resolve service for type 'Frame.Application.Interfaces.IHomeService' while attempting to activate 'Frame.Admin.Controllers.HomeController'. 
+【堆栈调用】：   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.GetService(IServiceProvider sp, Type type, Type requiredBy, Boolean isDefaultParameterRequired)
+   at lambda_method(Closure , IServiceProvider , Object[] )
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerActivatorProvider.<>c__DisplayClass4_0.<CreateActivator>b__0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass5_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+--------------------------------------------------------------------
+【异常时间】：2019-04-15 17:22:56,115 
+【自定义错误】：Unable to resolve service for type 'Frame.Application.Interfaces.IHomeService' while attempting to activate 'Frame.Admin.Controllers.HomeController'. 
+【异常类型】：InvalidOperationException 
+【异常信息】：Unable to resolve service for type 'Frame.Application.Interfaces.IHomeService' while attempting to activate 'Frame.Admin.Controllers.HomeController'. 
+【堆栈调用】：   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.GetService(IServiceProvider sp, Type type, Type requiredBy, Boolean isDefaultParameterRequired)
+   at lambda_method(Closure , IServiceProvider , Object[] )
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerActivatorProvider.<>c__DisplayClass4_0.<CreateActivator>b__0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass5_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+--------------------------------------------------------------------
+【异常时间】：2019-04-15 17:29:21,564 
+【自定义错误】：Unable to resolve service for type 'Frame.Application.Interfaces.IHomeService' while attempting to activate 'Frame.Admin.Controllers.HomeController'. 
+【异常类型】：InvalidOperationException 
+【异常信息】：Unable to resolve service for type 'Frame.Application.Interfaces.IHomeService' while attempting to activate 'Frame.Admin.Controllers.HomeController'. 
+【堆栈调用】：   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.GetService(IServiceProvider sp, Type type, Type requiredBy, Boolean isDefaultParameterRequired)
+   at lambda_method(Closure , IServiceProvider , Object[] )
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerActivatorProvider.<>c__DisplayClass4_0.<CreateActivator>b__0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass5_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+--------------------------------------------------------------------
+【异常时间】：2019-04-15 17:31:07,039 
+【自定义错误】：Mapper not initialized. Call Initialize with appropriate configuration. If you are trying to use mapper instances through a container or otherwise, make sure you do not have any calls to the static Mapper.Map methods, and if you're using ProjectTo or UseAsDataSource extension methods, make sure you pass in the appropriate IConfigurationProvider instance. 
+【异常类型】：InvalidOperationException 
+【异常信息】：Mapper not initialized. Call Initialize with appropriate configuration. If you are trying to use mapper instances through a container or otherwise, make sure you do not have any calls to the static Mapper.Map methods, and if you're using ProjectTo or UseAsDataSource extension methods, make sure you pass in the appropriate IConfigurationProvider instance. 
+【堆栈调用】：   at AutoMapper.Mapper.get_Instance() in C:\projects\automapper\src\AutoMapper\Mapper.cs:line 36
+   at AutoMapper.Mapper.Map[TDestination](Object source) in C:\projects\automapper\src\AutoMapper\Mapper.cs:line 76
+   at Frame.ApplicationCore.Bases.MaperHelper.Map[TEntity,TDto](TEntity entity) in C:\Users\admin\Desktop\myframe\Frame.ApplicationCore\Bases\MaperHelper.cs:line 13
+   at Frame.Application.Services.HomeService.Get(Guid id) in C:\Users\admin\Desktop\myframe\Frame.Application\Services\HomeService.cs:line 27
+   at Frame.Admin.Controllers.HomeController.Index() in C:\Users\admin\Desktop\myframe\Frame.Admin\Controllers\HomeController.cs:line 26
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+--------------------------------------------------------------------

@@ -1,0 +1,192 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>登陆</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/lib/layer/theme/default/layer.css" rel="stylesheet" />
+    <link href="~/lib/jquery-front-end-verify/css/verify.css" rel="stylesheet" />
+    <link href="~/Common/css/Common.css" rel="stylesheet" />
+    <style>
+        body {
+            font-family: "myFont";
+            background: #169dc8;
+        }
+
+        .loginbox {
+            padding: 2rem 3rem 0.5rem 3rem;
+            margin-top: 40%;
+            background: rgba(255,255,255,0.43);
+        }
+
+            .loginbox > span:first-child {
+                font-family: 'Microsoft YaHei';
+                display: block;
+                text-align: center;
+                font-size: 3rem;
+                color: #fff;
+                font-weight: 600;
+                margin-bottom: 1.5rem;
+            }
+
+        #loginform a:hover {
+            text-decoration: none;
+        }
+
+        #loginform > div:last-child {
+            padding-left: 83%;
+        }
+
+            #loginform > div:last-child input {
+                width: 4.3rem;
+                height: 2.3rem;
+                line-height: 1rem;
+            }
+
+        #registerform > div:last-child {
+            padding-left: 83%;
+        }
+
+            #registerform > div:last-child input {
+                width: 4.3rem;
+                height: 2.3rem;
+                line-height: 1rem;
+            }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-4 col-md-6 col-sm-6 col-xl-4 offset-lg-4 offset-md-3 offset-xl-4 offset-sm-3">
+                <div class="col-lg-12 loginbox">
+                    <span class="col-lg-12">
+                        Login
+                    </span>
+                    <div class="col-lg-12">
+                        <form class="form-horizontal" id="loginform">
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="UserName" placeholder="账号">
+                            </div>
+                            <div class="form-group">
+                                <input type="password" class="form-control" name="PassWord" placeholder="******" maxlength="8">
+                            </div>
+                            <div class="form-group">
+                                <div id="Verification"></div>
+                            </div>
+
+                            <div class="form-group">
+                                <a href="#" id="Toregister">没有账号？去注册！</a>
+                                <br />
+                                <a href="#" id="unremenber">找回密码</a>
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" id="Login" value="登陆" class="btn btn-success btn-lg" />
+                            </div>
+                        </form>
+                        <form id="registerform" hidden>
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="AccountNumber" placeholder="账号">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="PassWord" placeholder="密码">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="RePassWord" placeholder="确认密码">
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" id="Register" value="注册" class="btn btn-success btn-lg" />
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script defer src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script defer src="~/lib/layer/layer.js"></script>
+    <script defer src="~/lib/jquery-front-end-verify/js/verify.js"></script>
+    <script defer src="~/Common/js/Common.js"></script>
+    <script defer>
+        var _isVerification = false;
+        //点击注册
+        $(document).on("click", "#Register", function (e) {
+            e.preventDefault();
+            frame.alert({
+                msg: "请联系管理员",
+                icon: 5
+            });
+            return false;
+        })
+
+        //点击去注册
+        $(document).on("click", "#Toregister", function (e) {
+            e.preventDefault();
+            $(".loginbox>span").text("Register");
+            $("#loginform").attr("hidden", "")
+            $("#registerform").removeAttr("hidden");
+        })
+
+        //登陆
+        $(document).on("click", "#Login", function (e) {
+            e.preventDefault();
+            var username = $("input[name=UserName]").val().trim();
+            var password = $("input[name=PassWord]").val().trim();
+            if (username == "" || password == "") {
+                frame.alert({ msg: "用户名或密码不能为空！", icon: 2 });
+                return false;
+            }
+            if (password.length > 8) {
+                frame.alert({ msg: "密码长度错误！", icon: 2 });
+                return false;
+            }
+            if (!_isVerification) {
+                frame.alert({ msg: "请完成验证码校验！", icon: 2 });
+                return false;
+            }
+            //验证完成
+            $.post("/Account/Login", { AccountNumber: username, PassWord: password }, function (result) {
+                console.log(result);
+                frame.alert({
+                    msg: result.msg,
+                    icon: result.code ? 1 : 2
+                });
+                if (result.code) {
+                    window.location.href = result.url;
+                }
+
+            })
+        })
+        $(function () {
+            $("#Verification").slideVerify({
+                type: 1,		//类型
+                vOffset: 5,	//误差量，根据需求自行调整
+                barSize: {
+                    width: '100%',
+                    height: '40px',
+                },
+                ready: function () {
+                },
+                success: function () {
+                    frame.alert({ msg: "验证成功！", icon: 1 });
+                    _isVerification = true;
+                    //......后续操作
+                },
+                error: function () {
+
+                }
+
+            });
+
+        })
+    </script>
+</body>
+</html>

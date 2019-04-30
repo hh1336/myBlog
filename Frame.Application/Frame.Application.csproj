@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="8.0.0" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="6.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Frame.ApplicationCore\Frame.ApplicationCore.csproj" />
+    <ProjectReference Include="..\Frame.Core\Frame.Core.csproj" />
+    <ProjectReference Include="..\Frame.EntityFrameworkCore\Frame.EntityFrameworkCore.csproj" />
+    <ProjectReference Include="..\Frame.WebCore\Frame.WebCore.csproj" />
+  </ItemGroup>
+
+</Project>
