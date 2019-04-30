@@ -123,10 +123,12 @@ namespace Frame.Admin
             #endregion
 
             #region 数据库连接配置
-            var sqlConnection = Configuration.GetConnectionString("SqlServerConnection");
-
-            services.AddDbContext<FrameDbContext>(option => option.UseSqlServer(sqlConnection));
-            #endregion
+			
+            //var sqlConnection = Configuration.GetConnectionString("SqlServerConnection");
+            //services.AddDbContext<FrameDbContext>(option => option.UseSqlServer(sqlConnection));
+            //mysql
+            services.AddDbContext<FrameDbContext>(d => d.UseMySQL(Configuration.GetConnectionString("MysqlConnection")));
+			#endregion
 
             //第三方IOC接管 core内置DI容器 
             return RegisterAutofac(services);
