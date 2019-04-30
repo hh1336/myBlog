@@ -2,20 +2,34 @@
 using Frame.Core.Enums;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
 
 namespace Frame.Core.Entitys
 {
     /// <summary>
-    /// 用户实体类，继承时间基类
+    /// 用户实体类
     /// </summary>
-    public class UserInfo : EntityTimeBase
+    public class UserInfo : EntityBase
     {
         /// <summary>
         /// 用户姓名
         /// </summary>
+        [Required]
         public string UserName { set; get; }
+
+        /// <summary>
+        /// 性别
+        /// </summary>
+        [Required]
+        public SexEnum Sex { set; get; }
+
+        /// <summary>
+        /// 是否软删除
+        /// </summary>
+        [DefaultValue(0)]
+        public int SortDel { set; get; }
 
         /// <summary>
         /// 用户年龄
@@ -31,11 +45,6 @@ namespace Frame.Core.Entitys
         /// 用户邮箱
         /// </summary>
         public string Email { set; get; }
-
-        /// <summary>
-        /// 性别
-        /// </summary>
-        public SexEnum Sex { set; get; }
 
         /// <summary>
         /// 手机号

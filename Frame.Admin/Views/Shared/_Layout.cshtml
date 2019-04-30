@@ -6,67 +6,85 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>后台管理系统</title>
     <meta name="viewport" content="width=device-width, initial-scale=1 user-scalable=no">
-    <link href="~/lib/layui/css/layui.css" rel="stylesheet" />
-    <link href="~/lib/layer/theme/default/layer.css" rel="stylesheet" />
+    <!--加载bootstrap样式-->
+    <link href="~/Source/UI/lib/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet" />
 
     <!--引入解析markdown的样式文件-->
     <link href="~/lib/editormd/css/editormd.min.css" rel="stylesheet" />
 
-    <link href="~/Common/css/Common.css" rel="stylesheet" />
-    <link href="~/Source/Layout/css/Layout.css" rel="stylesheet" />
+    <link href="~/Source/UI/css/Common.css" rel="stylesheet" />
     @RenderSection("Styles", required: false)
 </head>
-<body class="layui-layout-body">
-    <div class="layui-layout layui-layout-admin">
-        <div class="layui-header">
-            <div class="layui-logo">后台布局模板</div>
-            <ul class="layui-nav layui-layout-right">
-                <li class="layui-nav-item">
-                    <a href="javascript:;">
-                        <img src="http://t.cn/RCzsdCq" class="layui-nav-img">
-                        @{
-                            <span>@UserManager.Get(User.Identity.Name).Result.Name</span>
-                        }
-                    </a>
-                    <dl class="layui-nav-child">
-                        <dd><a href="">个人中心</a></dd>
-                        <dd><a href="">安全设置</a></dd>
-                    </dl>
-                </li>
-                <li class="layui-nav-item"><a href="/Account/LoginOut">退了</a></li>
-            </ul>
-        </div>
-
-        <div class="layui-side layui-bg-black">
-            <div class="layui-side-scroll">
-                <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
-                <ul class="layui-nav layui-nav-tree" lay-filter="test">
-                    <li class="layui-nav-item">
-                        <a href="javascript:;">解决方案</a>
-                        <dl class="layui-nav-child">
-                            <dd><a href="javascript:;">列表一</a></dd>
-                        </dl>
-                    </li>
-                    <li class="layui-nav-item"><a href="">云市场</a></li>
-                    <li class="layui-nav-item"><a href="">发布商品</a></li>
+<body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                <div class="visible-lg visible-md">
+                    <p>icon</p>
+                </div>
+                <div class="visible-sm visible-xs phonemenu">
+                    <div class="dropdown">
+                        @*<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true">三<span class="caret"></span></a>*@
+                        <button type="button" value="" class="dropdown-toggle btn btn-warning" data-toggle="dropdown" aria-haspopup="true">三</button>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Action</a></li>
+                            <li><a href="#">Another action</a></li>
+                            <li><a href="#">Something else here</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="visible-lg visible-md col-lg-6 col-md-6 pcmenu">
+                <ul class="nav nav-pills">
+                    <li><a href="#">首页</a></li>
+                    <li><a href="#">其他</a></li>
+                    <li><a href="#">其他</a></li>
+                    <li><a href="#">其他</a></li>
+                    <li><a href="#">其他</a></li>
+                    <li class="disabled"><a href="#">其他</a></li>
                 </ul>
             </div>
         </div>
+    </nav>
+    <div class="container" id="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <p>1</p>
+                <p>1</p>
+                <p>1</p>
+                <p>1</p>
+                <p>1</p>
+                <p>1</p>
+                <p>1</p>
+                <p>1</p>
+                <p>1</p>
+                <p>1</p>
+                <p>1</p>
+                <p>1</p>
+                <p>1</p>
+                <p>1</p>
+                <p>1</p>
+                <p>1</p>
+                <p>1</p>
+                <p>1</p>
+                <p>1</p>
+                <p>1</p>
+                <p>1</p>
+                <p>1</p>
+                <p>1</p>
+                左
 
-        <div class="layui-body">
-            <!-- 内容主体区域 -->
-            <div style="padding: 15px;">@RenderBody()</div>
+            </div>
+            <div class="col-lg-4 clearfix">
+                右
+            </div>
         </div>
-
-        <div class="layui-footer">
-            <!-- 底部固定区域 -->
-            当前在线人数为：
-            <span style="color:red;font-weight:200;">@UserManager.LoginCount().Result </span> 人
-        </div>
+        @RenderBody()
     </div>
 
     <script src="~/lib/jquery/dist/jquery.js" asp-append-version="true"></script>
-    <script defer src="~/lib/layui/layui.all.js" asp-append-version="true"></script>
+    <!--加入bootstrap-->
+    <script defer src="~/Source/UI/lib/bootstrap-3.3.7-dist/js/bootstrap.min.js" asp-append-version="true"></script>
 
     <!--引入markdown解析文件-->
     <script defer src="~/lib/editormd/lib/marked.min.js" asp-append-version="true"></script>
@@ -78,9 +96,7 @@
     <script defer src="~/lib/editormd/lib/jquery.flowchart.min.js" asp-append-version="true"></script>
     <script defer src="~/lib/editormd/editormd.min.js" asp-append-version="true"></script>
 
-
-    <script defer src="~/Common/js/Common.js" asp-append-version="true"></script>
-    <script defer src="~/Source/Layout/js/Layout.js" asp-append-version="true"></script>
+    <script defer src="~/Source/UI/js/Common.js" asp-append-version="true"></script>
     @RenderSection("Scripts", required: false)
 </body>
 </html>

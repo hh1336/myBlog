@@ -3,6 +3,7 @@ using Frame.Core.Entitys;
 using Frame.Core.Enums;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
 
@@ -11,7 +12,7 @@ namespace Frame.Application.Dtos
     /// <summary>
     /// UserInfo实体的Dto
     /// </summary>
-    public class UserInfoDto : DtoTimeBase
+    public class UserInfoDto : DtoBase
     {
         /// <summary>
         /// 用户姓名
@@ -24,6 +25,12 @@ namespace Frame.Application.Dtos
         /// </summary>
         [MaxLength(+2, ErrorMessage = "年龄不能超过100")]
         public int? Age { set; get; }
+
+        /// <summary>
+        /// 是否软删除
+        /// </summary>
+        [DefaultValue(0)]
+        public int SortDel { set; get; }
 
         /// <summary>
         /// 住址

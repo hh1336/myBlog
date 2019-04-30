@@ -9,11 +9,12 @@ using System.Collections.Generic;
 using System.Security.Claims;
 using System.Threading.Tasks;
 
-namespace Frame.Admin.Controllers
+namespace Frame.Admin.Areas.Admin.Controllers
 {
     /// <summary>
     /// 登陆功能 
     /// </summary>
+    [Area("Admin")]
     public class AccountController : Controller
     {
         private ILoginManager _loginManager;
@@ -61,14 +62,12 @@ namespace Frame.Admin.Controllers
                 //更新用户登陆信息
                 await _loginManager.UpdateLoginInfo(loginResult.AccountID, loginResult.IPAddress);
 
-                HttpContext.Session.SetString("IsLogin", "true");
-
                 //将用户信息加入全局，并且使用在线功能
                 await UserManager.Add(loginResult);
 
             }
 
-            return Json(new { code = loginResult.ResultBool, url = loginResult.ResultBool ? "/Home/Index" : "", msg = loginResult.MessAge });
+            return Json(new { code = loginResult.ResultBool, url = loginResult.ResultBool ? "/Admin/AdminHome/Index" : "", msg = loginResult.MessAge });
         }
 
         /// <summary>

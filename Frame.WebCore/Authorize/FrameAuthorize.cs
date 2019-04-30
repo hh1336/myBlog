@@ -27,7 +27,6 @@ namespace Frame.WebCore.Authorize
             //验证登陆情况
             await VerificationLogin(context);
 
-
         }
 
 
@@ -39,7 +38,7 @@ namespace Frame.WebCore.Authorize
         {
             if (string.IsNullOrEmpty(context.HttpContext.User.Identity.Name)) { await context.HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme); return; };
             //管道中没有用户信息时退出
-            if (context.HttpContext.Session.GetString("IsLogin") == null || !UserManager.Get(context.HttpContext.User.Identity.Name).Result.ResultBool)
+            if (!UserManager.Get(context.HttpContext.User.Identity.Name).Result.ResultBool)
             {
                 try
                 {

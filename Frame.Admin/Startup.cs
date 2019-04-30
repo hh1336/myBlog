@@ -75,7 +75,7 @@ namespace Frame.Admin
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
             .AddCookie(o =>
             {
-                o.LoginPath = "/Account/Index";
+                o.LoginPath = "/Admin/Account/Index";
             });
             #endregion
 
@@ -111,6 +111,7 @@ namespace Frame.Admin
                 o.Filters.Add(typeof(GlobalExceptionsFilter));
 
             }).SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
 
             #region 配置log4
             //注入缓存
@@ -149,6 +150,7 @@ namespace Frame.Admin
             app.UseStaticFiles();
             app.UseCookiePolicy();
 
+
             #region 加入session
             app.UseSession();
             app.UseAuthentication();
@@ -156,6 +158,11 @@ namespace Frame.Admin
 
             app.UseMvc(routes =>
             {
+                routes.MapAreaRoute(
+                    name:"Admin",
+                    areaName:"Admin",
+                    template: "/Admin/{controller=Home}/{action=Index}/{id?}"
+                    );
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");

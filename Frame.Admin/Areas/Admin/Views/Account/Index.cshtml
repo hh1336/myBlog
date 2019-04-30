@@ -153,7 +153,7 @@
                 return false;
             }
             //验证完成
-            $.post("/Account/Login", { AccountNumber: username, PassWord: password }, function (result) {
+            $.post("/Admin/Account/Login", { AccountNumber: username, PassWord: password }, function (result) {
                 console.log(result);
                 frame.alert({
                     msg: result.msg,

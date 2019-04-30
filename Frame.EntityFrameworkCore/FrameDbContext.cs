@@ -1,5 +1,6 @@
 ﻿using Frame.Core.Entitys;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Infrastructure;
 using System;
 
 namespace Frame.EntityFrameworkCore
@@ -11,6 +12,8 @@ namespace Frame.EntityFrameworkCore
         {
 
         }
+
+        
 
         #region 注册实体
 

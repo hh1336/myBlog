@@ -30,6 +30,35 @@ namespace Frame.WebCore.LoginManager
 
         public async Task<LoginVerificationResultDto> Login(LoginDto data)
         {
+            #region 增加测试数据
+            //var adduser = await _userInfoRepository.InsertAsync(new UserInfo()
+            //{
+            //    ID = Guid.NewGuid(),
+            //    Age = 18,
+            //    Phone = "18775997777",
+            //    Sex = SexEnum.男,
+            //    UserName = "张三"
+            //});
+            //await _userInfoRepository.CommitAsync();
+
+            ////var userdata = await _userInfoRepository.FirstOrDefaultAsync(s => s.UserName == "张三");
+
+            //await _accountRepository.InsertAsync(new Account()
+            //{
+            //    AccountNumber = "Admin",
+            //    AccountState = AccountStateEnum.正常,
+            //    CreateTime = DateTime.Now,
+            //    CreateUser = adduser.ID,
+            //    ID = Guid.NewGuid(),
+            //    PassWord = Common.GetMD5("admin"),
+            //    UserInfoId = adduser.ID,
+            //    DelUser = adduser.ID,
+            //    UpdateUser = adduser.ID
+            //});
+
+            //await _accountRepository.CommitAsync();
+            #endregion
+
             //验证登陆状态
             var result = await LoginVerification(data);
             if (!result.ResultBool)
@@ -40,7 +69,7 @@ namespace Frame.WebCore.LoginManager
             {
                 return result;
             }
-            var user = await _userInfoRepository.GetAsync(result.UserInfoID.Value);
+            var user = await _userInfoRepository.FirstOrDefaultAsync(s => s.ID == result.UserInfoID.Value);
             result.Name = user.UserName;
             return result;
 
