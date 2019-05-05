@@ -4,7 +4,10 @@
 nav{
     width:100%;
     border:none !important;
-    background:rgba(255,0,0,1) !important;
+    
+}
+.navbar-default {
+    background: rgba(255,255,255,0);
 }
 #container {
     padding-top: 7rem;
@@ -13,13 +16,24 @@ nav{
 .pcmenu{
     font-size:2rem;
 }
-.phonemenu .dropdown-menu{
-    width:100%;
-    text-align:center;
+.dropdown button{
+    margin-top:1rem;
+}
+.phonemenu ul{
+    padding-left:0;
+    display:none;
+}
+.phonemenu ul li {
+    padding-top:1rem;
+    border-bottom:1px solid #808080;
+    list-style: none;
+    font-size: 2rem;
+    color: black;
+    padding-left: 1rem;
 }
 
 @media (max-width: 768px) {
-    nav{
-        background:#eaeaea !important;
+    nav {
+        background: rgba(255,255,255,1) !important;
     }
 }
