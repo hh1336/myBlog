@@ -16,15 +16,18 @@
     @RenderSection("Styles", required: false)
 </head>
 <body>
+
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container">
             <div class="col-lg-6 col-md-6 col-sm-4 col-xs-12">
                 <div class="hidden-xs">
-                    <p>icon</p>
+                    <a href="#">
+                        <img src="#" />
+                    </a>
                 </div>
                 <div class="visible-xs phonemenu">
                     <div class="dropdown">
-                        <button type="button" class="menubtn btn btn-warning" @*data-toggle="dropdown" aria-haspopup="true"*@>三</button>
+                        <button type="button" class="menubtn btn btn-warning">三</button>
                         <ul>
                             <li> <a href="#"><span class="glyphicon glyphicon-cloud"></span>Action</a></li>
                             <li> <a href="#"><span class="glyphicon glyphicon-cloud"></span>Action</a></li>
@@ -39,45 +42,86 @@
                     <li><a href="#">其他</a></li>
                     <li><a href="#">其他</a></li>
                     <li><a href="#">其他</a></li>
-                    <li class="disabled"><a href="#">其他</a></li>
                 </ul>
             </div>
         </div>
     </nav>
+
     <div class="container" id="container">
         <div class="row">
-            <div class="col-lg-8">
-                <p>1</p>
-                <p>1</p>
-                <p>1</p>
-                <p>1</p>
-                <p>1</p>
-                <p>1</p>
-                <p>1</p>
-                <p>1</p>
-                <p>1</p>
-                <p>1</p>
-                <p>1</p>
-                <p>1</p>
-                <p>1</p>
-                <p>1</p>
-                <p>1</p>
-                <p>1</p>
-                <p>1</p>
-                <p>1</p>
-                <p>1</p>
-                <p>1</p>
-                <p>1</p>
-                <p>1</p>
-                <p>1</p>
-                左
+            <div class="col-lg-8 col-md-8 col-sm-8">
+                @RenderBody()
+                <p>左</p>
+                <p>左</p>
+                <p>左</p>
+                <p>左</p>
+                <p>左</p>
+                <p>左</p>
+                <p>左</p>
+                <p>左</p>
+                <p>左</p>
+                <p>左</p>
+                <p>左</p>
+                <p>左</p>
+                <p>左</p>
+                <p>左</p>
+                <p>左</p>
+                <p>左</p>
+                <p>左</p>
+                <p>左</p>
+                <p>左</p>
+                <p>左</p>
+                <p>左</p>
+                <p>左</p>
+                <p>左</p>
+                <p>左</p>
 
             </div>
-            <div class="col-lg-4 clearfix">
-                右
+            <div class="col-lg-4 col-md-4 col-sm-4 myselfinfo">
+                <ul class="col-lg-12 col-md-12 col-sm-12">
+                    <li>
+                        <div id="portraitbg">
+                            <div id="portrait">
+                                <img src="~/Source/UI/images/touxiang.jpg" class="img-circle" />
+                            </div>
+                        </div>
+                        <div>
+                            <p>
+                                说明说明说明说明说明说明说明说明说明说明说明说明说明说明说明说明说明说明说明说明说明说明说明说明
+                            </p>
+                        </div>
+                    </li>
+                    <li>
+                        <h3 style="border-bottom:1px solid #75c5ff; padding-bottom:0.5rem;">查找文章</h3>
+                        <form id="Serach">
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="Serach" placeholder="文章名...">
+                            </div>
+                        </form>
+                    </li>
+                </ul>
             </div>
         </div>
-        @RenderBody()
+    </div>
+
+    <footer class="container-fluid">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <p>底部内容</p>
+        </div>
+    </footer>
+
+    <div class="affix hidden-xs" id="tooltip">
+        <ul>
+            <li class="tooltiptop" data-toggle="tooltip" data-placement="left" title="关于我的">
+                <span class="glyphicon glyphicon-question-sign"></span>
+                <ul style="display:none;">
+                    <li>1</li>
+                    <li>2</li>
+                </ul>
+            </li>
+
+            <li class="tooltiptop hidden" data-toggle="tooltip" data-placement="left" title="返回顶部"><span class="glyphicon glyphicon-menu-up"></span></li>
+        </ul>
     </div>
 
     <script src="~/lib/jquery/dist/jquery.js" asp-append-version="true"></script>

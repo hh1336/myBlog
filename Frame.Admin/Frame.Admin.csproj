@@ -308,6 +308,7 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\lib\jquery-front-end-verify\images\" />
+    <Folder Include="wwwroot\Source\UI\images\" />
   </ItemGroup>
 
 

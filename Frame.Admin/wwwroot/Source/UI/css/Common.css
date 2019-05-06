@@ -1,36 +1,152 @@
 ﻿body {
     background: #f2f2f2;
 }
-nav{
-    width:100%;
-    border:none !important;
-    
+
+nav {
+    width: 100%;
+    border: none !important;
 }
+
 .navbar-default {
     background: rgba(255,255,255,0);
 }
+
 #container {
     padding-top: 7rem;
 }
-/*菜单样式*/
-.pcmenu{
-    font-size:2rem;
-}
-.dropdown button{
-    margin-top:1rem;
-}
-.phonemenu ul{
-    padding-left:0;
-    display:none;
-}
-.phonemenu ul li {
-    padding-top:1rem;
-    border-bottom:1px solid #808080;
-    list-style: none;
+
+.pcmenu {
     font-size: 2rem;
-    color: black;
-    padding-left: 1rem;
 }
+
+.dropdown button {
+    margin-top: 1rem;
+}
+
+.phonemenu ul {
+    padding-left: 0;
+    display: none;
+}
+
+    .phonemenu ul li {
+        padding-left: 0px !important;
+        padding-top: 1rem;
+        border-bottom: 0.1rem solid #808080;
+        list-style: none;
+        font-size: 2rem;
+        color: black;
+        padding-left: 1rem;
+    }
+
+        .phonemenu ul li a {
+            color: black;
+        }
+
+            .phonemenu ul li a:hover {
+                text-decoration: none;
+            }
+
+footer {
+    text-align: center;
+    padding: 0 !important;
+}
+
+#tooltip {
+    right: 4rem;
+    bottom: 2rem;
+}
+
+    #tooltip ul {
+        list-style: none;
+    }
+
+        #tooltip ul > li {
+            font-size: 2rem;
+            margin-top: 0.5rem;
+            line-height: 4rem;
+            text-align: center;
+            width: 4rem;
+            height: 4rem;
+            background: rgba(128, 128, 128,0.3);
+        }
+
+            #tooltip ul > li:hover {
+                background: rgba(128, 128, 128,0.6);
+            }
+
+            #tooltip ul > li:first-child > ul {
+                position: absolute;
+                top: -9rem;
+                left: 0;
+            }
+
+
+/*设置tootip工具提示的样式*/
+.tooltip-inner {
+    background: #7cff76;
+}
+
+.tooltip-arrow {
+    border-left-color: #7cff76 !important;
+}
+
+
+/*右边的个人信息*/
+.myselfinfo > ul {
+    list-style: none;
+}
+
+    .myselfinfo > ul > li:not(:first-child) {
+        margin-top: 1rem;
+        padding: 1rem;
+        padding-bottom:0.5rem;
+        background: rgba(255,255,255,1);
+    }
+
+    .myselfinfo > ul > li:first-child > div:last-child {
+        font-family: STKaiti;
+        font-size: 1.5rem;
+        background: rgba(255,255,255,1);
+        word-break: break-all;
+        text-indent: 2em;
+        padding: 1rem 0.5rem;
+    }
+
+#portraitbg {
+    position: relative;
+    text-align: center;
+    height: 10rem;
+    line-height: 10rem;
+    border: 2px solid rgba(255,255,255,1);
+    border-bottom: none;
+    overflow: hidden;
+}
+
+    #portraitbg::after {
+        width: 100%;
+        position: absolute;
+        content: '';
+        height: 11rem;
+        left: 0;
+        top: 0;
+        z-index: -1;
+        background: url(/Source/UI/images/ye-1024x256.jpg);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        -webkit-filter: blur(3px);
+        -moz-filter: blur(3px);
+        -o-filter: blur(3px);
+        -ms-filter: blur(3px);
+        filter: blur(5px);
+    }
+
+#portrait img {
+    width: 7rem;
+    border: 3px solid rgba(255,255,255,0.3);
+}
+
+
 
 @media (max-width: 768px) {
     nav {
