@@ -12,6 +12,7 @@
     <!--引入解析markdown的样式文件-->
     <link href="~/lib/editormd/css/editormd.min.css" rel="stylesheet" />
 
+
     <link href="~/Source/UI/css/Common.css" rel="stylesheet" />
     @RenderSection("Styles", required: false)
 </head>
@@ -49,35 +50,10 @@
 
     <div class="container" id="container">
         <div class="row">
-            <div class="col-lg-8 col-md-8 col-sm-8">
+            <div class="col-lg-8 col-md-8 col-sm-8" id="content">
                 @RenderBody()
-                <p>左</p>
-                <p>左</p>
-                <p>左</p>
-                <p>左</p>
-                <p>左</p>
-                <p>左</p>
-                <p>左</p>
-                <p>左</p>
-                <p>左</p>
-                <p>左</p>
-                <p>左</p>
-                <p>左</p>
-                <p>左</p>
-                <p>左</p>
-                <p>左</p>
-                <p>左</p>
-                <p>左</p>
-                <p>左</p>
-                <p>左</p>
-                <p>左</p>
-                <p>左</p>
-                <p>左</p>
-                <p>左</p>
-                <p>左</p>
-
             </div>
-            <div class="col-lg-4 col-md-4 col-sm-4 myselfinfo">
+            <div class="col-lg-4 col-md-4 col-sm-4 myselfinfo hidden-xs">
                 <ul class="col-lg-12 col-md-12 col-sm-12">
                     <li>
                         <div id="portraitbg">
@@ -92,12 +68,24 @@
                         </div>
                     </li>
                     <li>
+                        <div style="text-align:center;">
+                            <script charset="Shift_JIS" src="http://chabudai.sakura.ne.jp/blogparts/honehoneclock/honehone_clock_wh.js"></script>
+                        </div>
+
+                    </li>
+                    <li>
                         <h3 style="border-bottom:1px solid #75c5ff; padding-bottom:0.5rem;">查找文章</h3>
                         <form id="Serach">
                             <div class="form-group">
                                 <input type="text" class="form-control" name="Serach" placeholder="文章名...">
                             </div>
                         </form>
+                    </li>
+                    <li>
+                        <div id="world">
+                        </div>
+                        <div id="power" class="hidden"></div>
+
                     </li>
                 </ul>
             </div>
@@ -137,6 +125,12 @@
     <script defer src="~/lib/editormd/lib/flowchart.min.js" asp-append-version="true"></script>
     <script defer src="~/lib/editormd/lib/jquery.flowchart.min.js" asp-append-version="true"></script>
     <script defer src="~/lib/editormd/editormd.min.js" asp-append-version="true"></script>
+
+    <!--龙-->
+    <script defer src="~/Source/UI/lib/three.js" asp-append-version="true"></script>
+    <script defer src="~/Source/UI/lib/long/OrbitControls.js" asp-append-version="true"></script>
+    <script defer src="~/Source/UI/lib/long/TweenMax.min.js" asp-append-version="true"></script>
+
 
     <script defer src="~/Source/UI/js/Common.js" asp-append-version="true"></script>
     @RenderSection("Scripts", required: false)
