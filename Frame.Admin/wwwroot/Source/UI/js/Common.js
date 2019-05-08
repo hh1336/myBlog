@@ -1,35 +1,33 @@
-﻿//监听滚动条
-$(document).scroll(function () {
-    var wWidth = $(document).width();
-    if (~~wWidth > 768) {
-        var scroH = $(document).scrollTop();
-        $("nav").css("background", "rgba(255,255,255," + scroH / 48 + ")");
-        if (scroH >= 48) {
-            $("#tooltip>ul>li:last").removeClass("hidden");
-        } else {
-            $("#tooltip>ul>li:last").addClass("hidden");
-        }
-    }
-});
-
-//手机菜单动画
+﻿//手机菜单动画
 $(document).on("click", ".menubtn", function (e) {
     $(".phonemenu ul").animate({ height: "toggle" });
 
 });
 
-//控制toopit
-$(document).on("click", "#tooltip>ul>li:last", function (e) {
-    $(document).scrollTop(0);
-});
-$(document).on("click", "#tooltip>ul>li:first", function (e) {
-    $(this).children("ul").animate({ width: "toggle" }, 200);
-});
 
+//背景图
 $(function () {
-    $('[data-toggle="tooltip"]').tooltip();
+
+    var count_particles, stats, update;
+    stats = new Stats;
+    stats.setMode(0);
+    stats.domElement.style.position = 'absolute';
+    stats.domElement.style.left = '0px';
+    stats.domElement.style.top = '0px';
+    //document.body.appendChild(stats.domElement);
+    count_particles = document.querySelector('.js-count-particles');
+    update = function () {
+        stats.begin();
+        stats.end();
+        if (window.pJSDom[0].pJS.particles && window.pJSDom[0].pJS.particles.array) {
+            count_particles.innerText = window.pJSDom[0].pJS.particles.array.length;
+        }
+        requestAnimationFrame(update);
+    };
+    requestAnimationFrame(update);
 });
 
+//喷火龙
 $(function () {
 
     //THREEJS RELATED VARIABLES
@@ -1069,4 +1067,50 @@ $(function () {
         return tv;
 
     }
+});
+
+
+/* 飞船 */
+$(function () {
+
+    $("#gotop").click(function (e) {
+        TweenMax.to(window, 1.5, { scrollTo: 0, ease: Expo.easeInOut });
+        var huojian = new TimelineLite();
+        huojian.to("#gotop1", 1, { rotationY: 720, scale: 0.6, y: "+=40", ease: Power4.easeOut })
+            .to("#gotop1", 1, { y: -1000, opacity: 0, ease: Power4.easeOut }, 0.6)
+            .to("#gotop1", 1, { y: 0, rotationY: 0, opacity: 1, scale: 1, ease: Expo.easeOut, clearProps: "all" }, "1.4");
+    });
+
+    // 默认速度
+    $("#shangxia2").click(function () {
+        TweenMax.to(window, 1, { scrollTo: 0 });
+    });
+
+
+    // 弹跳球式滚动底部 .box2是要滚动地方的id或者锚点
+    $("#gotop5").click(function () {
+        TweenMax.to(window, 2, { scrollTo: ".box2", ease: Bounce.easeOut });
+    });
+
+
+    // 返回顶部，绑定gotop1图标和gotop2文字事件
+    $("#gotop1,#gotop2").click(function (e) {
+        TweenMax.to(window, 1.5, { scrollTo: 0, ease: Expo.easeInOut });
+        var huojian = new TimelineLite();
+        huojian.to("#gotop1", 1, { rotationY: 720, scale: 0.6, y: "+=40", ease: Power4.easeOut })
+            .to("#gotop1", 1, { y: -1000, opacity: 0, ease: Power4.easeOut }, 0.6)
+            .to("#gotop1", 1, { y: 0, rotationY: 0, opacity: 1, scale: 1, ease: Expo.easeOut, clearProps: "all" }, "1.4");
+    });
+
+
+    // 以1秒慢快慢的速度滚动顶部
+    $("#gotop3").click(function () {
+        TweenMax.to(window, 1, { scrollTo: 0, ease: Expo.easeInOut });
+    });
+
+    // 以1.5秒快慢快的速度滚动顶部
+    $("#gotop4").click(function () {
+        TweenMax.to(window, 1.5, { scrollTo: 0, ease: SlowMo.ease.config(0.7, 0.7, false) });
+    });
+
 });

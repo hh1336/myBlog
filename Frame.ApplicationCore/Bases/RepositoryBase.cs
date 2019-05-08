@@ -50,5 +50,6 @@ namespace Frame.ApplicationCore.Bases
         public abstract TEntity Update(TPrimaryKey id, Action<TEntity> updateAction);
         public abstract Task<TEntity> UpdateAsync(TEntity entity);
         public abstract Task<TEntity> UpdateAsync(TPrimaryKey id, Func<TEntity, Task> updateAction);
+        public abstract IQueryable<TEntity> Where(Expression<Func<TEntity, bool>> predicate);
     }
 }

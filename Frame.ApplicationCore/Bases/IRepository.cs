@@ -42,6 +42,8 @@ namespace Frame.ApplicationCore.Bases
 
         Task<TEntity> FirstOrDefaultAsync(Expression<Func<TEntity, bool>> predicate);
 
+        IQueryable<TEntity> Where(Expression<Func<TEntity, bool>> predicate);
+
         #endregion
 
         #region Insert

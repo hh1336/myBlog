@@ -1,11 +1,11 @@
 ﻿@section Styles{
     <style>
         #content > div {
-            background:#ffffff;
+            background:rgba(255, 255, 255,0.8);
             padding-top:1rem;
             padding-left:0;
             padding-right:0;
-            box-shadow:3px 1.5px 1px #ebebeb;
+            box-shadow:0px 0px 5px #ebebeb;
         }
         #content > div > div:last-child{
             margin-top:1rem;
@@ -13,16 +13,47 @@
             padding-top:0.5rem;
             padding-bottom:0.5rem;
         }
+        .Actitle h4{
+            overflow:hidden;
+            text-overflow:ellipsis;
+            white-space:nowrap;
+        }
+        .Actitle a{
+            word-wrap: break-word;
+            color:black;
+        }
+        .Actitle a:hover{
+            text-decoration-line:none;
+            animation:acolor 0.5s;
+            color:#15b0ff;
+        }
+        @@keyframes acolor{
+            from{
+                color:black;
+            }
+            to{
+                color:#15b0ff;
+            }
+        }
     </style>
 }
 <div class="col-lg-12 col-md-12 col-sm-12">
     <div class="col-lg-5 col-md-5 col-sm-5">
         <img src="~/Source/UI/images/bg.jpg" class="img-thumbnail" />
     </div>
-    <div class="col-lg-7 col-md-7 col-sm-7">
-        2
+    <div class="col-lg-7 col-md-7 col-sm-7 Actitle">
+        <a href="#"><h4>标题在这里111111111111111111111111111111111111222222222222222222111</h4></a>
+        <a href="#">1111111111111111111111111111111111
+            1231231231111111111122222222222222222222111111112312
+            1231231231111111111122222222222222222222111111112312
+            1231231231111111111122222222222222222222111111112312
+            2222222222222222222222222222222222211111111111111111111111111111111111111111111112222222222</a>
+
     </div>
-    <div class="col-lg-12 col-md-12 col-sm-12">
-        3
+    <div class="col-lg-12 col-md-12 col-sm-12 tooltipbar">
+        <div class="col-lg-3 col-md-3 col-sm-3"><span class="glyphicon glyphicon-calendar"></span> 2019-1-1</div>
+        <div class="col-lg-2 col-md-2 col-sm-2"><span class="glyphicon glyphicon-eye-open"></span> 123</div>
+        <div class="col-lg-2 col-md-2 col-sm-2"><span class="glyphicon glyphicon-thumbs-up"></span> 123</div>
+        <div class="col-lg-2 col-md-2 col-sm-2 col-lg-offset-3 col-md-offset-3 col-sm-offset-3">4</div>
     </div>
 </div>

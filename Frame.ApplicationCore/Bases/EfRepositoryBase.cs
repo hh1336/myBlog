@@ -24,7 +24,7 @@ namespace Frame.ApplicationCore.Bases
             Context = context;
         }
 
-        
+
 
 
         public override int Count()
@@ -125,17 +125,17 @@ namespace Frame.ApplicationCore.Bases
 
         public override List<TEntity> GetAllList()
         {
-            return base.GetAllList();
+            return Table.ToList();
         }
 
         public override List<TEntity> GetAllList(Expression<Func<TEntity, bool>> predicate)
         {
-            throw new NotImplementedException();
+            return Table.Where(predicate).ToList();
         }
 
-        public override Task<List<TEntity>> GetAllListAsync()
+        public override async Task<List<TEntity>> GetAllListAsync()
         {
-            return base.GetAllListAsync();
+            return await Task.FromResult(GetAllList());
         }
 
         public override async Task<List<TEntity>> GetAllListAsync(Expression<Func<TEntity, bool>> predicate)
@@ -228,12 +228,18 @@ namespace Frame.ApplicationCore.Bases
 
         protected override void AttachIfNot(TEntity entity)
         {
-            if (Enumerable.FirstOrDefault<EntityEntry>(this.Context.ChangeTracker.Entries(), delegate (EntityEntry ent) {
+            if (Enumerable.FirstOrDefault<EntityEntry>(this.Context.ChangeTracker.Entries(), delegate (EntityEntry ent)
+            {
                 return ent.Entity == entity;
             }) == null)
             {
                 this.Table.Attach(entity);
             }
+        }
+
+        public override IQueryable<TEntity> Where(Expression<Func<TEntity, bool>> predicate)
+        {
+            return Table.Where(predicate);
         }
     }
 }

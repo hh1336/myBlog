@@ -273,6 +273,8 @@
     <None Include="wwwroot\lib\layui\lay\modules\tree.js" />
     <None Include="wwwroot\lib\layui\lay\modules\upload.js" />
     <None Include="wwwroot\lib\layui\lay\modules\util.js" />
+    <None Include="wwwroot\Source\UI\lib\background\js\app.js" />
+    <None Include="wwwroot\Source\UI\lib\background\js\lib\stats.js" />
     <None Include="wwwroot\Source\UI\lib\bootstrap-3.3.7-dist\css\bootstrap-theme.css.map" />
     <None Include="wwwroot\Source\UI\lib\bootstrap-3.3.7-dist\css\bootstrap-theme.min.css.map" />
     <None Include="wwwroot\Source\UI\lib\bootstrap-3.3.7-dist\css\bootstrap.css.map" />
@@ -282,6 +284,7 @@
     <None Include="wwwroot\Source\UI\lib\bootstrap-3.3.7-dist\js\bootstrap.js" />
     <None Include="wwwroot\Source\UI\lib\bootstrap-3.3.7-dist\js\bootstrap.min.js" />
     <None Include="wwwroot\Source\UI\lib\bootstrap-3.3.7-dist\js\npm.js" />
+    <None Include="wwwroot\Source\UI\lib\feichuan\img\huojian.svg" />
   </ItemGroup>
 
 
@@ -309,6 +312,7 @@
   <ItemGroup>
     <Folder Include="wwwroot\lib\jquery-front-end-verify\images\" />
     <Folder Include="wwwroot\Source\UI\images\" />
+    <Folder Include="wwwroot\Source\UI\lib\feichuan\js\" />
   </ItemGroup>
 
 
