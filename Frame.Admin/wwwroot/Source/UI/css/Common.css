@@ -8,7 +8,8 @@ nav {
 }
 
 .navbar-default {
-    background: rgba(255,255,255,1);
+    /*background: #fdfdfd87;*/
+    background:rgba(0,0,0,0);
 }
 
 #container {
@@ -21,6 +22,9 @@ nav {
     .pcmenu > ul > li{
         background:none;
     }
+        .pcmenu > ul > li > a {
+            color: rgb(255, 255, 255);
+        }
         .pcmenu > ul > li:hover:before {
             position: absolute;
             content: '';
@@ -29,22 +33,22 @@ nav {
             left: 1%;
             width: 98%;
             height: 5%;
-            background: #43fff3;
+            background: #71be97;
         }
 @keyframes navlibefore{
-    0% {
-        bottom:0;
-        left: 1%;
+    from {
+        bottom: 0;
+        left: 50%;
         width: 5%;
         height: 5%;
-        background: #43fff3;
+        background: #71be97;
     }
-    100% {
+    to {
         bottom: 0;
         left: 1%;
         width: 98%;
         height: 5%;
-        background: #43fff3;
+        background: #71be97;
     }
 }
 
@@ -59,12 +63,8 @@ nav {
         left: 0;
         width: 1px;
         height: 60%;
-        border-right: 1px solid #b2b2b2;
     }
 
-    .pcmenu > ul > li:first-child:after {
-        border: none;
-    }
 
 
 .dropdown button {
@@ -101,36 +101,6 @@ footer {
     bottom: 0;
 }
 
-#tooltip {
-    right: 4rem;
-    bottom: 2rem;
-}
-
-    #tooltip ul {
-        list-style: none;
-    }
-
-        #tooltip ul > li {
-            font-size: 2rem;
-            margin-top: 0.5rem;
-            line-height: 4rem;
-            text-align: center;
-            width: 4rem;
-            height: 4rem;
-            background: rgba(128, 128, 128,0.3);
-        }
-
-            #tooltip ul > li:hover {
-                background: rgba(128, 128, 128,0.6);
-            }
-
-            #tooltip ul > li:first-child > ul {
-                position: absolute;
-                top: -9rem;
-                left: 0;
-            }
-
-
 
 /*右边的个人信息*/
 .myselfinfo > ul {
@@ -138,20 +108,20 @@ footer {
 }
 
     .myselfinfo > ul li {
-        box-shadow: 0px 0px 5px #ebebeb;
+        box-shadow: 0px 0px 5px rgba(235, 235, 235, 0.3);
     }
 
     .myselfinfo > ul > li:not(:first-child) {
         margin-top: 1rem;
         padding: 1rem;
         padding-bottom: 0.5rem;
-        background: rgba(255,255,255,0.8);
+        background: #fdfdfdde;
     }
 
     .myselfinfo > ul > li:first-child > div:last-child {
         font-family: STKaiti;
         font-size: 1.5rem;
-        background: rgba(255,255,255,0.8);
+        background: #fdfdfdde;
         word-break: break-all;
         text-indent: 2em;
         padding: 1rem 0.5rem;
@@ -175,7 +145,7 @@ footer {
         left: 0;
         top: 0;
         z-index: -1;
-        background: url(/Source/UI/images/ye-1024x256.jpg);
+        background: url(/Source/UI/images/shamobg.jpg);
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
@@ -201,16 +171,14 @@ canvas {
     display: block;
     vertical-align: bottom;
 }
-
 .js-count-particles {
     font-size: 1.1em;
 }
-
 #particles-js {
     width: 100%;
     height: 100%;
-    background-color: #7fbfff;
-    background-image: url('');
+    /*background-color: #ffcb7f;*/
+    background-image: url('/Source/UI/images/shamobg.jpg');
     background-size: cover;
     background-position: 50% 50%;
     background-repeat: no-repeat;
@@ -231,7 +199,7 @@ canvas {
 
     /* 小火箭悬停特效 */
 
-    #gotop1:hover {
+    /*#gotop1:hover {
         animation: rubberBand 1s;
     }
 
@@ -269,4 +237,4 @@ canvas {
     nav {
         background: rgba(255,255,255,1) !important;
     }
-}
+}*/

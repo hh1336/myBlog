@@ -310,9 +310,11 @@
 
 
   <ItemGroup>
+    <Folder Include="wwwroot\image\" />
     <Folder Include="wwwroot\lib\jquery-front-end-verify\images\" />
     <Folder Include="wwwroot\Source\UI\images\" />
     <Folder Include="wwwroot\Source\UI\lib\feichuan\js\" />
+    <Folder Include="wwwroot\Source\UI\lib\menu\" />
   </ItemGroup>
 
 
