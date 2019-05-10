@@ -1,10 +1,12 @@
-﻿@using Frame.WebCore.User
+﻿@{ 
+    ViewData["Title"] = "首页";
+}
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>后台管理系统</title>
+    <title>@ViewData["Title"]</title>
     <meta name="viewport" content="width=device-width, initial-scale=1 user-scalable=no">
     <!--加载bootstrap样式-->
     <link href="~/Source/UI/lib/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet" />
@@ -12,44 +14,42 @@
     <!--引入解析markdown的样式文件-->
     <link href="~/lib/editormd/css/editormd.min.css" rel="stylesheet" />
 
-
+    <!--手机菜单-->
+    <link href="~/Source/UI/lib/menu/css/styles.css" rel="stylesheet" />
 
     <link href="~/Source/UI/css/Common.css" rel="stylesheet" />
     @RenderSection("Styles", required: false)
 </head>
 <body>
     <div id="particles-js" class="affix"></div>
-    <nav class="navbar navbar-default navbar-fixed-top selector">
+    <nav class="navbar navbar-default">
         <div class="container">
-            <div class="@*col-lg-6 col-md-6 col-sm-4*@ visible-xs col-xs-12">
-                @*<div class="hidden-xs">
-                    <a href="#">
-                        <img src="#" />
-                        LOGO
-                    </a>
-                </div>*@
-                <div class="visible-xs phonemenu">
+            <div class="visible-xs col-xs-12">
+                <div class="visible-xs phonemenu navbar-fixed-top"  >
                     <div class="dropdown">
-                        <button type="button" class="menubtn btn btn-warning">三</button>
-                        <ul>
-                            <li> <a href="#"><span class="glyphicon glyphicon-cloud"></span>Action</a></li>
-                            <li> <a href="#"><span class="glyphicon glyphicon-cloud"></span>Action</a></li>
-                            <li> <a href="#"><span class="glyphicon glyphicon-cloud"></span>Action</a></li>
-                        </ul>
+                        <div class="phonenav">
+                            <ul>
+                                <li> <a asp-action="Index" asp-controller="Home">首页</a></li>
+                                <li> <a href="#">其他</a></li>
+                                <li> <a href="#">其他</a></li>
+                            </ul>
+                        </div>
+                        <div class="nav-toggle">
+                            <div class="icon"></div>
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="hidden-xs col-lg-12 col-md-12 col-sm-12 pcmenu">
                 <ul class="nav nav-pills">
-                    <li><a href="#">首页</a></li>
+                    <li><a asp-action="Index" asp-controller="Home" >首页</a></li>
                     <li><a href="#">其他</a></li>
-                    <li><a href="#">其他</a></li>
+                    <li><a href="javascript:0;">其他</a></li>
                     <li><a href="#">其他</a></li>
                 </ul>
             </div>
         </div>
     </nav>
-
 
     <div class="container" id="container">
         <div class="row">

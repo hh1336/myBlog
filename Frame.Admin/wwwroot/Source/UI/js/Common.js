@@ -1,9 +1,10 @@
 ﻿//手机菜单动画
-$(document).on("click", ".menubtn", function (e) {
-    $(".phonemenu ul").animate({ height: "toggle" });
-
+$(function () {
+    $('.nav-toggle').click(function () {
+        $('body').toggleClass('nav-open');
+        $(".phonenav").toggle();
+    });
 });
-
 
 //背景图
 $(function () {

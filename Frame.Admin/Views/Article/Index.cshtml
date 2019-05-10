@@ -1,0 +1,256 @@
+﻿@{
+    ViewData["Title"] = "文章内容";
+}
+
+@section Styles{
+    <style>
+        #content {
+            background: #fdfdfdde;
+            border-radius: 1%;
+            color: #8d8d8d;
+        }
+
+            #content h3 {
+                padding-bottom: 0.5rem;
+                color: black;
+                text-align: center;
+            }
+
+        .acstate {
+            border-bottom: 1px solid #ffb27c;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+            .acstate i {
+                color: #ff5d5d;
+            }
+
+        .like {
+            margin-top: 1rem;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+            .like button {
+                background: rgba(0,0,0,0);
+                color: #d43f3a;
+            }
+
+                .like button:hover, .like button:visited, .like button:checked, .like button:active {
+                    background: none;
+                    color: #d43f3a;
+                }
+
+        .discuss > div > ul {
+            list-style: none;
+        }
+
+            .discuss > div > ul > li {
+                margin-bottom: 1rem;
+                border-bottom: 1px solid #bfbfbf;
+            }
+
+                .discuss > div > ul > li img {
+                    width: 3rem;
+                }
+
+                .discuss > div > ul > li > div {
+                    padding: 0;
+                }
+
+        .photo, .userinfo, .userinfo > div {
+            padding: 0;
+        }
+
+        .discusscontent {
+            color: black;
+        }
+    </style>
+}
+
+<!--文章内容-->
+<div class="col-lg-12 col-md-12 col-sm-12">
+    <h3>文章标题</h3>
+    <div class="col-lg-12 col-md-12 col-sm-12 acstate">
+        <div class="col-lg-8 col-md-8 col-sm-8">
+            <span class="col-lg-3 col-md-3 col-sm-3">2019-3-3</span>
+            <span class="col-lg-2 col-md-2 col-sm-2"><i class="glyphicon glyphicon-eye-open"></i> 123</span>
+            <span class="col-lg-2 col-md-2 col-sm-2"><i class="glyphicon glyphicon-heart"></i> 123</span>
+            <span class="col-lg-2 col-md-2 col-sm-2"><i class="glyphicon glyphicon-comment"></i> 123</span>
+        </div>
+    </div>
+    <div class="col-lg-12 col-md-12 col-sm-12 accontent">
+        <div id="demo">
+            <textarea>
+
+下面是`C#`语法
+``` C#
+public static void main(){
+    Console.WriteLine("输出makrdown语法");
+}
+```
+> 一个内容
+
+
+- 一个点
+ - 两个点
+   - 三个点
+
+
+![一个图片]("www.baidu.com") 
+
+[一个链接](www.baidu.com)
+
+> 内容内容
+> 内容内容
+> 内容内容
+> 内容内容
+> 内容内容 `p`
+> 内容内容
+> 内容内容
+> 内容内容
+> 内容内容
+> 内容内容
+> 内容内容
+> 内容内容
+> 内容内容
+> 内容内容
+> 内容内容
+> 内容内容
+> 内容内容
+> 内容内容
+
+</textarea>
+        </div>
+        <br />
+        <p style="text-align:right;">@@所有权归本站所有</p>
+        <div class="like">
+            <button type="button" class="btn btn-danger">点个赞</button>
+        </div>
+    </div>
+</div>
+
+
+<!--评论-->
+<div class="col-lg-12 col-md-12 col-sm-12 discuss">
+    <h4>发表评论</h4>
+    <div class="col-lg-12 col-md-12 col-sm-12 releasediscuss">
+        <form>
+            <div class="form-group">
+                <label>联系方式:</label>
+                <input type="text" class="form-control" id="contactinformation" placeholder="联系方式">
+            </div>
+            <div class="form-group">
+                <label>显示昵称:</label>
+                <input type="text" class="form-control" id="nickname">
+            </div>
+            <div class="form-group">
+                <textarea rows="3" placeholder="说点啥吧" class="form-control"></textarea>
+            </div>
+            <input type="submit"  value="发表" class="btn btn-success" style="float:right;" id="release" />
+        </form>
+    </div>
+    <br />
+    <h4>共 2 条评论</h4>
+    <hr style="border-top: 1px solid #8d8d8d;" />
+    <div class="col-lg-12 col-md-12 col-sm-12">
+        <ul>
+            <li>
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="col-lg-1 col-md-1 col-sm-1 photo">
+                            <img src="~/Source/UI/images/touxiang.jpg" class="img-circle" />
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-4 userinfo">
+                            <div class="col-lg-12 col-md-12 col-sm-12">张三</div>
+                            <div class="col-lg-12 col-md-12 col-sm-12"><span>5楼 </span> 2019-3-3</div>
+                            <p class="discusscontent">
+                                评论了
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="col-lg-1 col-md-1 col-sm-1 photo">
+                            <img src="~/Source/UI/images/touxiang.jpg" class="img-circle" />
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-4 userinfo">
+                            <div class="col-lg-12 col-md-12 col-sm-12">张三</div>
+                            <div class="col-lg-12 col-md-12 col-sm-12"><span>5楼 </span> 2019-3-3</div>
+                            <p class="discusscontent">
+                                评论了
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="col-lg-1 col-md-1 col-sm-1 photo">
+                            <img src="~/Source/UI/images/touxiang.jpg" class="img-circle" />
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-4 userinfo">
+                            <div class="col-lg-12 col-md-12 col-sm-12">张三</div>
+                            <div class="col-lg-12 col-md-12 col-sm-12"><span>5楼 </span> 2019-3-3</div>
+                            <p class="discusscontent">
+                                评论了
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="col-lg-1 col-md-1 col-sm-1 photo">
+                            <img src="~/Source/UI/images/touxiang.jpg" class="img-circle" />
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-4 userinfo">
+                            <div class="col-lg-12 col-md-12 col-sm-12">张三</div>
+                            <div class="col-lg-12 col-md-12 col-sm-12"><span>5楼 </span> 2019-3-3</div>
+                            <p class="discusscontent">
+                                评论了
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </li>
+
+        </ul>
+    </div>
+</div>
+
+
+@section Scripts{
+    <script>
+        //点击喜欢时
+        $(document).one("click", ".like button", function (e) {
+            e.preventDefault();
+            if ($(this).children("i").length) {
+                alert("已经点过赞了")
+                return false;
+            }
+            heart = `<i class="glyphicon glyphicon-heart"> </i>`;
+            $(this).text(" 已赞");
+            $(this).prepend(heart);
+
+        })
+
+        $(function () {
+            editormd.markdownToHTML("demo", {
+                htmlDecode: "style,script,iframe",  // you can filter tags decode
+                emoji: true,
+                taskList: true,
+                tex: true,  // 默认不解析
+                flowChart: true,  // 默认不解析
+                sequenceDiagram: true,  // 默认不解析
+
+            });
+        })
+    </script>
+}
