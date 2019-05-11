@@ -28,7 +28,7 @@ nav {
         .pcmenu > ul > li:hover:before {
             position: absolute;
             content: '';
-            animation: navlibefore 0.5s;
+            animation: navlibefore 0.3s;
             bottom: 0;
             left: 1%;
             width: 98%;
@@ -67,10 +67,12 @@ nav {
     height: 60%;
 }
 
-
-
 .dropdown button {
     margin-top: 1rem;
+}
+
+#content {
+    margin-bottom: 1rem;
 }
 
 footer {

@@ -1,7 +1,4 @@
-﻿@{ 
-    ViewData["Title"] = "首页";
-}
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
     <meta charset="utf-8">
@@ -25,13 +22,15 @@
     <nav class="navbar navbar-default">
         <div class="container">
             <div class="visible-xs col-xs-12">
-                <div class="visible-xs phonemenu navbar-fixed-top"  >
+                <div class="visible-xs phonemenu navbar-fixed-top">
                     <div class="dropdown">
                         <div class="phonenav">
                             <ul>
-                                <li> <a asp-action="Index" asp-controller="Home">首页</a></li>
-                                <li> <a href="#">其他</a></li>
-                                <li> <a href="#">其他</a></li>
+                                <li><a asp-action="Index" asp-controller="Home">首页</a></li>
+                                <li><a href="#">我的笔记</a></li>
+                                <li><a href="#">日志分享</a></li>
+                                <li><a href="#">留言本</a></li>
+                                <li><a href="#">动态记录</a></li>
                             </ul>
                         </div>
                         <div class="nav-toggle">
@@ -42,10 +41,11 @@
             </div>
             <div class="hidden-xs col-lg-12 col-md-12 col-sm-12 pcmenu">
                 <ul class="nav nav-pills">
-                    <li><a asp-action="Index" asp-controller="Home" >首页</a></li>
-                    <li><a href="#">其他</a></li>
-                    <li><a href="javascript:0;">其他</a></li>
-                    <li><a href="#">其他</a></li>
+                    <li><a asp-action="Index" asp-controller="Home">首页</a></li>
+                    <li><a href="#">我的笔记</a></li>
+                    <li><a href="#">日志分享</a></li>
+                    <li><a href="#">留言本</a></li>
+                    <li><a href="#">动态记录</a></li>
                 </ul>
             </div>
         </div>

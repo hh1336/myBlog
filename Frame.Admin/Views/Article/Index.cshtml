@@ -100,7 +100,7 @@ public static void main(){
 
 ![一个图片]("www.baidu.com") 
 
-[一个链接](www.baidu.com)
+[一个链接](/www.baidu.com)
 
 > 内容内容
 > 内容内容
@@ -127,7 +127,11 @@ public static void main(){
         <p style="text-align:right;">@@所有权归本站所有</p>
         <div class="like">
             <button type="button" class="btn btn-danger">点个赞</button>
+            <span>
+                <button type="button" class="btn btn-info" style="color:#46b8da;"><i class="glyphicon glyphicon-share-alt" ></i> 分享</button>
+            </span>
         </div>
+
     </div>
 </div>
 
@@ -148,7 +152,7 @@ public static void main(){
             <div class="form-group">
                 <textarea rows="3" placeholder="说点啥吧" class="form-control"></textarea>
             </div>
-            <input type="submit"  value="发表" class="btn btn-success" style="float:right;" id="release" />
+            <input type="submit" value="发表" class="btn btn-success" style="float:right;" id="release" />
         </form>
     </div>
     <br />
@@ -229,7 +233,7 @@ public static void main(){
 @section Scripts{
     <script>
         //点击喜欢时
-        $(document).one("click", ".like button", function (e) {
+        $(document).one("click", ".like>button", function (e) {
             e.preventDefault();
             if ($(this).children("i").length) {
                 alert("已经点过赞了")
