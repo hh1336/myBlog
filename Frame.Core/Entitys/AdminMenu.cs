@@ -69,5 +69,10 @@ namespace Frame.Core.Entitys
         /// </summary>
         public ICollection<Permission> Permissions { set; get; }
 
+        /// <summary>
+        /// 导航属性
+        /// </summary>
+        public ICollection<Classify> Classifies { set; get; }
+
     }
 }

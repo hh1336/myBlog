@@ -1,1 +1,29 @@
-﻿123
+﻿<div id='demo'>
+    <textarea># 张三</textarea>
+</div>
+
+@section Scripts{
+    <script>
+        $(function () {
+            var testEditor = editormd("demo", {
+                placeholder: '左边编写，右边预览',  //默认显示的文字
+                width: "90%",//宽
+                height: 640,
+                syncScrolling: "single",
+                path: "/lib/editormd/lib/",//资源路径
+                theme: "gray",//主题 gray dark
+                emoji: true,//emoji表情
+                /**上传图片相关配置如下*/
+                //imageUpload: true,
+                //imageFormats: ["jpg", "jpeg", "gif", "png", "bmp", "webp"],
+                //imageUploadURL: "/editorMDUpload",//注意你后端的上传图片服务地址
+                previewTheme: "gray",//预览主题
+                editorTheme: "pastel-on-gray",//编辑主题
+                toolbarIcons: function () {  //自定义工具栏
+                    return editormd.toolbarModes['full']; // full, simple, mini
+                }
+            });
+            testEditor.getMarkdown();
+        })
+    </script>
+}

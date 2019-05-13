@@ -10,6 +10,7 @@ namespace Frame.Admin.Controllers
     {
         public async Task<IActionResult> Index()
         {
+            Console.WriteLine("123");
             return View();
         }
     }

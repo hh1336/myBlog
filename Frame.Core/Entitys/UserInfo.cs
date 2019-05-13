@@ -59,6 +59,12 @@ namespace Frame.Core.Entitys
 
 
         /// <summary>
+        /// 个人简介
+        /// </summary>
+        public string Introduce { set; get; }
+
+
+        /// <summary>
         /// 用户账户
         /// </summary>
         public ICollection<Account> Accounts { set; get; } 
