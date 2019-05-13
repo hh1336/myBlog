@@ -5,6 +5,7 @@ using Frame.Admin.Log4N;
 using Frame.Application.AutoMapperConfig;
 using Frame.ApplicationCore.Bases.AutoFac;
 using Frame.EntityFrameworkCore;
+using Frame.WebCore.Redis;
 using Frame.WebCore.User;
 using log4net;
 using log4net.Config;
@@ -79,8 +80,6 @@ namespace Frame.Admin
             });
             #endregion
 
-
-
             #region 配置AutoMapper
 
             services.AddAutoMapper(cfg =>
@@ -105,6 +104,7 @@ namespace Frame.Admin
 
             #endregion
 
+
             services.AddMvc(o =>
             {
                 //注入全局捕获异常
@@ -124,10 +124,11 @@ namespace Frame.Admin
             #endregion
 
             #region 数据库连接配置
-			
+
             //var sqlConnection = Configuration.GetConnectionString("SqlServerConnection");
             //services.AddDbContext<FrameDbContext>(option => option.UseSqlServer(sqlConnection));
             //mysql
+            RedisHelper.Connection(Configuration.GetConnectionString("RedisConnection"));
             services.AddDbContext<FrameDbContext>(d => d.UseMySQL(Configuration.GetConnectionString("MysqlConnection")));
 			#endregion
 

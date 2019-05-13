@@ -1,6 +1,7 @@
 ﻿using Frame.Core.EntityBases;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
@@ -19,6 +20,7 @@ namespace Frame.Core.Entitys
         /// <summary>
         /// 喜欢数量
         /// </summary>
+        [DefaultValue(0)]
         public long Like { set; get; }
 
         /// <summary>

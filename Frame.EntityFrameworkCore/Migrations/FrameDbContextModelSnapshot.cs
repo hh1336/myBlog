@@ -195,7 +195,7 @@ namespace Frame.EntityFrameworkCore.Migrations
 
                     b.HasIndex("Pid");
 
-                    b.ToTable("AdminMenu");
+                    b.ToTable("AdminMenus");
                 });
 
             modelBuilder.Entity("Frame.Core.Entitys.Article", b =>
@@ -389,8 +389,8 @@ namespace Frame.EntityFrameworkCore.Migrations
 
             modelBuilder.Entity("Frame.Core.Entitys.AdminMenu", b =>
                 {
-                    b.HasOne("Frame.Core.Entitys.AdminMenu", "adminMenu")
-                        .WithMany("AdminMenus")
+                    b.HasOne("Frame.Core.Entitys.AdminMenu", "ParentEntity")
+                        .WithMany("ChildEntitis")
                         .HasForeignKey("Pid");
                 });
 

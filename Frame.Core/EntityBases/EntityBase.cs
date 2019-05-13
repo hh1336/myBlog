@@ -10,7 +10,10 @@ namespace Frame.Core.EntityBases
     /// </summary>
     public class EntityBase : EntityBase<Guid>
     {
-
+        public EntityBase()
+        {
+            base.ID = Guid.NewGuid();
+        }
     }
 
     /// <summary>

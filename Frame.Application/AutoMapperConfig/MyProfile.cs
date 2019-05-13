@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Frame.Application.Dtos;
+using Frame.Application.Dtos.MenuManager;
 using Frame.Core.Entitys;
 
 namespace Frame.Application.AutoMapperConfig
@@ -20,6 +21,7 @@ namespace Frame.Application.AutoMapperConfig
         public MyProfile()
         {
             CreateMap<UserInfo, UserInfoDto>().ReverseMap();
+            CreateMap<AdminMenu, AdminMenuDto>().ReverseMap();
         }
     }
 }

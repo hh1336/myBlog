@@ -19,14 +19,6 @@ namespace Frame.Core.EntityBases
     public class EntityTimeBase<TKey> : EntityBase<TKey>
         where TKey : struct
     {
-        /// <summary>
-        /// 构造函数
-        /// </summary>
-        public EntityTimeBase()
-        {
-            CreateTime = DateTime.Now.Date;
-            SortDel = 0;
-        }
 
         /// <summary>
         /// 创建时间

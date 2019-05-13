@@ -1,26 +1,19 @@
-﻿using Frame.Core.Authorization;
-using Frame.Core.EntityBases;
+﻿using Frame.ApplicationCore.DtoBases;
+using Frame.Core.Authorization;
+using Frame.Core.Entitys;
 using Frame.Core.Enums;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
-namespace Frame.Core.Entitys
+namespace Frame.Application.Dtos.MenuManager
 {
     /// <summary>
-    /// 菜单实体
+    /// 菜单dto
     /// </summary>
-    public class AdminMenu : EntityTimeBase
+    public class AdminMenuDto : DtoTimeBase
     {
-        public AdminMenu()
-        {
-            CreateTime = DateTime.Now;
-            base.ID = Guid.NewGuid();
-            base.SortDel = 0;
-            this.ChildEntitis = new HashSet<AdminMenu>(); //自关联
-        }
-
         /// <summary>
         /// 菜单名称
         /// </summary>
@@ -64,23 +57,17 @@ namespace Frame.Core.Entitys
         /// <summary>
         /// 导航属性
         /// </summary>
-        public virtual AdminMenu ParentEntity { set; get; }
+        public virtual AdminMenuDto ParentEntity { set; get; }
 
         /// <summary>
         /// 导航属性
         /// </summary>
         [ForeignKey("Pid")]
-        public virtual ICollection<AdminMenu> ChildEntitis { set; get; }
+        public virtual ICollection<AdminMenuDto> ChildEntitis { set; get; }
 
         /// <summary>
         /// 导航属性
         /// </summary>
-        public ICollection<Permission> Permissions { set; get; }
-
-        /// <summary>
-        /// 导航属性
-        /// </summary>
-        public ICollection<Classify> Classifies { set; get; }
-
+        public List<Classify> Classifies { set; get; }
     }
 }

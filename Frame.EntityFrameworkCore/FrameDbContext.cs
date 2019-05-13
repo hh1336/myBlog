@@ -21,6 +21,8 @@ namespace Frame.EntityFrameworkCore
 
         public virtual DbSet<Account> Accounts { set; get; }
 
+        public virtual DbSet<AdminMenu> AdminMenus { set; get; }
+
         public virtual DbSet<Article> Articles { set; get; }
         public virtual DbSet<ArticleComment> ArticleComments { set; get; }
         public virtual DbSet<ArticleImage> ArticleImages { set; get; }
