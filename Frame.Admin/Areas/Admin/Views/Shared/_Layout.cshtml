@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>后台管理系统</title>
+    <title>@ViewData["Title"]</title>
     <meta name="viewport" content="width=device-width, initial-scale=1 user-scalable=no">
     <link href="~/lib/layui/css/layui.css" rel="stylesheet" />
     <link href="~/lib/layer/theme/default/layer.css" rel="stylesheet" />
@@ -40,14 +40,8 @@
         <div class="layui-side layui-bg-black">
             <div class="layui-side-scroll">
                 <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
-                <ul class="layui-nav layui-nav-tree" lay-filter="test">
-                    <li class="layui-nav-item"><a asp-action="Home" asp-controller="AdminHome">首页</a></li>
-                    <li class="layui-nav-item">
-                        <a href="javascript:;">笔记管理</a>
-                        <dl class="layui-nav-child">
-                            <dd><a href="javascript:;">JavaScript</a></dd>
-                        </dl>
-                    </li>
+                <ul class="layui-nav layui-nav-tree" lay-filter="menu" id="menu">
+
                 </ul>
             </div>
         </div>

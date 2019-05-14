@@ -3,6 +3,8 @@ using Frame.Application.Dtos;
 using Frame.Application.Interfaces;
 using Frame.ApplicationCore.Bases;
 using Frame.Core.Entitys;
+using Frame.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,37 +17,30 @@ namespace Frame.Application.Services
     {
         private IRepository<UserInfo, Guid> _userInfoRepository;
         private readonly IMapper _mapper;
+        private readonly FrameDbContext _dbContext;
+        private readonly IRepository<AdminMenu, Guid> _menuRepository;
 
-        public HomeService(IRepository<UserInfo, Guid> userRepository, IMapper mapper)
+        public HomeService(
+            IRepository<UserInfo, Guid> userRepository,
+            IMapper mapper,
+            FrameDbContext dbContext,
+            IRepository<AdminMenu, Guid> menuRepository
+            )
         {
             _userInfoRepository = userRepository;
             _mapper = mapper;
+            _dbContext = dbContext;
+            _menuRepository = menuRepository;
         }
 
-        public async Task<UserInfoDto> Get(Guid id)
+        public async Task<List<AdminMenu>> GetAllMenu()
         {
-            var entity = await _userInfoRepository.GetAsync(id);
-            return _mapper.Map<UserInfoDto>(entity);
-        }
-
-        public async Task<UserInfo> Insert(UserInfoDto data)
-        {
-            var entity = _mapper.Map<UserInfo>(data);
-            //entity.ID = Guid.NewGuid();
-            var result = await _userInfoRepository.InsertAsync(entity);
-            await _userInfoRepository.CommitAsync();
-            return result;
-        }
-
-        public async Task<bool> Update(UserInfoDto dto)
-        {
-            var entity = await _userInfoRepository.GetAsync(dto.ID);
-            var entity1 = _mapper.Map(dto, entity);
-
-            await _userInfoRepository.UpdateAsync(entity1);
-            return await _userInfoRepository.CommitAsync() > 0;
-
-
+            return 
+                await _dbContext.AdminMenus
+                .Include(s => s.ChildEntitis)
+                .Where(s => s.Pid == null)
+                .OrderByDescending(s => s.SortNumber)
+                .ToListAsync();
         }
     }
 }

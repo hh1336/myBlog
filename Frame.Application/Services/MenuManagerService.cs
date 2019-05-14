@@ -43,8 +43,43 @@ namespace Frame.Application.Services
 
         public async Task<List<AdminMenu>> GetAllMenu()
         {
+            return await _menurepository.GetAllListAsync();
+        }
+
+        public async Task<List<AdminMenu>> GetAllMenuIncludeChildren()
+        {
             return await _dbContext.AdminMenus.Include(s => s.ChildEntitis).Where(s => s.Pid == null).ToListAsync();
         }
 
+        public async Task<AdminMenu> GetByMenuId(Guid id)
+        {
+            var result = await _dbContext.AdminMenus.Include(s => s.ChildEntitis).SingleOrDefaultAsync(s => s.ID == id);
+            return result;
+        }
+
+        public async Task<List<AdminMenu>> GetParentMenu()
+        {
+            return await _menurepository.GetAllListAsync(s => s.Pid == null);
+        }
+
+        public async Task<bool> SaveMenuInfo(AdminMenuDto data)
+        {
+            if (Guid.Empty == data.ID)//新增
+            {
+                var adddata = _mapper.Map<AdminMenu>(data);
+                await _menurepository.InsertAsync(adddata);
+            }
+            else
+            {
+                var entity = await _menurepository.FirstOrDefaultAsync(s => s.ID == data.ID);
+                if (entity != null)
+                {
+                    var entitydata = _mapper.Map(data, entity);
+                    await _menurepository.UpdateAsync(entitydata);
+                }
+            }
+
+            return await _menurepository.CommitAsync() > 0;
+        }
     }
 }

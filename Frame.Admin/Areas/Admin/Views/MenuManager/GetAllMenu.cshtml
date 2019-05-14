@@ -1,0 +1,28 @@
+﻿@using Frame.Core.Entitys
+@model List<AdminMenu>
+<form class="layui-form">
+    <div class="layui-form-item">
+        <label class="layui-form-label">选择父级菜单：</label>
+        <div class="layui-input-block">
+            <select name="MenuId">
+                @{
+                    foreach (var item in Model)
+                    {
+                        <option value="@item.ID">@item.ShowName</option>
+                    }
+                }
+            </select>
+        </div>
+    </div>
+</form>
+
+<script>
+    $(function () {
+        layui.use(['form', 'layedit', 'laydate'], function () {
+            var form = layui.form
+                , layedit = layui.layedit
+                , laydate = layui.laydate;
+            form.render();
+        });
+    })
+</script>

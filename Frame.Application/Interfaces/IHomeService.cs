@@ -11,24 +11,9 @@ namespace Frame.Application.Interfaces
     public interface IHomeService 
     {
         /// <summary>
-        /// 根据id获取数据
+        /// 加载所有菜单
         /// </summary>
-        /// <param name="id"></param>
         /// <returns></returns>
-        Task<UserInfoDto> Get(Guid id);
-
-        /// <summary>
-        /// 插入一条数据
-        /// </summary>
-        /// <param name="data"></param>
-        /// <returns></returns>
-        Task<UserInfo> Insert(UserInfoDto data);
-
-        /// <summary>
-        /// 修改一条数据
-        /// </summary>
-        /// <param name="dto"></param>
-        /// <returns></returns>
-        Task<bool> Update(UserInfoDto dto);
+        Task<List<AdminMenu>> GetAllMenu();
     }
 }

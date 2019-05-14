@@ -36,7 +36,7 @@
         this.default = {
             title: "标题",
             width: "50%",
-            height: "30%",
+            height: "",
             content: "",
             ClickBackClose: false,
             yes: function (index, layero) {
@@ -55,8 +55,9 @@
             maxmin: true,//按钮最大化
             skin: 'layui-layer-rim', //加上边框
             btnAlign: 'c',//按钮居中
-            shade: [0.5, '#393D49'],//设置背部遮罩层
-            shadeClose: obj.ClickBackClose === undefined ? this.default.ClickBackClose : obj.ClickBackClose,//点击背部遮罩层是否关闭
+            //shade: [0.5, '#393D49'],//设置背部遮罩层
+            shade:0,
+            //shadeClose: obj.ClickBackClose === undefined ? this.default.ClickBackClose : obj.ClickBackClose,//点击背部遮罩层是否关闭
             area: [obj.width === undefined ? this.default.width : obj.width, obj.height === undefined ? this.default.height : obj.height], //宽高
             content: obj.content === undefined ? this.default.content : obj.content,
             yes: obj.yes === undefined ? this.default.yes : obj.yes,

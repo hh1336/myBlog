@@ -12,7 +12,12 @@
     background-color: #bedffe !important;
 }
 
+.layui-layer-page .layui-layer-content{
+    padding-top:1rem;
+    padding-right:1rem;
+}
+
 .layui-layer-page .layui-layer-content, .layui-layer-page .layui-layer-btn {
     padding-left: 1rem;
-    background-color: #e3f6ee !important;
+    background-color: #ecfbf5 !important;
 }

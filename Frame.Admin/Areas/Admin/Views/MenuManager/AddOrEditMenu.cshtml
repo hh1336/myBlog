@@ -1,0 +1,65 @@
+﻿@using Frame.Core.Entitys
+@model AdminMenu
+<form class="layui-form" id="menuInfoForm">
+    <input type="hidden" name="ID" value="@Model.ID" />
+    <div class="layui-form-item">
+        <label class="layui-form-label">菜单名：</label>
+        <div class="layui-input-block">
+            <input type="text" name="MenuName" required lay-verify="required" autocomplete="off" class="layui-input" value="@Model.MenuName">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">显示名称：</label>
+        <div class="layui-input-block">
+            <input type="text" name="ShowName" required lay-verify="required" autocomplete="off" class="layui-input" value="@Model.ShowName">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">链接地址：</label>
+        <div class="layui-input-block">
+            <input type="text" name="LinkAddress" required lay-verify="required" autocomplete="off" class="layui-input" value="@Model.LinkAddress">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">排序号：</label>
+        <div class="layui-input-block">
+            <input type="text" name="SortNumber" required lay-verify="required" autocomplete="off" class="layui-input" value="@Model.SortNumber">
+        </div>
+    </div>
+
+    @{
+        var isShow = Model.ChildEntitis.Count() == 0 ? "" : "layui-hide";
+    }
+    <div class="layui-form-item @isShow" style="">
+        <label class="layui-form-label">选择父级菜单：</label>
+        <div class="layui-input-block">
+            <select name="Pid" value-id="@Model.Pid">
+                <option value="" selected></option>
+            </select>
+        </div>
+    </div>
+
+</form>
+
+<script>
+    function GetParentMenu() {
+        $.post("/Admin/MenuManager/GetParentMenu", {}, function (result) {
+            for (var i = 0, length = result.length; i < length; i++) {
+                var selected = ``;
+                if ($("[name=Pid]").attr("value-id") == result[i].id) {
+                    selected = `selected`;
+                }
+                $("[name=Pid]").append(`<option value="` + result[i].id + `" ` + selected + `>` + result[i].showName + `</option>`)
+            }
+            layui.use(['form', 'layedit', 'laydate'], function () {
+                var form = layui.form
+                    , layedit = layui.layedit
+                    , laydate = layui.laydate;
+                form.render();
+            });
+        })
+    }
+    $(function () {
+        GetParentMenu();
+    });
+</script>

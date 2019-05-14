@@ -23,6 +23,31 @@ namespace Frame.Application.Interfaces
         /// 获取所有菜单与子菜单
         /// </summary>
         /// <returns></returns>
+        Task<List<AdminMenu>> GetAllMenuIncludeChildren();
+
+        /// <summary>
+        /// 加载父级菜单
+        /// </summary>
+        /// <returns></returns>
+        Task<List<AdminMenu>> GetParentMenu();
+
+        /// <summary>
+        /// 保存菜单信息
+        /// </summary>
+        /// <param name="data"></param>
+        /// <returns></returns>
+        Task<bool> SaveMenuInfo(AdminMenuDto data);
+
+        /// <summary>
+        /// 根据菜单id获取数据
+        /// </summary>
+        /// <returns></returns>
+        Task<AdminMenu> GetByMenuId(Guid id);
+        
+        /// <summary>
+        /// 加载所有菜单
+        /// </summary>
+        /// <returns></returns>
         Task<List<AdminMenu>> GetAllMenu();
     }
 }

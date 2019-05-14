@@ -1,0 +1,195 @@
+﻿@{ 
+    ViewData["Title"] = "标签管理";
+}
+
+<h3 id="title">标签管理</h3>
+<table id="myTable" lay-filter="filter"></table>
+
+<!--工具栏模板：-->
+<script type="text/html" id="toolbar">
+    <div class="layui-btn-container">
+        <a class="layui-btn layui-btn-sm" asp-action="AddOrEdit">添加数据</a>
+        <button class="layui-btn layui-btn-sm" id="reload">刷新</button>
+    </div>
+    <form class="form-inline">
+        <div class="form-group">
+            <label>标题：</label>
+            <input type="text" class="form-control" id="title" name="title" placeholder="请输入标题">
+        </div>
+        <button class="layui-btn layui-btn-sm" id="serach">查找</button>
+    </form>
+</script>
+
+
+@section Scripts{
+    <script>
+        var _sortField = 'id', _sortType = 'desc';
+
+        //加载数据
+        function load() {
+            layui.use(['table','form'], function () {
+                //将初始化好的表格赋值到全局
+                table = layui.table;
+                form = layui.form;
+                //对这个表格进行加载
+                table.render({
+                    elem: '#myTable',
+                    url: '/LabelManager/GetAll', //数据接口
+                    toolbar: "#toolbar",//开启工具栏
+                    defaultToolbar: ['exports', '#toolbar'],//定义工具栏的工具位置
+                    page: true,//开启分页,可传入dom元素自定义分页样式
+                    loading: true,//加载时出现等待条
+                    contentType: "json",//接收内容为json类型
+                    id: 'Reload',//定义标识，用于刷新
+                    method: "GET",//请求方式为post
+                    title: "文章表",//标题
+                    limit: 10,//每页显示条数
+                    limits: [10, 20, 50],//一次显示多条
+                    autoSort: false,//false为服务器来进行排序
+                    initSort: {//初始排序状态
+                        field: 'id',
+                        type: 'desc'
+                    },
+                    text: {
+                        none: '还没有数据，快去发布一点文章吧。'
+                    },
+                    cols: [[ //表头
+                        {
+                            field: 'id',//数据名称
+                            title: 'ID',//显示名称
+                            //sort: true,//排序开启
+                            fixed: 'left',//固定在左侧
+                            unresize: true,//不可拖动的列宽
+                            align: "center",//内容居中
+                            templet: function (data) {//data里面存放着一整条数据
+                                return data.LAY_INDEX;//返回当前数据的索引
+                            }
+                        },
+                        {
+                            field: 'action',
+                            title: '操作',
+                            unresize: true,
+                            align: "center",
+                            templet: function (data) {
+                                var btn = "";
+                                var edit = "<a class='layui-btn layui-btn-xs layui-btn-primary'name='edit' data-id='" + data.id + "' ><i class='layui-icon'>&#xe642;</i></a> <span></span>";
+                                var del = "<a class='layui-btn layui-btn-xs layui-btn-primary' name='del' data-id='" + data.id + "' ><i class='layui-icon'>&#xe640;</i></a>";
+                                btn = edit + del;
+                                return btn;
+                            }
+                        },
+                        {
+                            field: 'title',
+                            title: '标题',
+                            unresize: true,
+                            align: "center"
+                        },
+                        {
+                            field: 'createTime',
+                            title: '发布时间',
+                            sort: true,
+                            align: "center",
+                            templet: function (data) {
+                                return Common.ToDateTime(data.createTime);
+                            }
+                        },
+                        {
+                            field: 'updateTime',
+                            title: '最后更新时间',
+                            sort: true,
+                            align: "center",
+                            templet: function (data) {
+                                if (data.updateTime !== null) {
+                                    return Common.ToDateTime(data.updateTime);
+                                }
+                                return "";
+
+                            }
+                        },
+                        {
+                            field: 'author',
+                            title: '作者',
+                            sort: true,
+                            unresize: true,
+                            align: "center"
+                        },
+                        {
+                            field: 'source',
+                            title: '来源',
+                            sort: true,
+                            unresize: true,
+                            align: "center"
+                        },
+                        {
+                            field: 'imgurl',
+                            title: '图片',
+                            unresize: true,
+                            align: "center",
+                            templet: function (data) {
+                                var img = "无";
+                                if (data.imgurl != null && data.imgurl != "" && data.imgurl != undefined) img = "<a href='#' class='selectimg layui-icon' imgurl='" + data.imgurl + "'>&#xe615;</a>";
+
+                                return img;
+                            }
+                        }
+                    ]],
+                    where: {//加载表格时需要传入的参数
+                        field: _sortField,
+                        order: _sortType
+                    },
+                    response: {//定义后台返回json时的格式
+                        statusName: "code",//定义返回的状态码名称
+                        statusCode: 200,//定义成功时应返回的状态码
+                    },
+                    done: function (res, curr, count) {//表格加载完成后的回调函数
+                        //console.log(res);
+                        //console.log(curr);
+                        //console.log(count);
+                        //res为接口数据
+                        //curr为页码
+                        //count为条数
+                    }
+
+                });
+
+                //监听排序字段
+                table.on("sort(filter)", function (obj) {
+                    //排序发生改变时将排序字段赋值记录到全局
+                    _sortField = obj.field;
+                    _sortType = obj.type;
+
+                    //触发刷新事件，将当前初始化的表格传入
+                    reload(obj);
+                });
+
+            });
+
+        }
+
+        //刷新表格，需要接收一个初始化后的表格
+        function reload(obj) {
+            if (obj == undefined || obj == "") {
+                obj = {
+                    field: "id",
+                    type: "desc"
+                };
+            }
+            //刷新事件,第一个参数为标识id
+            table.reload("Reload", {
+                initSort: obj,
+                where: {
+                    ModelId: ModelId,
+                    field: obj.field,
+                    order: obj.type,
+                    title: $("input[name=title]").val(),
+                    actiontime: $("#actiontime").val(),
+                    endtime: $("#endtime").val()
+                }
+            });
+        }
+
+        $(function () {
+            load();
+        })
+    </script>
+}

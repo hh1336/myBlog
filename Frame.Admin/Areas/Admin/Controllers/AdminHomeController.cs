@@ -10,22 +10,19 @@ using System.Threading.Tasks;
 
 namespace Frame.Admin.Areas.Admin.Controllers
 {
-    //[Authorize]
-    //[FrameAuthorize]
+    [Authorize]
+    [FrameAuthorize]
     [Area("Admin")]
     public class AdminHomeController : Controller
     {
         private IHomeService _service;
-        private IMenuManagerService _menu;
 
 
         public AdminHomeController(
-            IHomeService service,
-            IMenuManagerService menu
+            IHomeService service
             )
         {
             _service = service;
-            _menu = menu;
         }
         public async Task<IActionResult> Index()
         {
@@ -43,8 +40,11 @@ namespace Frame.Admin.Areas.Admin.Controllers
         /// <returns></returns>
         public async Task<IActionResult> LoadMenu()
         {
-            List<AdminMenu> result = await _menu.GetAllMenu();
-            return Json(result);
+            List<AdminMenu> result = await _service.GetAllMenu();
+            return Json(result, new Newtonsoft.Json.JsonSerializerSettings()
+            {
+                ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
+            });
         }
     }
 }
