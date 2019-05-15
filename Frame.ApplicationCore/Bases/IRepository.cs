@@ -68,17 +68,17 @@ namespace Frame.ApplicationCore.Bases
 
         #region Delete
 
-        void Delete(TEntity entity);
+        bool Delete(TEntity entity);
 
-        Task DeleteAsync(TEntity entity);
+        Task<bool> DeleteAsync(TEntity entity);
 
-        void Delete(TPrimaryKey id);
+        bool Delete(TPrimaryKey id);
 
-        Task DeleteAsync(TPrimaryKey id);
+        Task<bool> DeleteAsync(TPrimaryKey id);
 
-        void Delete(Expression<Func<TEntity, bool>> predicate);
+        bool Delete(Expression<Func<TEntity, bool>> predicate);
 
-        Task DeleteAsync(Expression<Func<TEntity, bool>> predicate);
+        Task<bool> DeleteAsync(Expression<Func<TEntity, bool>> predicate);
 
         #endregion
 

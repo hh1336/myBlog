@@ -1,0 +1,47 @@
+﻿@using Frame.Core.Entitys
+@model Classify
+<form class="layui-form" id="AddOrEditClassify">
+    <input type="hidden" name="LabelId" value="@Model.ID" />
+    <div class="layui-form-item">
+        <label class="layui-form-label">请输入标签名：</label>
+        <div class="layui-input-block">
+            <input type="text" name="Name" required lay-verify="required" autocomplete="off" class="layui-input" value="@Model.Name">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">选择菜单:</label>
+        <div class="layui-input-block">
+            <select name="AdminMenu" lay-verify="required" menu-id="@Model.AdminMenuId">
+                <option value=""></option>
+
+            </select>
+        </div>
+    </div>
+</form>
+
+<script>
+    function LoadMenuInfo() {
+        $.post("/Admin/LabelManager/LoadMenu", {}, function (result) {
+            var menuid = $("[name=AdminMenu]").attr("menu-id");
+            for (var i = 0, length = result.length; i < length; i++) {
+                var selected = ``;
+                if (menuid == result[i].ID) {
+                    selected = `selected`;
+                }
+                var str = `<option value="` + result[i].ID + `" ` + selected + `>` + result[i].ShowName + `</option>`;
+                $("[name=AdminMenu]").append(str);
+            }
+            layui.use('form', function () {
+                var form = layui.form;
+                form.render();
+            });
+        })
+    }
+
+    $(function () {
+        LoadMenuInfo();
+
+
+    })
+</script>

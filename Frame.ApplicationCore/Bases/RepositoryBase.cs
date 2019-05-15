@@ -21,12 +21,12 @@ namespace Frame.ApplicationCore.Bases
         public abstract int Count(Expression<Func<TEntity, bool>> predicate);
         public abstract Task<int> CountAsync();
         public abstract Task<int> CountAsync(Expression<Func<TEntity, bool>> predicate);
-        public abstract void Delete(TEntity entity);
-        public abstract void Delete(TPrimaryKey id);
-        public abstract void Delete(Expression<Func<TEntity, bool>> predicate);
-        public abstract Task DeleteAsync(TEntity entity);
-        public abstract Task DeleteAsync(TPrimaryKey id);
-        public abstract Task DeleteAsync(Expression<Func<TEntity, bool>> predicate);
+        public abstract bool Delete(TEntity entity);
+        public abstract bool Delete(TPrimaryKey id);
+        public abstract bool Delete(Expression<Func<TEntity, bool>> predicate);
+        public abstract Task<bool> DeleteAsync(TEntity entity);
+        public abstract Task<bool> DeleteAsync(TPrimaryKey id);
+        public abstract Task<bool> DeleteAsync(Expression<Func<TEntity, bool>> predicate);
         public abstract TEntity FirstOrDefault(Expression<Func<TEntity, bool>> predicate);
         public abstract Task<TEntity> FirstOrDefaultAsync(Expression<Func<TEntity, bool>> predicate);
         public abstract TEntity Get(TPrimaryKey id);

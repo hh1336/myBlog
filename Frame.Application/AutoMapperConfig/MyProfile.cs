@@ -1,5 +1,7 @@
 ﻿using AutoMapper;
 using Frame.Application.Dtos;
+using Frame.Application.Dtos.ArticleManager;
+using Frame.Application.Dtos.LabelManager;
 using Frame.Application.Dtos.MenuManager;
 using Frame.Core.Entitys;
 
@@ -22,6 +24,8 @@ namespace Frame.Application.AutoMapperConfig
         {
             CreateMap<UserInfo, UserInfoDto>().ReverseMap();
             CreateMap<AdminMenu, AdminMenuDto>().ReverseMap();
+            CreateMap<Classify, ClassifyDto>().ReverseMap();
+            CreateMap<Article, ArticleDto>().ReverseMap();
         }
     }
 }

@@ -47,41 +47,53 @@ namespace Frame.ApplicationCore.Bases
             throw new NotImplementedException();
         }
 
-        public override void Delete(TEntity entity)
+        public override bool Delete(TEntity entity)
         {
+            if (entity == null) return false;
             Table.Remove(entity);
+            return true;
         }
 
-        public override void Delete(TPrimaryKey id)
+        public override bool Delete(TPrimaryKey id)
         {
             var entity = Get(id);
+            if (entity == null) return false;
             Table.Remove(entity);
+            return true;
         }
 
-        public override void Delete(Expression<Func<TEntity, bool>> predicate)
+        public override bool Delete(Expression<Func<TEntity, bool>> predicate)
         {
             var entity = Table.SingleOrDefault(predicate);
             if (entity != null)
             {
                 Table.Remove(entity);
+                return true;
             }
+            return false;
         }
 
-        public override async Task DeleteAsync(TEntity entity)
+        public override async Task<bool> DeleteAsync(TEntity entity)
         {
+            if (entity == null) return false;
             await Task.FromResult(Table.Remove(entity));
+            return true;
         }
 
-        public override async Task DeleteAsync(TPrimaryKey id)
+        public override async Task<bool> DeleteAsync(TPrimaryKey id)
         {
             var entity = await Task.FromResult(Get(id));
+            if (entity == null) return false;
             await Task.FromResult(Table.Remove(entity));
+            return true;
         }
 
-        public override async Task DeleteAsync(Expression<Func<TEntity, bool>> predicate)
+        public override async Task<bool> DeleteAsync(Expression<Func<TEntity, bool>> predicate)
         {
-            var entity = await Task.FromResult(Table.SingleOrDefault(predicate));
+            var entity = await this.FirstOrDefaultAsync(predicate);
+            if (entity == null) return false;
             await DeleteAsync(entity);
+            return true;
         }
 
         public override bool Equals(object obj)
@@ -110,7 +122,7 @@ namespace Frame.ApplicationCore.Bases
         {
             var lambdaParam = Expression.Parameter(typeof(TEntity));
             var lambdaBody = Expression.Equal(
-                Expression.PropertyOrField(lambdaParam, "Id"),
+                Expression.PropertyOrField(lambdaParam, "ID"),
                 Expression.Constant(id, typeof(TPrimaryKey))
                 );
 

@@ -1,4 +1,4 @@
-﻿@{ 
+﻿@{
     ViewData["Title"] = "标签管理";
 }
 
@@ -7,34 +7,39 @@
 
 <!--工具栏模板：-->
 <script type="text/html" id="toolbar">
-    <div class="layui-btn-container">
-        <a class="layui-btn layui-btn-sm" asp-action="AddOrEdit">添加数据</a>
-        <button class="layui-btn layui-btn-sm" id="reload">刷新</button>
-    </div>
-    <form class="form-inline">
-        <div class="form-group">
-            <label>标题：</label>
-            <input type="text" class="form-control" id="title" name="title" placeholder="请输入标题">
+
+    <form class="layui-form">
+        <div class="layui-form-item">
+            <div class="layui-input-inline">
+                <div class="layui-btn-container">
+                    <a class="layui-btn layui-btn-sm" onclick="AddOrEdit()">添加数据</a>
+                    <button class="layui-btn layui-btn-sm" id="reload">刷新</button>
+                </div>
+            </div>
+            <label class="layui-form-label">标题：</label>
+            <div class="layui-input-inline">
+                <input type="text" class="layui-input" name="LabelName" placeholder="查询标签名" autocomplete="off">
+            </div>
+            <button class="layui-btn layui-btn-sm" id="sreach">查找</button>
         </div>
-        <button class="layui-btn layui-btn-sm" id="serach">查找</button>
     </form>
 </script>
 
 
 @section Scripts{
     <script>
-        var _sortField = 'id', _sortType = 'desc';
-
+        var _sortField = 'ID', _sortType = 'desc';
+        var form, table;
         //加载数据
         function load() {
-            layui.use(['table','form'], function () {
+            layui.use(['table', 'form'], function () {
                 //将初始化好的表格赋值到全局
                 table = layui.table;
                 form = layui.form;
                 //对这个表格进行加载
                 table.render({
                     elem: '#myTable',
-                    url: '/LabelManager/GetAll', //数据接口
+                    url: '/Admin/LabelManager/GetAll', //数据接口
                     toolbar: "#toolbar",//开启工具栏
                     defaultToolbar: ['exports', '#toolbar'],//定义工具栏的工具位置
                     page: true,//开启分页,可传入dom元素自定义分页样式
@@ -47,8 +52,9 @@
                     limits: [10, 20, 50],//一次显示多条
                     autoSort: false,//false为服务器来进行排序
                     initSort: {//初始排序状态
-                        field: 'id',
-                        type: 'desc'
+                        field: 'ID',
+                        type: 'desc',
+                        labelName: $("input[name=LabelName]").val()
                     },
                     text: {
                         none: '还没有数据，快去发布一点文章吧。'
@@ -72,76 +78,30 @@
                             align: "center",
                             templet: function (data) {
                                 var btn = "";
-                                var edit = "<a class='layui-btn layui-btn-xs layui-btn-primary'name='edit' data-id='" + data.id + "' ><i class='layui-icon'>&#xe642;</i></a> <span></span>";
-                                var del = "<a class='layui-btn layui-btn-xs layui-btn-primary' name='del' data-id='" + data.id + "' ><i class='layui-icon'>&#xe640;</i></a>";
+                                var edit = "<a class='layui-btn layui-btn-xs layui-btn-primary'name='edit' data-id='" + data.ID + "'><i class='layui-icon'>&#xe642;</i></a> <span></span>";
+                                var del = "<a class='layui-btn layui-btn-xs layui-btn-primary' name='del' data-id='" + data.ID + "' ><i class='layui-icon'>&#xe640;</i></a>";
                                 btn = edit + del;
                                 return btn;
                             }
                         },
                         {
-                            field: 'title',
-                            title: '标题',
-                            unresize: true,
-                            align: "center"
-                        },
-                        {
-                            field: 'createTime',
+                            field: 'Name',
                             title: '发布时间',
                             sort: true,
-                            align: "center",
-                            templet: function (data) {
-                                return Common.ToDateTime(data.createTime);
-                            }
-                        },
-                        {
-                            field: 'updateTime',
-                            title: '最后更新时间',
-                            sort: true,
-                            align: "center",
-                            templet: function (data) {
-                                if (data.updateTime !== null) {
-                                    return Common.ToDateTime(data.updateTime);
-                                }
-                                return "";
-
-                            }
-                        },
-                        {
-                            field: 'author',
-                            title: '作者',
-                            sort: true,
-                            unresize: true,
                             align: "center"
-                        },
-                        {
-                            field: 'source',
-                            title: '来源',
-                            sort: true,
-                            unresize: true,
-                            align: "center"
-                        },
-                        {
-                            field: 'imgurl',
-                            title: '图片',
-                            unresize: true,
-                            align: "center",
-                            templet: function (data) {
-                                var img = "无";
-                                if (data.imgurl != null && data.imgurl != "" && data.imgurl != undefined) img = "<a href='#' class='selectimg layui-icon' imgurl='" + data.imgurl + "'>&#xe615;</a>";
-
-                                return img;
-                            }
                         }
                     ]],
                     where: {//加载表格时需要传入的参数
                         field: _sortField,
-                        order: _sortType
+                        order: _sortType,
+                        labelName: $("input[name=LabelName]").val()
                     },
                     response: {//定义后台返回json时的格式
                         statusName: "code",//定义返回的状态码名称
                         statusCode: 200,//定义成功时应返回的状态码
                     },
                     done: function (res, curr, count) {//表格加载完成后的回调函数
+                        form.render();
                         //console.log(res);
                         //console.log(curr);
                         //console.log(count);
@@ -168,9 +128,9 @@
 
         //刷新表格，需要接收一个初始化后的表格
         function reload(obj) {
-            if (obj == undefined || obj == "") {
+            if (!obj) {
                 obj = {
-                    field: "id",
+                    field: "ID",
                     type: "desc"
                 };
             }
@@ -178,18 +138,76 @@
             table.reload("Reload", {
                 initSort: obj,
                 where: {
-                    ModelId: ModelId,
                     field: obj.field,
                     order: obj.type,
-                    title: $("input[name=title]").val(),
-                    actiontime: $("#actiontime").val(),
-                    endtime: $("#endtime").val()
+                    labelName: $("input[name=LabelName]").val()
                 }
             });
         }
 
+        $(document).on("click", "#reload,#sreach", function (e) {
+            e.preventDefault();
+            reload({
+                field: _sortField,
+                order: _sortType,
+            });
+        })
+
+        //创建或编辑
+        function AddOrEdit(id) {
+            $.post("/Admin/LabelManager/AddOrEdit", { id: id }, function (result) {
+                frame.appModal({
+                    title: id ? "编辑标签" : "创建标签",
+                    content: result,
+                    height: "100%",
+                    width: "100%",
+                    yes: function (index) {
+                        var data = {};
+                        data.ID = $("#AddOrEditClassify input[name=LabelId]:hidden").val();
+                        data.Name = $("#AddOrEditClassify input[name=Name]").val();
+                        data.AdminMenuId = $("#AddOrEditClassify [name=AdminMenu]").val();
+                        $.post("/Admin/LabelManager/SaveClassify", data, function (result) {
+                            frame.alert({
+                                msg: result.msg,
+                                icon: result.code ? 1 : 2
+                            })
+                            layer.close(index);
+                        });
+
+                    }
+                });
+            })
+        }
+
+        $(document).on("click", "[name=edit]", function (e) {
+            e.preventDefault();
+            var id = $(this).attr("data-id");
+            AddOrEdit(id);
+        });
+
+        $(document).on("click", "[name=del]", function (e) {
+            e.preventDefault();
+            var id = $(this).attr("data-id");
+            frame.alert({
+                title: "删除",
+                msg: "是否删除数据？",
+                yes: function (index) {
+                    $.post("/Admin/LabelManager/Delete", { id: id }, function (result) {
+                        frame.alert({
+                            msg: result.msg,
+                            icon: result.code ? 1 : 2
+                        });
+                        layer.close(index);
+                        reload();
+                    })
+                }
+            })
+
+        })
+
         $(function () {
             load();
+
         })
     </script>
 }
