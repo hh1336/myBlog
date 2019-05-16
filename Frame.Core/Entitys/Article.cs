@@ -18,15 +18,25 @@ namespace Frame.Core.Entitys
         public string AcName { set; get; }
 
         /// <summary>
+        /// 介绍信息
+        /// </summary>
+        public string Introduce { set; get; }
+
+        /// <summary>
+        /// 封面图片
+        /// </summary>
+        public string ImgUrl { set; get; }
+
+        /// <summary>
         /// 喜欢数量
         /// </summary>
         [DefaultValue(0)]
         public long Like { set; get; }
 
         /// <summary>
-        /// 文章内容key
+        /// 文章内容
         /// </summary>
-        public string ContentKey { set; get; }
+        public string Content { set; get; }
 
         /// <summary>
         /// 关联分类
@@ -38,11 +48,6 @@ namespace Frame.Core.Entitys
         /// </summary>
         [ForeignKey("Classify")]
         public Guid? ClassifyId { set; get; }
-
-        /// <summary>
-        /// 导航属性
-        /// </summary>
-        public ICollection<ArticleImage> ArticleImages { set; get; }
 
         /// <summary>
         /// 导航属性

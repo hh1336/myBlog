@@ -3,14 +3,16 @@ using System;
 using Frame.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Frame.EntityFrameworkCore.Migrations
 {
     [DbContext(typeof(FrameDbContext))]
-    partial class FrameDbContextModelSnapshot : ModelSnapshot
+    [Migration("20190516072529_ArticleImgurl")]
+    partial class ArticleImgurl
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -274,6 +276,24 @@ namespace Frame.EntityFrameworkCore.Migrations
                     b.ToTable("ArticleComments");
                 });
 
+            modelBuilder.Entity("Frame.Core.Entitys.ArticleImage", b =>
+                {
+                    b.Property<byte[]>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasConversion(new ValueConverter<byte[], byte[]>(v => default(byte[]), v => default(byte[]), new ConverterMappingHints(size: 16)));
+
+                    b.Property<byte[]>("ArticleId")
+                        .HasConversion(new ValueConverter<byte[], byte[]>(v => default(byte[]), v => default(byte[]), new ConverterMappingHints(size: 16)));
+
+                    b.Property<string>("url");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("ArticleId");
+
+                    b.ToTable("ArticleImages");
+                });
+
             modelBuilder.Entity("Frame.Core.Entitys.Classify", b =>
                 {
                     b.Property<byte[]>("ID")
@@ -406,6 +426,13 @@ namespace Frame.EntityFrameworkCore.Migrations
                     b.HasOne("Frame.Core.Entitys.ArticleComment", "ParentEntity")
                         .WithMany("ChildEntitis")
                         .HasForeignKey("ParentId");
+                });
+
+            modelBuilder.Entity("Frame.Core.Entitys.ArticleImage", b =>
+                {
+                    b.HasOne("Frame.Core.Entitys.Article", "Article")
+                        .WithMany("ArticleImages")
+                        .HasForeignKey("ArticleId");
                 });
 
             modelBuilder.Entity("Frame.Core.Entitys.Classify", b =>

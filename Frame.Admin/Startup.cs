@@ -127,8 +127,9 @@ namespace Frame.Admin
 
             //var sqlConnection = Configuration.GetConnectionString("SqlServerConnection");
             //services.AddDbContext<FrameDbContext>(option => option.UseSqlServer(sqlConnection));
+            //redis
+            //RedisHelper.Connection(Configuration.GetConnectionString("RedisConnection"));
             //mysql
-            RedisHelper.Connection(Configuration.GetConnectionString("RedisConnection"));
             services.AddDbContext<FrameDbContext>(d => d.UseMySQL(Configuration.GetConnectionString("MysqlConnection")));
 			#endregion
 

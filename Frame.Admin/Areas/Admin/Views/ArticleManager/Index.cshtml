@@ -16,10 +16,13 @@
                     <button class="layui-btn layui-btn-sm" id="reload">刷新</button>
                 </div>
             </div>
+
             <label class="layui-form-label">标题：</label>
             <div class="layui-input-inline">
-                <input type="text" class="layui-input" name="LabelName" placeholder="查询文章名" autocomplete="off">
+                <input type="text" class="layui-input" name="AcName" placeholder="查询文章名" autocomplete="off">
             </div>
+
+
             <button class="layui-btn layui-btn-sm" id="sreach">查找</button>
         </div>
     </form>
@@ -80,15 +83,46 @@
                         }
                     },
                     {
-                        field: 'Name',
-                        title: '发布时间',
+                        field: 'AcName',
+                        title: '文章名',
                         sort: true,
                         align: "center"
+                    },
+                    {
+                        field: 'Introduce',
+                        title: '文章介绍',
+                        sort: true,
+                        align: "center"
+                    },
+                    {
+                        field: 'Like',
+                        title: '点赞',
+                        sort: true,
+                        align: "center"
+                    },
+                    {
+                        field: 'CreateTime',
+                        title: '发布时间',
+                        sort: true,
+                        align: "center",
+                        templet: function (data) {
+                            return frame.ToDateTime(data.CreateTime);
+                        }
+                    },
+                    {
+                        field: 'Classify.Name',
+                        title: '所在标签',
+                        sort: true,
+                        align: "center",
+                        templet: function (data) {
+                            return data.Classify.Name;
+                        }
                     }
                 ]],
                 where: {//加载表格时需要传入的参数
                     field: _sortField,
-                    order: _sortType
+                    order: _sortType,
+                    AcName:$("input[name=AcName]").val()
                 },
                 response: {//定义后台返回json时的格式
                     statusName: "code",//定义返回的状态码名称
@@ -129,7 +163,8 @@
                 initSort: obj,
                 where: {
                     field: obj.field,
-                    order: obj.type
+                    order: obj.type,
+                    AcName:$("input[name=AcName]").val()
                 }
             });
         }
@@ -151,12 +186,53 @@
                     width: "100%",
                     height: "100%",
                     yes: function (index) {
+                        var form = $("#ArticleForm")
+                        var data = {};
+                        data.ID = form.find("input[name=ID]:hidden").val();
+                        data.AcName = form.find("input[name=AcName]").val();
+                        data.ClassifyId = form.find("[name=ClassifyId]").val();
+                        data.Introduce = form.find("textarea[name=Introduce]").val();
+                        data.Content = form.find("#Content>textarea:first").val();
+                        data.ImgUrl = form.find("#imgurl").attr("src");
+                        $.post("/Admin/ArticleManager/Save", data).done(function (result) {
+                            frame.alert({
+                                msg: result.msg,
+                                icon: result.code ? 1 : 2
+                            })
+                            layer.close(index);
+                            LoadArticle();
+                        })
 
-                        layer.close(index);
                     }
                 })
             })
         }
+
+        $(document).on("click", "[name=edit]", function (e) {
+            e.preventDefault();
+            var id = $(this).attr("data-id");
+            AddOrEdit(id);
+        })
+        $(document).on("click", "[name=del]", function (e) {
+            e.preventDefault();
+            var id = $(this).attr("data-id");
+            frame.alert({
+                title: "删除",
+                msg: "确定删除?",
+                yes: function (index) {
+                    $.post("/Admin/ArticleManager/SortDel", { id: id }).done(function (reuslt) {
+                        frame.alert({
+                            msg: reuslt.msg,
+                            icon: reuslt.code ? 1 : 2
+                        })
+                        layer.close(index);
+                        LoadArticle();
+                    })
+
+                }
+            })
+        })
+
         $(function () {
             layui.use(['table', 'form'], function () {
                 table = layui.table, form = layui.form;

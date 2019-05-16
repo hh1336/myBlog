@@ -315,6 +315,7 @@
     <Folder Include="wwwroot\Source\UI\images\" />
     <Folder Include="wwwroot\Source\UI\lib\feichuan\js\" />
     <Folder Include="wwwroot\Source\UI\lib\menu\" />
+    <Folder Include="wwwroot\ImageFiles\" />
   </ItemGroup>
 
 

@@ -2,6 +2,7 @@
 using Frame.Core.Enums;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
 namespace Frame.Core.Entitys
@@ -11,6 +12,10 @@ namespace Frame.Core.Entitys
     /// </summary>
     public class LeaveMessage : EntityBase
     {
+        public LeaveMessage()
+        {
+            this.ChildEntitis = new HashSet<LeaveMessage>(); //自关联
+        }
         /// <summary>
         /// 留言时间
         /// </summary>
@@ -40,5 +45,21 @@ namespace Frame.Core.Entitys
         /// 联系方式
         /// </summary>
         public string ContactInformation { set; get; }
+
+        /// <summary>
+        /// 所有回复评论
+        /// </summary>
+        [ForeignKey("ParentId")]
+        public virtual ICollection<LeaveMessage> ChildEntitis { set; get; }
+
+        /// <summary>
+        /// 父级评论
+        /// </summary>
+        public virtual LeaveMessage ParentEntity { set; get; }
+
+        /// <summary>
+        /// 父级评论id
+        /// </summary>
+        public Guid? ParentId { set; get; }
     }
 }

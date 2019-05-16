@@ -1,6 +1,7 @@
 ﻿using Frame.Core.EntityBases;
 using Frame.Core.Enums;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Frame.Core.Entitys
@@ -10,6 +11,11 @@ namespace Frame.Core.Entitys
     /// </summary>
     public class ArticleComment : EntityBase
     {
+        public ArticleComment()
+        {
+            this.ChildEntitis = new HashSet<ArticleComment>(); //自关联
+        }
+
         /// <summary>
         /// 评论时间
         /// </summary>
@@ -50,5 +56,21 @@ namespace Frame.Core.Entitys
         /// </summary>
         [ForeignKey("Article")]
         public Guid? ArticleId { set; get; }
+
+        /// <summary>
+        /// 所有回复评论
+        /// </summary>
+        [ForeignKey("ParentId")]
+        public virtual ICollection<ArticleComment> ChildEntitis { set; get; }
+
+        /// <summary>
+        /// 父级评论
+        /// </summary>
+        public virtual ArticleComment ParentEntity { set; get; }
+
+        /// <summary>
+        /// 父级评论id
+        /// </summary>
+        public Guid? ParentId { set; get; }
     }
 }

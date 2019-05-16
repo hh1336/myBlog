@@ -9,9 +9,9 @@ using System.Text;
 namespace Frame.Application.Dtos.ArticleManager
 {
     /// <summary>
-    /// 文章Dto
+    /// 列表型文章数据Dto
     /// </summary>
-    public class ArticleDto : DtoTimeBase
+    public class ArticleListOutPutDto : DtoTimeBase
     {
         /// <summary>
         /// 文章名
@@ -35,11 +35,6 @@ namespace Frame.Application.Dtos.ArticleManager
         public long Like { set; get; }
 
         /// <summary>
-        /// 文章内容
-        /// </summary>
-        public string Content { set; get; }
-
-        /// <summary>
         /// 关联分类
         /// </summary>
         public Classify Classify { set; get; }
@@ -50,10 +45,9 @@ namespace Frame.Application.Dtos.ArticleManager
         [ForeignKey("Classify")]
         public Guid? ClassifyId { set; get; }
 
-
         /// <summary>
         /// 导航属性
         /// </summary>
-        public List<ArticleComment> ArticleComments { set; get; }
+        public ICollection<ArticleComment> ArticleComments { set; get; }
     }
 }

@@ -9,14 +9,14 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Frame.EntityFrameworkCore.Migrations
 {
     [DbContext(typeof(FrameDbContext))]
-    [Migration("20190513093718_AddEntity")]
+    [Migration("20190516021134_AddEntity")]
     partial class AddEntity
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "2.2.3-servicing-35854");
+                .HasAnnotation("ProductVersion", "2.2.4-servicing-10062");
 
             modelBuilder.Entity("Frame.Core.Authorization.AccountRole", b =>
                 {
@@ -211,7 +211,7 @@ namespace Frame.EntityFrameworkCore.Migrations
                     b.Property<byte[]>("ClassifyId")
                         .HasConversion(new ValueConverter<byte[], byte[]>(v => default(byte[]), v => default(byte[]), new ConverterMappingHints(size: 16)));
 
-                    b.Property<string>("ContentKey");
+                    b.Property<string>("Content");
 
                     b.Property<DateTime>("CreateTime");
 
@@ -222,6 +222,8 @@ namespace Frame.EntityFrameworkCore.Migrations
 
                     b.Property<byte[]>("DelUser")
                         .HasConversion(new ValueConverter<byte[], byte[]>(v => default(byte[]), v => default(byte[]), new ConverterMappingHints(size: 16)));
+
+                    b.Property<string>("Introduce");
 
                     b.Property<long>("Like");
 
@@ -258,11 +260,16 @@ namespace Frame.EntityFrameworkCore.Migrations
 
                     b.Property<string>("NickName");
 
+                    b.Property<byte[]>("ParentId")
+                        .HasConversion(new ValueConverter<byte[], byte[]>(v => default(byte[]), v => default(byte[]), new ConverterMappingHints(size: 16)));
+
                     b.Property<int>("SortDel");
 
                     b.HasKey("ID");
 
                     b.HasIndex("ArticleId");
+
+                    b.HasIndex("ParentId");
 
                     b.ToTable("ArticleComments");
                 });
@@ -319,9 +326,14 @@ namespace Frame.EntityFrameworkCore.Migrations
 
                     b.Property<string>("NickName");
 
+                    b.Property<byte[]>("ParentId")
+                        .HasConversion(new ValueConverter<byte[], byte[]>(v => default(byte[]), v => default(byte[]), new ConverterMappingHints(size: 16)));
+
                     b.Property<int>("SortDel");
 
                     b.HasKey("ID");
+
+                    b.HasIndex("ParentId");
 
                     b.ToTable("LeaveMessages");
                 });
@@ -408,6 +420,10 @@ namespace Frame.EntityFrameworkCore.Migrations
                     b.HasOne("Frame.Core.Entitys.Article", "Article")
                         .WithMany("ArticleComments")
                         .HasForeignKey("ArticleId");
+
+                    b.HasOne("Frame.Core.Entitys.ArticleComment", "ParentEntity")
+                        .WithMany("ChildEntitis")
+                        .HasForeignKey("ParentId");
                 });
 
             modelBuilder.Entity("Frame.Core.Entitys.ArticleImage", b =>
@@ -422,6 +438,13 @@ namespace Frame.EntityFrameworkCore.Migrations
                     b.HasOne("Frame.Core.Entitys.AdminMenu", "AdminMenu")
                         .WithMany("Classifies")
                         .HasForeignKey("AdminMenuId");
+                });
+
+            modelBuilder.Entity("Frame.Core.Entitys.LeaveMessage", b =>
+                {
+                    b.HasOne("Frame.Core.Entitys.LeaveMessage", "ParentEntity")
+                        .WithMany("ChildEntitis")
+                        .HasForeignKey("ParentId");
                 });
 #pragma warning restore 612, 618
         }

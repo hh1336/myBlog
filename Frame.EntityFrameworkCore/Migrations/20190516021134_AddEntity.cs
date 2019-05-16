@@ -49,11 +49,18 @@ namespace Frame.EntityFrameworkCore.Migrations
                     Ip = table.Column<string>(nullable: true),
                     NickName = table.Column<string>(nullable: true),
                     SortDel = table.Column<int>(nullable: false),
-                    ContactInformation = table.Column<string>(nullable: true)
+                    ContactInformation = table.Column<string>(nullable: true),
+                    ParentId = table.Column<byte[]>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_LeaveMessages", x => x.ID);
+                    table.ForeignKey(
+                        name: "FK_LeaveMessages_LeaveMessages_ParentId",
+                        column: x => x.ParentId,
+                        principalTable: "LeaveMessages",
+                        principalColumn: "ID",
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -162,8 +169,9 @@ namespace Frame.EntityFrameworkCore.Migrations
                     DelUser = table.Column<byte[]>(nullable: true),
                     SortDel = table.Column<int>(nullable: false),
                     AcName = table.Column<string>(nullable: true),
+                    Introduce = table.Column<string>(nullable: true),
                     Like = table.Column<long>(nullable: false),
-                    ContentKey = table.Column<string>(nullable: true),
+                    Content = table.Column<string>(nullable: true),
                     ClassifyId = table.Column<byte[]>(nullable: true)
                 },
                 constraints: table =>
@@ -246,7 +254,8 @@ namespace Frame.EntityFrameworkCore.Migrations
                     SortDel = table.Column<int>(nullable: false),
                     ContactInformation = table.Column<string>(nullable: true),
                     NickName = table.Column<string>(nullable: true),
-                    ArticleId = table.Column<byte[]>(nullable: true)
+                    ArticleId = table.Column<byte[]>(nullable: true),
+                    ParentId = table.Column<byte[]>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -255,6 +264,12 @@ namespace Frame.EntityFrameworkCore.Migrations
                         name: "FK_ArticleComments_Articles_ArticleId",
                         column: x => x.ArticleId,
                         principalTable: "Articles",
+                        principalColumn: "ID",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_ArticleComments_ArticleComments_ParentId",
+                        column: x => x.ParentId,
+                        principalTable: "ArticleComments",
                         principalColumn: "ID",
                         onDelete: ReferentialAction.Restrict);
                 });
@@ -304,6 +319,11 @@ namespace Frame.EntityFrameworkCore.Migrations
                 column: "ArticleId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_ArticleComments_ParentId",
+                table: "ArticleComments",
+                column: "ParentId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_ArticleImages_ArticleId",
                 table: "ArticleImages",
                 column: "ArticleId");
@@ -317,6 +337,11 @@ namespace Frame.EntityFrameworkCore.Migrations
                 name: "IX_Classifies_AdminMenuId",
                 table: "Classifies",
                 column: "AdminMenuId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_LeaveMessages_ParentId",
+                table: "LeaveMessages",
+                column: "ParentId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Permission_AccountId",

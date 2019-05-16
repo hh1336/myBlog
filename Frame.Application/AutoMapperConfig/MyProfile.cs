@@ -4,6 +4,7 @@ using Frame.Application.Dtos.ArticleManager;
 using Frame.Application.Dtos.LabelManager;
 using Frame.Application.Dtos.MenuManager;
 using Frame.Core.Entitys;
+using System.Linq;
 
 namespace Frame.Application.AutoMapperConfig
 {
@@ -25,7 +26,10 @@ namespace Frame.Application.AutoMapperConfig
             CreateMap<UserInfo, UserInfoDto>().ReverseMap();
             CreateMap<AdminMenu, AdminMenuDto>().ReverseMap();
             CreateMap<Classify, ClassifyDto>().ReverseMap();
-            CreateMap<Article, ArticleDto>().ReverseMap();
+            CreateMap<Article, ArticleDto>().ReverseMap()
+                .ForMember(ent => ent.CreateTime, opt => opt.Ignore())
+                .ForMember(ent => ent.DelTime, opt => opt.Ignore());
+            CreateMap<Article, ArticleListOutPutDto>().ReverseMap().ForMember(ent => ent.Content,opt => opt.Ignore());
         }
     }
 }
