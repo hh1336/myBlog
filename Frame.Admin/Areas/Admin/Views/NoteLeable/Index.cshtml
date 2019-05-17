@@ -1,0 +1,214 @@
+﻿@{
+    ViewData["Title"] = "笔记标签管理";
+}
+
+<h3 id="title">笔记标签管理</h3>
+<table id="myTable" lay-filter="filter"></table>
+
+<!--工具栏模板：-->
+<script type="text/html" id="toolbar">
+
+    <form class="layui-form">
+        <div class="layui-form-item">
+            <div class="layui-input-inline">
+                <div class="layui-btn-container">
+                    <a class="layui-btn layui-btn-sm" onclick="AddOrEdit()">添加数据</a>
+                    <button class="layui-btn layui-btn-sm" id="reload">刷新</button>
+                </div>
+            </div>
+            <label class="layui-form-label">标题：</label>
+            <div class="layui-input-inline">
+                <input type="text" class="layui-input" name="LabelName" placeholder="查询标签名" autocomplete="off">
+            </div>
+            <button class="layui-btn layui-btn-sm" id="sreach">查找</button>
+        </div>
+    </form>
+</script>
+
+
+@section Scripts{
+    <script>
+        var _sortField = 'ID', _sortType = 'desc';
+        var form, table;
+        //加载数据
+        function load() {
+            layui.use(['table', 'form'], function () {
+                //将初始化好的表格赋值到全局
+                table = layui.table;
+                form = layui.form;
+                //对这个表格进行加载
+                table.render({
+                    elem: '#myTable',
+                    url: '/Admin/NoteLeable/GetAll', //数据接口
+                    toolbar: "#toolbar",//开启工具栏
+                    defaultToolbar: ['exports', '#toolbar'],//定义工具栏的工具位置
+                    page: true,//开启分页,可传入dom元素自定义分页样式
+                    loading: true,//加载时出现等待条
+                    contentType: "json",//接收内容为json类型
+                    id: 'Reload',//定义标识，用于刷新
+                    method: "GET",//请求方式为post
+                    title: "文章表",//标题
+                    limit: 10,//每页显示条数
+                    limits: [10, 20, 50],//一次显示多条
+                    autoSort: false,//false为服务器来进行排序
+                    initSort: {//初始排序状态
+                        field: 'ID',
+                        type: 'desc',
+                        labelName: $("input[name=LabelName]").val()
+                    },
+                    text: {
+                        none: '还没有数据，快去发布一点文章吧。'
+                    },
+                    cols: [[ //表头
+                        {
+                            field: 'ID',//数据名称
+                            title: 'ID',//显示名称
+                            //sort: true,//排序开启
+                            fixed: 'left',//固定在左侧
+                            unresize: true,//不可拖动的列宽
+                            align: "center",//内容居中
+                            templet: function (data) {//data里面存放着一整条数据
+                                return data.LAY_INDEX;//返回当前数据的索引
+                            }
+                        },
+                        {
+                            field: 'action',
+                            title: '操作',
+                            unresize: true,
+                            align: "center",
+                            templet: function (data) {
+                                var btn = "";
+                                var edit = "<a class='layui-btn layui-btn-xs layui-btn-primary'name='edit' data-id='" + data.ID + "'><i class='layui-icon'>&#xe642;</i></a> <span></span>";
+                                var del = "<a class='layui-btn layui-btn-xs layui-btn-primary' name='del' data-id='" + data.ID + "' ><i class='layui-icon'>&#xe640;</i></a>";
+                                btn = edit + del;
+                                return btn;
+                            }
+                        },
+                        {
+                            field: 'Name',
+                            title: '标签名',
+                            sort: true,
+                            align: "center"
+                        }
+                    ]],
+                    where: {//加载表格时需要传入的参数
+                        field: _sortField,
+                        order: _sortType,
+                        labelName: $("input[name=LabelName]").val()
+                    },
+                    response: {//定义后台返回json时的格式
+                        statusName: "code",//定义返回的状态码名称
+                        statusCode: 200,//定义成功时应返回的状态码
+                    },
+                    done: function (res, curr, count) {//表格加载完成后的回调函数
+                        form.render();
+                        //console.log(res);
+                        //console.log(curr);
+                        //console.log(count);
+                        //res为接口数据
+                        //curr为页码
+                        //count为条数
+                    }
+
+                });
+
+                //监听排序字段
+                table.on("sort(filter)", function (obj) {
+                    //排序发生改变时将排序字段赋值记录到全局
+                    _sortField = obj.field;
+                    _sortType = obj.type;
+
+                    //触发刷新事件，将当前初始化的表格传入
+                    reload(obj);
+                });
+
+            });
+
+        }
+
+        //刷新表格，需要接收一个初始化后的表格
+        function reload(obj) {
+            if (!obj) {
+                obj = {
+                    field: "ID",
+                    type: "desc"
+                };
+            }
+            //刷新事件,第一个参数为标识id
+            table.reload("Reload", {
+                initSort: obj,
+                where: {
+                    field: obj.field,
+                    order: obj.type,
+                    labelName: $("input[name=LabelName]").val()
+                }
+            });
+        }
+
+        $(document).on("click", "#reload,#sreach", function (e) {
+            e.preventDefault();
+            reload({
+                field: _sortField,
+                order: _sortType,
+            });
+        })
+
+        //创建或编辑
+        function AddOrEdit(id) {
+            $.post("/Admin/NoteLeable/AddOrEdit", { id: id }, function (result) {
+                frame.appModal({
+                    title: id ? "编辑标签" : "创建标签",
+                    content: result,
+                    height: "100%",
+                    width: "100%",
+                    yes: function (index) {
+                        var data = {};
+                        data.ID = $("#AddOrEditClassify input[name=LabelId]:hidden").val();
+                        data.Name = $("#AddOrEditClassify input[name=Name]").val();
+                        data.AdminMenuId = $("#AddOrEditClassify [name=AdminMenu]").val();
+                        $.post("/Admin/NoteLeable/SaveClassify", data, function (result) {
+                            frame.alert({
+                                msg: result.msg,
+                                icon: result.code ? 1 : 2
+                            })
+                            layer.close(index);
+                            load();
+                        });
+
+                    }
+                });
+            })
+        }
+
+        $(document).on("click", "[name=edit]", function (e) {
+            e.preventDefault();
+            var id = $(this).attr("data-id");
+            AddOrEdit(id);
+        });
+
+        $(document).on("click", "[name=del]", function (e) {
+            e.preventDefault();
+            var id = $(this).attr("data-id");
+            frame.alert({
+                title: "删除",
+                msg: "是否删除数据？",
+                yes: function (index) {
+                    $.post("/Admin/NoteLeable/Delete", { id: id }, function (result) {
+                        frame.alert({
+                            msg: result.msg,
+                            icon: result.code ? 1 : 2
+                        });
+                        layer.close(index);
+                        reload();
+                    })
+                }
+            })
+
+        })
+
+        $(function () {
+            load();
+
+        })
+    </script>
+}

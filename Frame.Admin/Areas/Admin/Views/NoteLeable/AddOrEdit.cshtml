@@ -1,0 +1,13 @@
+﻿@using Frame.Core.Entitys
+@model Classify
+<form class="layui-form" id="AddOrEditClassify">
+    <input type="hidden" name="LabelId" value="@Model.ID" />
+    <div class="layui-form-item">
+        <label class="layui-form-label">请输入标签名：</label>
+        <div class="layui-input-block">
+            <input type="text" name="Name" required lay-verify="required" autocomplete="off" class="layui-input" value="@Model.Name">
+        </div>
+    </div>
+
+    <input type="hidden" name="AdminMenu" value="eb08f902-bab2-4d6c-e64f-08d6d83d314d" />
+</form>
