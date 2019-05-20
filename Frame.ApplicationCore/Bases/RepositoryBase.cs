@@ -31,7 +31,7 @@ namespace Frame.ApplicationCore.Bases
         public abstract Task<TEntity> FirstOrDefaultAsync(Expression<Func<TEntity, bool>> predicate);
         public abstract TEntity Get(TPrimaryKey id);
         public abstract IQueryable<TEntity> GetAll();
-        public abstract IQueryable<TEntity> GetAllIncluding(params Expression<Func<TEntity, object>>[] propertySelectors);
+        public abstract IQueryable<TEntity> GetAllIncluding(Expression<Func<TEntity, object>> propertySelectors);
         public virtual List<TEntity> GetAllList() {
             return GetAll().ToList();
         }

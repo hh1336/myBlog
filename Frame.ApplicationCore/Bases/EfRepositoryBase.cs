@@ -223,9 +223,9 @@ namespace Frame.ApplicationCore.Bases
             return Table;
         }
 
-        public override IQueryable<TEntity> GetAllIncluding(params Expression<Func<TEntity, object>>[] propertySelectors)
+        public override IQueryable<TEntity> GetAllIncluding(Expression<Func<TEntity, object>> propertySelectors)
         {
-            throw new NotImplementedException();
+            return Table.Include(propertySelectors);
         }
 
         public override int Commit()

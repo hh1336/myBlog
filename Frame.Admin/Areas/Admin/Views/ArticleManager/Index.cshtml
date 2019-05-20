@@ -115,14 +115,14 @@
                         sort: true,
                         align: "center",
                         templet: function (data) {
-                            return data.Classify.Name;
+                            return data.Classify ? data.Classify.Name : "";
                         }
                     }
                 ]],
                 where: {//加载表格时需要传入的参数
                     field: _sortField,
                     order: _sortType,
-                    AcName:$("input[name=AcName]").val()
+                    AcName: $("input[name=AcName]").val()
                 },
                 response: {//定义后台返回json时的格式
                     statusName: "code",//定义返回的状态码名称
@@ -164,7 +164,7 @@
                 where: {
                     field: obj.field,
                     order: obj.type,
-                    AcName:$("input[name=AcName]").val()
+                    AcName: $("input[name=AcName]").val()
                 }
             });
         }

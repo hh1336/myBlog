@@ -42,13 +42,13 @@ namespace Frame.Application.Services
 
         public async Task<IPageList<Article>> GetAllToPageList(ArticleSreachDto data)
         {
-            var result = _articleRepository.Where(s => s.SortDel == 0);
+            var result = _articleRepository.GetAllIncluding(s => s.Classify).Where(s => s.SortDel == 0);
             if (!string.IsNullOrEmpty(data.AcName))
             {
                 result = result.Where(s => s.AcName.Contains(data.AcName));
             }
 
-            return await result.Include(s => s.Classify).Sort(data.field, data.order).ToPageList(data.limit.Value, data.page.Value);
+            return await result.Sort(data.field, data.order).ToPageList(data.limit.Value, data.page.Value);
         }
 
         public async Task<ArticleDto> GetArticleById(Guid id)

@@ -17,7 +17,7 @@ namespace Frame.ApplicationCore.Bases
 
         IQueryable<TEntity> GetAll();
 
-        IQueryable<TEntity> GetAllIncluding(params Expression<Func<TEntity, object>>[] propertySelectors);
+        IQueryable<TEntity> GetAllIncluding(Expression<Func<TEntity, object>> propertySelectors);
 
         List<TEntity> GetAllList();
 
