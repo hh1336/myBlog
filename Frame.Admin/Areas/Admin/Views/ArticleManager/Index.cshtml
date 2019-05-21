@@ -193,7 +193,7 @@
                         data.ClassifyId = form.find("[name=ClassifyId]").val();
                         data.Introduce = form.find("textarea[name=Introduce]").val();
                         data.Content = form.find("#Content>textarea:first").val();
-                        data.ImgUrl = form.find("#imgurl").attr("src");
+                        data.ImgUrl = form.find("input[name=imgurl]:hidden").val();
                         $.post("/Admin/ArticleManager/Save", data).done(function (result) {
                             frame.alert({
                                 msg: result.msg,

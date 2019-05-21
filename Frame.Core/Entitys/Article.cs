@@ -54,5 +54,10 @@ namespace Frame.Core.Entitys
         /// </summary>
         public ICollection<ArticleComment> ArticleComments { set; get; }
 
+        /// <summary>
+        /// 点赞实体导航属性
+        /// </summary>
+        public ICollection<LikeArticles> LikeArticles { set; get; }
+
     }
 }

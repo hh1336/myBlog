@@ -26,6 +26,8 @@ namespace Frame.Application.AutoMapperConfig
             CreateMap<UserInfo, UserInfoDto>().ReverseMap();
             CreateMap<AdminMenu, AdminMenuDto>().ReverseMap();
             CreateMap<Classify, ClassifyDto>().ReverseMap();
+            CreateMap<AccountInputDto, Account>().ReverseMap();
+            CreateMap<IQueryable<ArticleDto>, IQueryable<Article>>().ReverseMap();
             CreateMap<Article, ArticleDto>().ReverseMap()
                 .ForMember(ent => ent.CreateTime, opt => opt.Ignore())
                 .ForMember(ent => ent.DelTime, opt => opt.Ignore());

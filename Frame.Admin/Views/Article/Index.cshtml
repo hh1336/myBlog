@@ -1,6 +1,8 @@
 ﻿@{
     ViewData["Title"] = "文章内容";
 }
+@using Frame.Application.Dtos.ArticleManager
+@model ArticleDto
 
 @section Styles{
     <style>
@@ -71,64 +73,30 @@
 
 <!--文章内容-->
 <div class="col-lg-12 col-md-12 col-sm-12">
-    <h3>文章标题</h3>
+    <h3>@Model.AcName</h3>
     <div class="col-lg-12 col-md-12 col-sm-12 acstate">
         <div class="col-lg-8 col-md-8 col-sm-8">
-            <span class="col-lg-3 col-md-3 col-sm-3">2019-3-3</span>
+            @{
+                var createTime = Model.CreateTime.HasValue ? Model.CreateTime.Value.ToString("yyyy-MM-dd") : "";
+            }
+            <span class="col-lg-3 col-md-3 col-sm-3">
+                @createTime
+            </span>
             <span class="col-lg-2 col-md-2 col-sm-2"><i class="glyphicon glyphicon-eye-open"></i> 123</span>
-            <span class="col-lg-2 col-md-2 col-sm-2"><i class="glyphicon glyphicon-heart"></i> 123</span>
+            <span class="col-lg-2 col-md-2 col-sm-2"><i class="glyphicon glyphicon-heart"></i> @Model.Like</span>
             <span class="col-lg-2 col-md-2 col-sm-2"><i class="glyphicon glyphicon-comment"></i> 123</span>
         </div>
     </div>
     <div class="col-lg-12 col-md-12 col-sm-12 accontent">
         <div id="demo">
-            <textarea>
-
-下面是`C#`语法
-``` C#
-public static void main(){
-    Console.WriteLine("输出makrdown语法");
-}
-```
-> 一个内容
-
-
-- 一个点
- - 两个点
-   - 三个点
-
-
-![一个图片]("www.baidu.com") 
-
-[一个链接](/www.baidu.com)
-
-> 内容内容
-> 内容内容
-> 内容内容
-> 内容内容
-> 内容内容 `p`
-> 内容内容
-> 内容内容
-> 内容内容
-> 内容内容
-> 内容内容
-> 内容内容
-> 内容内容
-> 内容内容
-> 内容内容
-> 内容内容
-> 内容内容
-> 内容内容
-> 内容内容
-
-</textarea>
+            <textarea>@Model.Content</textarea>
         </div>
         <br />
         <p style="text-align:right;">@@所有权归本站所有</p>
         <div class="like">
             <button type="button" class="btn btn-danger">点个赞</button>
             <span>
-                <button type="button" class="btn btn-info" style="color:#46b8da;"><i class="glyphicon glyphicon-share-alt" ></i> 分享</button>
+                <button type="button" class="btn btn-info" style="color:#46b8da;"><i class="glyphicon glyphicon-share-alt"></i> 分享</button>
             </span>
         </div>
 
@@ -141,6 +109,7 @@ public static void main(){
     <h4>发表评论</h4>
     <div class="col-lg-12 col-md-12 col-sm-12 releasediscuss">
         <form>
+            <input type="hidden" name="ArticleId" value="@Model.ID" />
             <div class="form-group">
                 <label>联系方式:</label>
                 <input type="text" class="form-control" id="contactinformation" placeholder="联系方式">
@@ -150,11 +119,12 @@ public static void main(){
                 <input type="text" class="form-control" id="nickname">
             </div>
             <div class="form-group">
-                <textarea rows="3" placeholder="说点啥吧" class="form-control"></textarea>
+                <textarea rows="3" placeholder="说点啥吧" class="form-control" name="Content"></textarea>
             </div>
             <input type="submit" value="发表" class="btn btn-success" style="float:right;" id="release" />
         </form>
     </div>
+
     <br />
     <h4>共 2 条评论</h4>
     <hr style="border-top: 1px solid #8d8d8d;" />
@@ -243,6 +213,19 @@ public static void main(){
             $(this).text(" 已赞");
             $(this).prepend(heart);
 
+        })
+
+        //发表评论
+        $(document).on("click", "#release", function (e) {
+            e.preventDefault();
+            var data = {};
+            data.ContactInformation = $("#contactinformation").val();
+            data.NickName = $("#nickname").val();
+            data.Content = $("[name=Content]").val();
+            data.ArticleId = $("input[name=ArticleId]:hidden").val();
+            $.post("/Article/AddDiscuss", { data: data }, function (result) {
+                console.log(result);
+            })
         })
 
         $(function () {

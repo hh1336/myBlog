@@ -1,13 +1,21 @@
-﻿@{ 
+﻿@{
     ViewData["Title"] = "个人中心";
 }
 @using Frame.Core.Entitys
 @model UserInfo
+@section Styles{
+    <style>
+        #Photo {
+            width: 9rem;
+        }
+    </style>
+
+}
 <form class="layui-form" action="">
     <div class="layui-form-item">
         <label class="layui-form-label">头像:</label>
         <div class="layui-input-block">
-            <img src="@Model.Photo" alt="" id="Photo" class="layui-circle" />
+            <img src="@Model.Photo" id="Photo" class="layui-circle" />
             <button type="button" class="layui-btn layui-btn-danger" id="upphoto"><i class="layui-icon"></i>上传头像</button>
         </div>
     </div>
@@ -28,19 +36,19 @@
     <div class="layui-form-item">
         <label class="layui-form-label">年龄：</label>
         <div class="layui-input-block">
-             <input type="text" name="Age" placeholder="年龄" autocomplete="off" class="layui-input" value="@Model.Age">
+            <input type="text" name="Age" placeholder="年龄" autocomplete="off" class="layui-input" value="@Model.Age">
         </div>
     </div>
     <div class="layui-form-item">
         <label class="layui-form-label">邮箱：</label>
         <div class="layui-input-block">
-             <input type="email" name="Email" placeholder="邮箱" autocomplete="off" class="layui-input" value="@Model.Email">
+            <input type="email" name="Email" placeholder="邮箱" autocomplete="off" class="layui-input" value="@Model.Email">
         </div>
     </div>
     <div class="layui-form-item">
         <label class="layui-form-label">手机：</label>
         <div class="layui-input-block">
-             <input type="text" name="Phone" placeholder="手机" autocomplete="off" class="layui-input" value="@Model.Phone">
+            <input type="text" name="Phone" placeholder="手机" autocomplete="off" class="layui-input" value="@Model.Phone">
         </div>
     </div>
 
@@ -57,26 +65,120 @@
         </div>
     </div>
     <div class="layui-form-item">
-        <div class="layui-input-block">
-            <button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
+        <div class="layui-input-inline">
+            <button class="layui-btn" id="sub">立即提交</button>
+        </div>
+        <div class="layui-input-inline">
+            <button class="layui-btn" id="repassword">修改密码</button>
         </div>
     </div>
 </form>
 
 @section Scripts{
     <script>
+
+        //修改密码
+        $(document).on("click", "#repassword", function (e) {
+            e.preventDefault();
+            frame.alert({
+                title: "密码验证",
+                msg: `<input type="password" name="password" placeholder="请输入密码" autocomplete="off" class="layui-input">`,
+                yes: function (index) {
+                    var pass = $("input[name=password]").val();
+                    var data = {};
+                    data.AccountNumber = "@User.Identity.Name";
+                    data.PassWord = pass;
+                    $.post("/Admin/UserInfoSettings/UserVilidata", { data: data }).done(function (result) {
+                        frame.alert({
+                            msg: result.msg,
+                            icon: result.code ? 1 : 2
+                        });
+                        layer.close(index);
+                        if (result.code) {
+                            frame.alert({
+                                title: "设置密码",
+                                msg: `<input type="password" name="newpassword" placeholder="请输入新密码" autocomplete="off" class="layui-input">`,
+                                yes: function (ind) {
+                                    var pass = $("input[name=newpassword]").val();
+                                    var data = {};
+                                    data.AccountNumber = "@User.Identity.Name";
+                                    data.PassWord = pass;
+                                    $.post("/Admin/UserInfoSettings/SaveAccountPWD", { data: data }).done(function (result) {
+                                        frame.alert({
+                                            msg: result.msg,
+                                            icon:result.code?1:2
+                                        })
+                                        layer.close(ind);
+                                    })
+                                }
+                            })
+                        }
+                        
+                    })
+                }
+            })
+        })
+
+        //保存用户信息
+        $(document).on("click", "#sub", function (e) {
+            e.preventDefault();
+            var data = {};
+            data.ID = "@Model.ID";
+            data.Photo = $("#Photo").attr("src");
+            data.UserName = $("[name=UserName]").val();
+            data.Sex = $("[name=Sex]:checked").val();
+            data.Age = $("input[name=Age]").val();
+            data.Email = $("input[name=Email]").val();
+            data.Phone = $("input[name=Phone]").val();
+            data.Address = $("input[name=Address]").val();
+            data.Introduce = $("input[name=Introduce]").val();
+            $.post("/Admin/UserInfoSettings/SaveUserInfo", { data: data }).done(function (result) {
+                frame.alert({
+                    msg: result.msg,
+                    icon: result.code ? 1 : 2
+                });
+            })
+        })
+
         $(function () {
-            layui.use('form', function () {
-                var form = layui.form;
-
-            });
-
             var sexState = $("#SexState:hidden").val();
             $("[name=Sex]").each(function (index, elm) {
-                if ($(elm).val() == sexState) {
+                if ($(elm).attr("title") == sexState) {
                     $(elm).attr("checked", "checked");
                 }
             })
+            layui.use(['form', 'upload'], function () {
+                var form = layui.form;
+                var upload = layui.upload;
+                form.render();
+                //普通图片上传
+                var uploadInst = upload.render({
+                    elem: '#upphoto'
+                    , url: '/Admin/UserInfoSettings/upload/'
+                    , before: function (obj) {
+                        //预读本地文件示例，不支持ie8
+                        //obj.preview(function (index, file, result) {
+                        //    $('#demo1').attr('src', result); //图片链接（base64）
+                        //});
+                    }
+                    , done: function (res) {
+                        //如果上传失败
+                        if (res.code > 0) {
+                            return layer.msg('上传失败', { icon: 2 });
+                        }
+                        //上传成功
+                        $("#Photo").attr("src", res.url);
+                    }
+                    , error: function () {
+
+                    }
+                });
+
+            });
+
+
+
+
         })
 
     </script>

@@ -27,8 +27,7 @@ namespace Frame.EntityFrameworkCore
         public virtual DbSet<ArticleComment> ArticleComments { set; get; }
         public virtual DbSet<Classify> Classifies { set; get; }
         public virtual DbSet<LeaveMessage> LeaveMessages { set; get; }
-
-
+        public virtual DbSet<LikeArticles> LikeArticles { set; get; }
 
         #endregion
 

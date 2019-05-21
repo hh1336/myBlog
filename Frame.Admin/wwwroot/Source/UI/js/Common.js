@@ -437,7 +437,7 @@ $(function () {
             var v = this.tailLine.geometry.vertices[i];
             v.y = Math.sin(this.tailAngle - (Math.PI / 3) * i) * this.tailAmplitude * i * i;
             v.x = Math.cos(this.tailAngle / 2 + (Math.PI / 10) * i) * this.tailAmplitude * i * i;
-            if (i == this.tailLine.geometry.vertices.length - 1) {
+            if (i === this.tailLine.geometry.vertices.length - 1) {
                 this.tailPike.position.x = v.x;
                 this.tailPike.position.y = v.y;
                 this.tailPike.rotation.x = (v.y / 30);
@@ -1070,6 +1070,35 @@ $(function () {
     }
 });
 
+//加载数据
+$(function () {
+    GetUserInfo();
+});
+
+//加载用户信息
+function GetUserInfo() {
+    $.post("/Home/GetUserInfo").done(function (result) {
+        $("#portrait > img").attr("src", result.photo);
+        $(".introduce").text(result.introduce);
+    });
+}
+
+class Frame {
+    //转换时间
+    static ToDateTime(time) {
+        var d = new Date(time);
+        var year = d.getFullYear();
+        var month = d.getMonth();
+        month++;
+        var day = d.getDate();
+        month = month < 10 ? "0" + month : month;
+        day = day < 10 ? "0" + day : day;
+        var h = d.getHours();
+        var mm = d.getMinutes();
+        var s = d.getSeconds();
+        return year + "-" + month + "-" + day;
+    }
+}
 
 
 /* 飞船 */

@@ -59,7 +59,7 @@ namespace Frame.ApplicationCore.Common
             return new IPageList<TSource>()
             {
                 data = data,
-                total = source.Count() / limit < 1 ? 1 : source.Count() / limit,
+                total = source.Count() / limit < 1 ? 1 : Convert.ToInt32(Math.Ceiling(source.Count() / (limit + 0.0))),
                 code = data.Count() > 0 ? 200 : -1,
                 count = source.Count(),
                 message = data.Count() > 0 ? "加载成功" : "没有数据"

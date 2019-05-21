@@ -28,4 +28,13 @@ function LoadMenu() {
 
 $(function () {
     LoadMenu();
+    GetUserInfo();
 });
+
+//加载用户信息
+function GetUserInfo() {
+    $.post("/Home/GetUserInfo").done(function (result) {
+        $(".userinfo > a > img").attr("src", result.photo);
+        $(".userinfo > a > span").text(result.userName);
+    });
+}

@@ -22,6 +22,7 @@
 
     <div class="layui-upload">
         <button type="button" class="layui-btn" id="imgfile">上传图片</button>
+        <input type="hidden" name="imgurl" value="@Model.ImgUrl" />
         <div class="layui-upload-list">
             <img class="layui-upload-img" id="imgurl" src="@Model.ImgUrl">
         </div>
@@ -74,6 +75,7 @@
                     return layer.msg('上传失败');
                 }
                 //上传成功
+                $("input[name=imgurl]:hidden").val(res.url);
             }
             , error: function () {
                 //演示失败状态，并实现重传

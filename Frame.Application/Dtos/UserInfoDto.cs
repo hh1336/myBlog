@@ -17,19 +17,16 @@ namespace Frame.Application.Dtos
         /// <summary>
         /// 用户姓名
         /// </summary>
-        [StringLength(20)]
         public string UserName { set; get; }
 
         /// <summary>
         /// 用户年龄
         /// </summary>
-        [MaxLength(+2, ErrorMessage = "年龄不能超过100")]
         public int? Age { set; get; }
 
         /// <summary>
         /// 是否软删除
         /// </summary>
-        [DefaultValue(0)]
         public int SortDel { set; get; }
 
         /// <summary>
@@ -50,7 +47,6 @@ namespace Frame.Application.Dtos
         /// <summary>
         /// 手机号
         /// </summary>
-        [Phone]
         public string Phone { set; get; }
 
         /// <summary>
@@ -62,5 +58,10 @@ namespace Frame.Application.Dtos
         /// 用户账户
         /// </summary>
         public List<Account> Accounts { set; get; }
+
+        /// <summary>
+        /// 个人简介
+        /// </summary>
+        public string Introduce { set; get; }
     }
 }
