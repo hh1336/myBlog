@@ -13,6 +13,9 @@ namespace Frame.Core.Entitys
     {
         public ArticleComment()
         {
+            base.ID = Guid.NewGuid();
+            this.SortDel = YesOrNoEnum.否;
+            this.IsMe = YesOrNoEnum.否;
             this.ChildEntitis = new HashSet<ArticleComment>(); //自关联
         }
 
@@ -72,5 +75,10 @@ namespace Frame.Core.Entitys
         /// 父级评论id
         /// </summary>
         public Guid? ParentId { set; get; }
+
+        /// <summary>
+        /// 是否是我的回复
+        /// </summary>
+        public YesOrNoEnum IsMe { set; get; }
     }
 }

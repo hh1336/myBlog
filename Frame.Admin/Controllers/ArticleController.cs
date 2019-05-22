@@ -1,6 +1,7 @@
 ﻿using Frame.Application.Dtos.ArticleManager;
 using Frame.Application.Dtos.Discuss;
 using Frame.Application.Interfaces;
+using Frame.Core.Entitys;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -13,7 +14,9 @@ namespace Frame.Admin.Controllers
     {
         private readonly IArticleService _service;
 
-        public ArticleController(IArticleService service)
+        public ArticleController(
+            IArticleService service
+            )
         {
             _service = service;
         }
@@ -42,6 +45,25 @@ namespace Frame.Admin.Controllers
             bool result = await _service.AddDiscuss(data);
 
             return Json(new { code = result, msg = result ? "发表成功" : "发表失败" });
+        }
+
+        /// <summary>
+        /// 加载评论
+        /// </summary>
+        /// <returns></returns>
+        public async Task<IActionResult> LoadDiscuss(Guid? id)
+        {
+            List<ArticleComment> result = await _service.LoadDiscuss(id);
+            return Json(result,new Newtonsoft.Json.JsonSerializerSettings(){
+                ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
+            });
+        }
+
+
+        public async Task<IActionResult> Test()
+        {
+            await _service.Test();
+            return Ok();
         }
     }
 }

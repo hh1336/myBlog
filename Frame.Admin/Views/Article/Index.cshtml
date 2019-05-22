@@ -126,7 +126,7 @@
     </div>
 
     <br />
-    <h4>共 2 条评论</h4>
+    <h4>共 <span id="DiscussNumber"></span> 条评论</h4>
     <hr style="border-top: 1px solid #8d8d8d;" />
     <div class="col-lg-12 col-md-12 col-sm-12">
         <ul>
@@ -144,51 +144,15 @@
                             </p>
                         </div>
                     </div>
-                </div>
-            </li>
-            <li>
-                <div class="row">
                     <div class="col-lg-12 col-md-12 col-sm-12">
                         <div class="col-lg-1 col-md-1 col-sm-1 photo">
                             <img src="~/Source/UI/images/touxiang.jpg" class="img-circle" />
                         </div>
                         <div class="col-lg-4 col-md-4 col-sm-4 userinfo">
-                            <div class="col-lg-12 col-md-12 col-sm-12">张三</div>
-                            <div class="col-lg-12 col-md-12 col-sm-12"><span>5楼 </span> 2019-3-3</div>
+                            <div class="col-lg-12 col-md-12 col-sm-12"> 作者 回复 张三</div>
+                            <div class="col-lg-12 col-md-12 col-sm-12">2019-3-3</div>
                             <p class="discusscontent">
-                                评论了
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class="row">
-                    <div class="col-lg-12 col-md-12 col-sm-12">
-                        <div class="col-lg-1 col-md-1 col-sm-1 photo">
-                            <img src="~/Source/UI/images/touxiang.jpg" class="img-circle" />
-                        </div>
-                        <div class="col-lg-4 col-md-4 col-sm-4 userinfo">
-                            <div class="col-lg-12 col-md-12 col-sm-12">张三</div>
-                            <div class="col-lg-12 col-md-12 col-sm-12"><span>5楼 </span> 2019-3-3</div>
-                            <p class="discusscontent">
-                                评论了
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class="row">
-                    <div class="col-lg-12 col-md-12 col-sm-12">
-                        <div class="col-lg-1 col-md-1 col-sm-1 photo">
-                            <img src="~/Source/UI/images/touxiang.jpg" class="img-circle" />
-                        </div>
-                        <div class="col-lg-4 col-md-4 col-sm-4 userinfo">
-                            <div class="col-lg-12 col-md-12 col-sm-12">张三</div>
-                            <div class="col-lg-12 col-md-12 col-sm-12"><span>5楼 </span> 2019-3-3</div>
-                            <p class="discusscontent">
-                                评论了
+                                回复内容
                             </p>
                         </div>
                     </div>
@@ -224,11 +188,21 @@
             data.Content = $("[name=Content]").val();
             data.ArticleId = $("input[name=ArticleId]:hidden").val();
             $.post("/Article/AddDiscuss", { data: data }, function (result) {
-                console.log(result);
+                alert(result.msg);
+                window.location.href = window.location.href;
             })
         })
 
+        //加载评论
+        function LoadDiscuss() {
+            $.post("/Article/LoadDiscuss", { id:"@Model.ID" }).done(function (result) {
+                console.log(result);
+            })
+        }
+
+
         $(function () {
+            LoadDiscuss();
             editormd.markdownToHTML("demo", {
                 htmlDecode: "style,script,iframe",  // you can filter tags decode
                 emoji: true,

@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Frame.Application.Dtos;
 using Frame.Application.Dtos.ArticleManager;
+using Frame.Application.Dtos.Discuss;
 using Frame.Application.Dtos.LabelManager;
 using Frame.Application.Dtos.MenuManager;
 using Frame.Core.Entitys;
@@ -27,7 +28,7 @@ namespace Frame.Application.AutoMapperConfig
             CreateMap<AdminMenu, AdminMenuDto>().ReverseMap();
             CreateMap<Classify, ClassifyDto>().ReverseMap();
             CreateMap<AccountInputDto, Account>().ReverseMap();
-            CreateMap<IQueryable<ArticleDto>, IQueryable<Article>>().ReverseMap();
+            CreateMap<ArticleComment, ArticleCommentDto>().ReverseMap();
             CreateMap<Article, ArticleDto>().ReverseMap()
                 .ForMember(ent => ent.CreateTime, opt => opt.Ignore())
                 .ForMember(ent => ent.DelTime, opt => opt.Ignore());

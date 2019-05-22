@@ -4,6 +4,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Frame.Application.Dtos.ArticleManager;
 using Frame.Application.Dtos.Discuss;
+using Frame.Core.Entitys;
 
 namespace Frame.Application.Interfaces
 {
@@ -25,5 +26,15 @@ namespace Frame.Application.Interfaces
         /// <param name="data"></param>
         /// <returns></returns>
         Task<bool> AddDiscuss(ArticleCommentDto data);
+
+        /// <summary>
+        /// 加载所有评论
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        Task<List<ArticleComment>> LoadDiscuss(Guid? id);
+
+
+        Task Test();
     }
 }
