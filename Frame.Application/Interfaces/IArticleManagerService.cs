@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using Frame.Application.Dtos.ArticleManager;
+using Frame.Application.Dtos.Discuss;
 using Frame.Application.Dtos.LabelManager;
 using Frame.ApplicationCore.Common;
 using Frame.Core.Entitys;
@@ -48,5 +49,26 @@ namespace Frame.Application.Interfaces
         /// <param name="id"></param>
         /// <returns></returns>
         Task<bool> SortDel(Guid? id);
+
+        /// <summary>
+        /// 查看文章的所有评论
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        Task<List<ArticleComment>> SelectDiscuss(Guid? id);
+
+        /// <summary>
+        /// 回复评论
+        /// </summary>
+        /// <param name="dto"></param>
+        /// <returns></returns>
+        Task<bool> MeAddDiscuss(ArticleCommentDto dto);
+
+        /// <summary>
+        /// 删除评论
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        Task<bool> SortDiscuss(Guid value);
     }
 }

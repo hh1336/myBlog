@@ -48,7 +48,7 @@ namespace Frame.Application.Services
         public async Task<List<ArticleComment>> LoadDiscuss(Guid? id)
         {
             if (!id.HasValue) return new List<ArticleComment>();
-            var data = _commentRepository.Where(s => s.ArticleId == id.Value && s.ParentId == null).Include(s =>s.ChildEntitis).ThenInclude(a => a.ChildEntitis);
+            var data = _commentRepository.Where(s => s.ArticleId == id.Value && s.ParentId == null).Include(s =>s.ChildEntitis).OrderByDescending(a => a.CommentTime);
             return await data.ToListAsync();
         }
 

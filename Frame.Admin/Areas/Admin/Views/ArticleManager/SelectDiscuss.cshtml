@@ -1,0 +1,145 @@
+﻿@using Frame.Core.Entitys
+@model List<ArticleComment>
+<fieldset class="layui-elem-field layui-field-title">
+    <legend>所有评论</legend>
+</fieldset>
+
+<style>
+    form label {
+        width: 15rem !important;
+    }
+</style>
+
+<form class="layui-form layui-form-pane">
+    <div class="layui-form-item">
+        <div class="layui-input-inline">
+            <input type="text" name="MeDiscuss" value="" autocomplete="off" class="layui-input" />
+        </div>
+        <input type="button" value="添加评论" class="layui-btn" id="MeAddDiscuss">
+    </div>
+
+    @{
+        foreach (var item in Model)
+        {
+            <div class="layui-form-item">
+                <label class="layui-form-label">
+                    @{
+                        var name = item.IsMe == Frame.Core.Enums.YesOrNoEnum.是 ? "我" : item.NickName;
+                        <span>@name</span>
+                    }
+                </label>
+                <div class="layui-input-inline">
+                    <input type="text" class="layui-input layui-disabled" value="@item.CommentTime.ToString("yyyy-MM-dd") 说: @item.Content">
+                </div>
+                <div class="layui-form-mid layui-word-aux">联系方式： @item.ContactInformation</div>
+                <div class="layui-form-mid layui-word-aux">
+                    <a href="#" data-id="@item.ID" class="del">删除</a>
+                    <a href="#" data-id="@item.ID" class="reDiscuss">回复</a>
+                </div>
+            </div>
+
+            foreach (var item1 in item.ChildEntitis)
+            {
+                <div class="layui-form-item">
+                    <label class="layui-form-label">
+                        @{
+                            var name1 = item1.IsMe == Frame.Core.Enums.YesOrNoEnum.是 ? "我" : item1.NickName;
+                            <span>@name1 回复 ： @item1.ParentEntity.NickName</span>
+                        }
+                    </label>
+                    <div class="layui-input-inline">
+                        <input type="text" class="layui-input layui-disabled" value="@item1.CommentTime.ToString("yyyy-MM-dd") 说: @item1.Content">
+                    </div>
+                    <div class="layui-form-mid layui-word-aux">联系方式： @item1.ContactInformation</div>
+                    <div class="layui-form-mid layui-word-aux">
+                        <a href="#" data-id="@item1.ID" class="del">删除</a>
+                        <a href="#" data-id="@item1.ID" class="reDiscuss">回复</a>
+                    </div>
+                </div>
+            }
+
+            <hr class="layui-bg-blue">
+        }
+    }
+
+
+</form>
+
+
+
+<script>
+
+    //回复评论
+    $(document).on("click", ".reDiscuss", function (e) {
+        e.preventDefault();
+        var data = {};
+        data.ParentId = $(this).attr("data-id");
+        data.IsMe = "是";
+        data.ArticleId = "@ViewBag.AID";
+        frame.alert({
+            title: "回复内容",
+            msg: `<form class="layui-form layui-form-pane">
+    <div class="layui-input-inline">
+        <input type="text" class="layui-input" name="Content" value="">
+    </div>
+</form>`,
+            yes: function (altindex) {
+                data.Content = $("[name=Content]").val();
+                $.post("/Admin/ArticleManager/MeAddDiscuss", { data: data }).done(function (result) {
+                    frame.alert({
+                        msg: result.msg,
+                        icon: result.code ? 1 : 2
+                    });
+                    if (result.code) {
+                        layer.close(altindex);
+                    }
+                })
+            }
+        })
+    })
+
+    //发表评论
+    $(document).on("click", "#MeAddDiscuss", function (e) {
+        e.preventDefault();
+        var data = {};
+        data.Content = $("[name=MeDiscuss]").val();
+        data.ArticleId = "@ViewBag.AID";
+        data.IsMe = "是";
+        $.post("/Admin/ArticleManager/MeAddDiscuss", { data: data }).done(function (result) {
+            frame.alert({
+                msg: result.msg,
+                icon: result.code ? 1 : 2
+            });
+            if (result.code) {
+                $("[name=MeDiscuss]").val("")
+            }
+        })
+    })
+
+    //删除这个评论
+    $(document).on("click", ".del", function (e) {
+        e.preventDefault();
+        var dataid = $(this).attr("data-id");
+        frame.alert({
+            title: "删除",
+            msg: "确定删除？",
+            yes: function (index) {
+                $.post("/Admin/ArticleManager/SortDiscuss", { id: dataid }).done(function (result) {
+                    layer.close(index);
+                    frame.alert({
+                        msg: result.msg,
+                        icon: result.code ? 1 : 2
+                    })
+                })
+            }
+        })
+        
+    })
+
+    $(function () {
+        layui.use(['form'], function () {
+            var form = layui.form;
+            form.render();
+        })
+    })
+</script>

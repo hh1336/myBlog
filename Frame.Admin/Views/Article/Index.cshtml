@@ -68,6 +68,22 @@
         .discusscontent {
             color: black;
         }
+
+        .userDiscuss .img-circle {
+            width: 3rem;
+        }
+
+        .userDiscuss .photo {
+            border-radius: 50%;
+        }
+
+        .parentDiscuss {
+            padding-left: 1rem;
+        }
+
+            .parentDiscuss:hover {
+                text-decoration: none;
+            }
     </style>
 }
 
@@ -110,6 +126,7 @@
     <div class="col-lg-12 col-md-12 col-sm-12 releasediscuss">
         <form>
             <input type="hidden" name="ArticleId" value="@Model.ID" />
+            <input type="hidden" name="ParentId" value="" />
             <div class="form-group">
                 <label>联系方式:</label>
                 <input type="text" class="form-control" id="contactinformation" placeholder="联系方式">
@@ -129,35 +146,35 @@
     <h4>共 <span id="DiscussNumber"></span> 条评论</h4>
     <hr style="border-top: 1px solid #8d8d8d;" />
     <div class="col-lg-12 col-md-12 col-sm-12">
-        <ul>
-            <li>
-                <div class="row">
-                    <div class="col-lg-12 col-md-12 col-sm-12">
-                        <div class="col-lg-1 col-md-1 col-sm-1 photo">
-                            <img src="~/Source/UI/images/touxiang.jpg" class="img-circle" />
+        <ul class="userDiscuss">
+            @*<li>
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                            <div class="col-lg-1 col-md-1 col-sm-1 photo">
+                                <img src="~/Source/UI/images/touxiang.jpg" class="img-circle" />
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 userinfo">
+                                <div class="col-lg-12 col-md-12 col-sm-12">张三</div>
+                                <div class="col-lg-12 col-md-12 col-sm-12"><span>5楼 </span> 2019-3-3</div>
+                                <p class="discusscontent">
+                                    评论了
+                                </p>
+                            </div>
                         </div>
-                        <div class="col-lg-4 col-md-4 col-sm-4 userinfo">
-                            <div class="col-lg-12 col-md-12 col-sm-12">张三</div>
-                            <div class="col-lg-12 col-md-12 col-sm-12"><span>5楼 </span> 2019-3-3</div>
-                            <p class="discusscontent">
-                                评论了
-                            </p>
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                            <div class="col-lg-1 col-md-1 col-sm-1 photo">
+                                <img src="~/Source/UI/images/touxiang.jpg" class="img-circle" />
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 userinfo">
+                                <div class="col-lg-12 col-md-12 col-sm-12"> 作者 回复 张三</div>
+                                <div class="col-lg-12 col-md-12 col-sm-12">2019-3-3</div>
+                                <p class="discusscontent">
+                                    回复内容
+                                </p>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-lg-12 col-md-12 col-sm-12">
-                        <div class="col-lg-1 col-md-1 col-sm-1 photo">
-                            <img src="~/Source/UI/images/touxiang.jpg" class="img-circle" />
-                        </div>
-                        <div class="col-lg-4 col-md-4 col-sm-4 userinfo">
-                            <div class="col-lg-12 col-md-12 col-sm-12"> 作者 回复 张三</div>
-                            <div class="col-lg-12 col-md-12 col-sm-12">2019-3-3</div>
-                            <p class="discusscontent">
-                                回复内容
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </li>
+                </li>*@
 
         </ul>
     </div>
@@ -166,6 +183,39 @@
 
 @section Scripts{
     <script>
+        var icons = {
+            "1":"/image/icon/1228946.png",
+            "2":"/image/icon/1231879.png",
+            "3":"/image/icon/1231995.png",
+            "4":"/image/icon/1231996.png",
+            "5":"/image/icon/1231997.png",
+            "6":"/image/icon/1231998.png",
+            "7":"/image/icon/1232099.png",
+            "8":"/image/icon/1232106.png",
+            "9":"/image/icon/1232520.png",
+            "10":"/image/icon/1232523.png",
+            "11":"/image/icon/1232524.png",
+            "12":"/image/icon/1232526.png",
+            "13":"/image/icon/1232527.png",
+            "14":"/image/icon/1232530.png",
+            "15":"/image/icon/1232531.png",
+            "16":"/image/icon/1232534.png",
+            "17":"/image/icon/1232536.png",
+            "18":"/image/icon/1232539.png",
+            "19":"/image/icon/1232540.png",
+            "20":"/image/icon/1232543.png",
+            "21":"/image/icon/1232746.png",
+            "22":"/image/icon/1232851.png",
+            "23":"/image/icon/1233179.png",
+            "24":"/image/icon/1233190.png",
+            "25":"/image/icon/1233194.png",
+            "26":"/image/icon/1233196.png",
+            "27":"/image/icon/1233640.png",
+            "28":"/image/icon/1233831.png",
+            "29":"/image/icon/1233843.png",
+            "30":"/image/icon/1233923.png"
+        }
+
         //点击喜欢时
         $(document).one("click", ".like>button", function (e) {
             e.preventDefault();
@@ -187,16 +237,84 @@
             data.NickName = $("#nickname").val();
             data.Content = $("[name=Content]").val();
             data.ArticleId = $("input[name=ArticleId]:hidden").val();
+            data.ParentId = $("input[name=ParentId]:hidden").val();
             $.post("/Article/AddDiscuss", { data: data }, function (result) {
                 alert(result.msg);
-                window.location.href = window.location.href;
+                LoadDiscuss();
+                $("[name=Content]").val("");
+                $("input[name=ParentId]:hidden").val("");
+                $("[name=Content]").attr("placeholder", "说点啥吧");
             })
+        })
+
+        //回复评论
+        $(document).on("click", ".parentDiscuss", function (e) {
+            e.preventDefault();
+            var dataid = $(this).attr("data-id");
+            var dataname = $(this).attr("data-name");
+            $("[name=Content]").attr("placeholder", "回复：" + dataname);
+            $("input[name=ParentId]:hidden").val(dataid);
         })
 
         //加载评论
         function LoadDiscuss() {
             $.post("/Article/LoadDiscuss", { id:"@Model.ID" }).done(function (result) {
-                console.log(result);
+                $("#DiscussNumber").text(result.length);
+                $(".userDiscuss").html("");
+                for (var i = 0, length = result.length; i < length; i++) {
+                    var discuss = `<div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="col-lg-1 col-md-1 col-sm-1 photo">
+                            <img src="`+ (result[i].IsMe ? icons[1] : icons[Frame.GetRandom()]) + `" class="img-circle" />
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-4 userinfo">
+                            <div class="col-lg-12 col-md-12 col-sm-12">`+ (result[i].IsMe ? "<span style='color:red;'>作者</span>" : result[i].NickName) + `
+    <a href="#" class="parentDiscuss" data-id="` + result[i].ID + `" data-name="` + result[i].NickName + `" >回复他</a></div>
+                            <div class="col-lg-12 col-md-12 col-sm-12"><span> `+ (length - i) + ` 楼 </span> ` + Frame.ToDateTime(result[i].CommentTime) + `</div>
+                            <p class="discusscontent">
+                                `+ (result[i].Content || "") + `
+                            </p>
+                        </div>
+                    </div>`;
+                    var childrendiscuss = ``;
+                    for (var j = 0,childrenlength = result[i].ChildEntitis.length; j < childrenlength; j++) {
+                        //1为是，0为否
+                        if (result[i].ChildEntitis[j].IsMe) {
+                            childrendiscuss += `<div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="col-lg-1 col-md-1 col-sm-1 photo">
+                            <img src="`+ icons[1] +`" class="img-circle" />
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-4 userinfo">
+                            <div class="col-lg-12 col-md-12 col-sm-12"> <span style='color:red;'>作者</span> 回复 `+ (result[i].NickName || "") + `</div>
+                            <div class="col-lg-12 col-md-12 col-sm-12">`+ Frame.ToDateTime(result[i].ChildEntitis[j].CommentTime) +`</div>
+                            <p class="discusscontent">
+                                `+ (result[i].ChildEntitis[j].Content || "") +`
+                            </p>
+                        </div>
+                    </div>`;
+                        } else {
+                            childrendiscuss += `<div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="col-lg-1 col-md-1 col-sm-1 photo">
+                            <img src="`+ icons[Frame.GetRandom()] +`" class="img-circle" />
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-4 userinfo">
+                            <div class="col-lg-12 col-md-12 col-sm-12"> `+ (result[i].ChildEntitis[j].NickName || "") + ` 回复 ` + (result[i].NickName || "") + `</div>
+                            <div class="col-lg-12 col-md-12 col-sm-12">`+ Frame.ToDateTime(result[i].ChildEntitis[j].CommentTime) +`</div>
+                            <p class="discusscontent">
+                                `+ (result[i].ChildEntitis[j].Content || "") +`
+                            </p>
+                        </div>
+                    </div>`;
+                        }
+                    }
+
+                    var li = `<li>
+    <div class="row">
+    `+ discuss + `
+    `+ childrendiscuss +`
+    </div>
+    </li>`;
+                    $(".userDiscuss").append(li);
+                }
             })
         }
 

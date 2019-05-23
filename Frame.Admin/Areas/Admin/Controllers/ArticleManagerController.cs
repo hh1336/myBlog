@@ -1,4 +1,5 @@
 ﻿using Frame.Application.Dtos.ArticleManager;
+using Frame.Application.Dtos.Discuss;
 using Frame.Application.Dtos.LabelManager;
 using Frame.Application.Interfaces;
 using Frame.ApplicationCore.Common;
@@ -92,6 +93,39 @@ namespace Frame.Admin.Areas.Admin.Controllers
         {
             bool result = await _service.SortDel(id);
             return Json(new { code = result, msg = result ? "成功" : "失败" });
+        }
+
+        /// <summary>
+        /// 查看文章的评论
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public async Task<IActionResult> SelectDiscuss(Guid? id)
+        {
+            ViewBag.AID = id;
+            var data = await _service.SelectDiscuss(id);
+            return PartialView(data);
+        }
+
+        /// <summary>
+        /// 回复评论
+        /// </summary>
+        /// <returns></returns>
+        public async Task<IActionResult> MeAddDiscuss(ArticleCommentDto data)
+        {
+            bool result = await _service.MeAddDiscuss(data);
+            return Json(new { code = result, msg = result ? "操作成功" : "操作失败" });
+        }
+
+        /// <summary>
+        /// 删除评论
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public async Task<IActionResult> SortDiscuss(Guid? id)
+        {
+            bool result = id.HasValue ? await _service.SortDiscuss(id.Value) : false;
+            return Json(new { code = result, msg = result ? "操作成功" : "操作失败" });
         }
 
         /// <summary>

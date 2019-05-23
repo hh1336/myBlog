@@ -1098,6 +1098,11 @@ class Frame {
         var s = d.getSeconds();
         return year + "-" + month + "-" + day;
     }
+
+    //获取2-30的随机数
+    static GetRandom() {
+        return Math.floor(Math.random() * 29 + 2);
+    }
 }
 
 

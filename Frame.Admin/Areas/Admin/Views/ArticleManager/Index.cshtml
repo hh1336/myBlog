@@ -75,10 +75,10 @@
                         unresize: true,
                         align: "center",
                         templet: function (data) {
-                            var btn = "";
                             var edit = "<a class='layui-btn layui-btn-xs layui-btn-primary'name='edit' data-id='" + data.ID + "'><i class='layui-icon'>&#xe642;</i></a> <span></span>";
                             var del = "<a class='layui-btn layui-btn-xs layui-btn-primary' name='del' data-id='" + data.ID + "' ><i class='layui-icon'>&#xe640;</i></a>";
-                            btn = edit + del;
+                            var discuss = `<a class='layui-btn layui-btn-xs layui-btn-primary' name='dis' data-id="` + data.ID + `"><i class="layui-icon">&#xe63a;</i></a>`;
+                            btn = edit + del + discuss;
                             return btn;
                         }
                     },
@@ -208,11 +208,14 @@
             })
         }
 
+        //点击编辑
         $(document).on("click", "[name=edit]", function (e) {
             e.preventDefault();
             var id = $(this).attr("data-id");
             AddOrEdit(id);
         })
+
+        //点击删除
         $(document).on("click", "[name=del]", function (e) {
             e.preventDefault();
             var id = $(this).attr("data-id");
@@ -231,6 +234,24 @@
 
                 }
             })
+        })
+
+        //点击查看评论
+        $(document).on("click", "[name=dis]", function (e) {
+            e.preventDefault();
+            var id = $(this).attr("data-id");
+            $.post("/Admin/ArticleManager/SelectDiscuss", { id: id }, function (result) {
+                frame.appModal({
+                    title: "操作评论",
+                    content: result,
+                    width: "100%",
+                    height:"100%",
+                    yes: function (index) {
+                        layer.close(index);
+                    }
+                })
+            })
+
         })
 
         $(function () {

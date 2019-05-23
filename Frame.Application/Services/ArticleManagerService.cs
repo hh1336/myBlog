@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Frame.Application.Dtos.ArticleManager;
+using Frame.Application.Dtos.Discuss;
 using Frame.Application.Dtos.LabelManager;
 using Frame.Application.Interfaces;
 using Frame.ApplicationCore.Bases;
@@ -22,15 +23,18 @@ namespace Frame.Application.Services
         private readonly IRepository<Article, Guid> _articleRepository;
         private readonly IRepository<Classify, Guid> _classifyRepository;
         private readonly IMapper _mapper;
+        private readonly IRepository<ArticleComment, Guid> _commentRepository;
         public ArticleManagerService(
             IRepository<Article, Guid> articleRepository,
             IMapper mapper,
-            IRepository<Classify, Guid> classifyRepository
+            IRepository<Classify, Guid> classifyRepository,
+            IRepository<ArticleComment, Guid> commentRepository
             )
         {
             _articleRepository = articleRepository;
             _mapper = mapper;
             _classifyRepository = classifyRepository;
+            _commentRepository = commentRepository;
         }
 
         public async Task<List<ClassifyDto>> GetAllLabel()
@@ -57,6 +61,14 @@ namespace Frame.Application.Services
             return _mapper.Map<ArticleDto>(entity);
         }
 
+        public async Task<bool> MeAddDiscuss(ArticleCommentDto dto)
+        {
+            dto.CommentTime = DateTime.Now;
+            var entity = _mapper.Map<ArticleComment>(dto);
+            await _commentRepository.InsertAsync(entity);
+            return await _commentRepository.CommitAsync() > 0;
+        }
+
         public async Task<bool> Save(ArticleDto dto)
         {
             if (dto.ID == Guid.Empty)
@@ -76,6 +88,16 @@ namespace Frame.Application.Services
             }
         }
 
+        public async Task<List<ArticleComment>> SelectDiscuss(Guid? id)
+        {
+            if (!id.HasValue) return new List<ArticleComment>();
+            var datalist = _commentRepository
+                .Where(s => s.SortDel == 0 && s.ArticleId == id && s.ParentId == null)
+                .Include(s => s.ChildEntitis)
+                .OrderBy(s => s.CommentTime);
+            return await datalist.ToListAsync();
+        }
+
         public async Task<bool> SortDel(Guid? id)
         {
             if (!id.HasValue) return false;
@@ -84,6 +106,14 @@ namespace Frame.Application.Services
             entity.SortDel = 1;
             entity.DelTime = DateTime.Now;
             return await _articleRepository.CommitAsync() > 0;
+        }
+
+        public async Task<bool> SortDiscuss(Guid value)
+        {
+            var entity = await _commentRepository.FirstOrDefaultAsync(s => s.ID == value);
+            if (entity == null) return false;
+            entity.SortDel = Core.Enums.YesOrNoEnum.是;
+            return await _commentRepository.CommitAsync() > 0;
         }
     }
 }
