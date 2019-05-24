@@ -82,5 +82,10 @@ namespace Frame.Core.Entitys
         /// </summary>
         public ICollection<Classify> Classifies { set; get; }
 
+        /// <summary>
+        /// 文章导航属性
+        /// </summary>
+        public ICollection<Article> Articles { set; get; }
+
     }
 }

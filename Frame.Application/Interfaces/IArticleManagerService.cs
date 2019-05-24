@@ -70,5 +70,11 @@ namespace Frame.Application.Interfaces
         /// <param name="value"></param>
         /// <returns></returns>
         Task<bool> SortDiscuss(Guid value);
+
+        /// <summary>
+        /// 获取菜单信息
+        /// </summary>
+        /// <returns></returns>
+        Task<List<AdminMenu>> GetAllMenu();
     }
 }

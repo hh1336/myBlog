@@ -69,5 +69,10 @@ namespace Frame.Application.Dtos.MenuManager
         /// 导航属性
         /// </summary>
         public List<Classify> Classifies { set; get; }
+
+        /// <summary>
+        /// 文章导航属性
+        /// </summary>
+        public List<Article> Articles { set; get; }
     }
 }

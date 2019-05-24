@@ -54,9 +54,25 @@ namespace Frame.Admin.Controllers
         public async Task<IActionResult> LoadDiscuss(Guid? id)
         {
             List<ArticleComment> result = await _service.LoadDiscuss(id);
-            return Json(result,new Newtonsoft.Json.JsonSerializerSettings(){
+            return Json(result, new Newtonsoft.Json.JsonSerializerSettings()
+            {
                 ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
             });
+        }
+
+        /// <summary>
+        /// 用户点赞
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public async Task<IActionResult> AddLike(Guid? id)
+        {
+            if (!id.HasValue) return Json(new { msg = "操作错误" });
+            var userHostAddress = Request.HttpContext.Connection.RemoteIpAddress?.ToString();
+            var ipaddress = userHostAddress.Replace("::ffff:", "");
+            if (ipaddress == "::1") return Json(new { msg = "测试" });
+            bool result = await _service.AddLike(id.Value,ipaddress);
+            return Json(new { msg = result ? "谢谢你哟" : "你已经点过赞了" });
         }
 
 

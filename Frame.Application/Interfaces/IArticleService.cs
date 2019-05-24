@@ -34,6 +34,14 @@ namespace Frame.Application.Interfaces
         /// <returns></returns>
         Task<List<ArticleComment>> LoadDiscuss(Guid? id);
 
+        /// <summary>
+        /// 用户点赞
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="ipaddress"></param>
+        /// <returns></returns>
+        Task<bool> AddLike(Guid value, string ipaddress);
+
 
         Task Test();
     }

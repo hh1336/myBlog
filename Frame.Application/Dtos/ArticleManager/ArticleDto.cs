@@ -55,5 +55,16 @@ namespace Frame.Application.Dtos.ArticleManager
         /// 导航属性
         /// </summary>
         public List<ArticleComment> ArticleComments { set; get; }
+
+        /// <summary>
+        /// 菜单导航属性
+        /// </summary>
+        public AdminMenu AdminMenu { set; get; }
+
+        /// <summary>
+        /// 关联菜单id
+        /// </summary>
+        [ForeignKey("AdminMenu")]
+        public Guid? MenuId { set; get; }
     }
 }

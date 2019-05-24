@@ -1,0 +1,196 @@
+﻿@{
+    ViewData["Title"] = "我的笔记";
+}
+
+@section Styles{
+    <style>
+        .content-top {
+            background: #fdfdfdde;
+            border-radius: 0.5rem;
+            padding-top: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+            .content-top > ul {
+                list-style: none;
+            }
+
+                .content-top > ul > li {
+                    box-shadow: 1px 1px 1px #d1cece;
+                    margin-bottom: 1rem;
+                    padding: 0.2rem;
+                    border-radius: 1rem;
+                    color: white;
+                    text-align: center;
+                    margin-right: 2.5rem;
+                    width: 8rem;
+                    display: inline-block;
+                    font-size: 1.5rem;
+                    background: #efd0a2;
+                    float: left;
+                    cursor: pointer;
+                }
+
+                    .content-top > ul > li:active {
+                        background: #dbbe94;
+                    }
+
+
+        .content-ac > div {
+            background: #fdfdfdde;
+            padding-top: 1rem;
+            padding-left: 0;
+            padding-right: 0;
+            box-shadow: 0px 0px 5px #ebebeb;
+            margin-bottom: 1rem;
+        }
+
+            .content-ac > div > div:last-child {
+                margin-top: 1rem;
+                border-top: 1px solid #dcdcdc;
+                padding-top: 0.5rem;
+                padding-bottom: 0.5rem;
+            }
+
+        .content-ac {
+            background: #fdfdfdde;
+            padding-top: 1rem;
+            border-radius: 0.5rem;
+        }
+
+        .Actitle h4 {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .Actitle a {
+            word-wrap: break-word;
+            color: #b2b2b2;
+        }
+
+            .Actitle a:hover, .tooltipbar > div:hover {
+                text-decoration-line: none;
+                animation: acolor 0.5s;
+                color: #71be97;
+                cursor: pointer;
+            }
+
+        @@keyframes acolor {
+            from {
+                color: #b2b2b2;
+            }
+
+            to {
+                color: #71be97;
+            }
+        }
+
+        .tooltipbar > div {
+            color: #b2b2b2;
+            padding: 0;
+        }
+
+        #content > .pages {
+            text-align: center;
+        }
+    </style>
+}
+<div class="content-top col-lg-12 col-md-12 col-xs-12 hidden-xs">
+    <ul></ul>
+</div>
+
+<div class=" col-lg-12 col-md-12 col-xs-12 content-ac">
+
+</div>
+
+<nav aria-label="..." class="pages">
+    <ul class="pagination"></ul>
+</nav>
+
+
+@section Scripts{
+    <script>
+        var _field = "CreateTime",
+            _order = "desc",
+            _limit = 4,
+            _page = 1,
+            _labelId = "";
+
+        //点击页码
+        $(document).on("click", ".pagination li", function (e) {
+            e.preventDefault();
+            _page = $(this).children("a").text();
+            LoadArticles();
+        })
+
+        //点击标签
+        $(document).on("click", ".content-top > ul > li", function (e) {
+            e.preventDefault();
+            _limit = 4,
+                _page = 1,
+                _labelId = $(this).attr("data-id");
+            LoadArticles();
+        })
+
+        //加载标签
+        function LoadLabel() {
+            $.post("/MyNote/GetAllLabel").done(function (result) {
+                var uldom = $(".content-top > ul");
+                $(result).each(function (index, data) {
+                    var li = `<li data-id="` + data.id + `">` + data.name + `</li>`;
+                    uldom.append(li);
+                })
+            })
+        }
+
+        //加载文章
+        function LoadArticles() {
+            var data = {};
+            data.field = _field;
+            data.order = _order;
+            data.page = _page;
+            data.limit = _limit;
+            data.LabelId = _labelId;
+            $.post("/MyNote/GetArticles", { data: data }).done(function (result) {
+                console.log(result);
+                var acdom = $(".content-ac");
+                acdom.html("");
+                $(".pages > ul").html("");
+                //循环文章
+                $(result.data).each(function (index, data) {
+                    var div = `<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 acs" arc-id="` + data.ID + `">
+                                        <div class="col-lg-5 col-md-5 col-sm-5">
+                                            <img src="`+ data.ImgUrl + `" class="img-thumbnail">
+                                        </div>
+                                        <div class="col-lg-7 col-md-7 col-sm-7 Actitle">
+                                            <a href="#"><h4><span class="label label-warning">`+ data.Classify.Name + `</span> ` + data.AcName + `</h4></a>
+                                            <a href="#">
+                                                `+ data.Introduce + `
+                                            </a>
+                                        </div>
+                                        <div class="tooltipbar col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-3"><span class="glyphicon glyphicon-calendar"></span>`+ Frame.ToDateTime(data.CreateTime) + `</div>
+                                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-3"><span class="glyphicon glyphicon-eye-open"></span> 123</div>
+                                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-3"><span class="glyphicon glyphicon-thumbs-up"></span> `+ data.Like + `</div>
+                                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-3 col-lg-offset-4 col-md-offset-4 col-sm-offset-4 ">阅读全文 <span class="glyphicon glyphicon-menu-right"></span></div>
+                                        </div>
+                                    </div>`;
+                    acdom.append(div);
+                });
+                //循环页码
+                for (var i = 0; i < result.total; i++) {
+                    var active = ``;
+                    if ((i + 1) == _page) active = `active`;
+                    var li = `<li class="` + active + `"><a href="#">` + (i + 1) + `</a></li>`;
+                    $(".pages > ul").append(li);
+                }
+            })
+        }
+
+        $(function () {
+            LoadLabel();
+            LoadArticles();
+        })
+    </script>
+}

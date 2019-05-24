@@ -14,5 +14,10 @@ namespace Frame.Application.Dtos.ArticleManager
         /// 根据标题查找
         /// </summary>
         public string AcName { set; get; }
+
+        /// <summary>
+        /// 根据标签id查看
+        /// </summary>
+        public Guid? LabelId { set; get; }
     }
 }

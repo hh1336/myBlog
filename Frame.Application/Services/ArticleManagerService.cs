@@ -24,23 +24,32 @@ namespace Frame.Application.Services
         private readonly IRepository<Classify, Guid> _classifyRepository;
         private readonly IMapper _mapper;
         private readonly IRepository<ArticleComment, Guid> _commentRepository;
+        private readonly IRepository<AdminMenu, Guid> _menuRepository;
         public ArticleManagerService(
             IRepository<Article, Guid> articleRepository,
             IMapper mapper,
             IRepository<Classify, Guid> classifyRepository,
-            IRepository<ArticleComment, Guid> commentRepository
+            IRepository<ArticleComment, Guid> commentRepository,
+            IRepository<AdminMenu, Guid> menuRepository
             )
         {
             _articleRepository = articleRepository;
             _mapper = mapper;
             _classifyRepository = classifyRepository;
             _commentRepository = commentRepository;
+            _menuRepository = menuRepository;
         }
 
         public async Task<List<ClassifyDto>> GetAllLabel()
         {
             var entitylist = await _classifyRepository.GetAllListAsync();
             var result = _mapper.Map<List<ClassifyDto>>(entitylist);
+            return result;
+        }
+
+        public async Task<List<AdminMenu>> GetAllMenu()
+        {
+            var result = await _menuRepository.GetAllListAsync();
             return result;
         }
 

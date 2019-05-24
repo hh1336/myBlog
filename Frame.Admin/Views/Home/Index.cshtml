@@ -69,11 +69,6 @@
 @section Scripts{
     <script>
         var _limit = 4, _page = 1, _field = "CreateTime", _order = "desc";
-        $(document).on("click", ".acs", function (e) {
-            e.preventDefault();
-            var acid = $(this).attr("arc-id");
-            window.open("/Article/Index?id=" + acid);
-        })
 
         $(document).on("click", ".pages>ul>li>a", function (e) {
             e.preventDefault();

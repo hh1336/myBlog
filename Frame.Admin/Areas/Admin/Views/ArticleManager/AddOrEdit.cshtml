@@ -20,6 +20,16 @@
         </div>
     </div>
 
+    <div class="layui-form-item">
+        <div class="layui-inline">
+            <label class="layui-form-label">所属菜单</label>
+            <input type="hidden" class="MenuId" value="@Model.MenuId" />
+            <div class="layui-input-inline">
+                <select name="MenuId"></select>
+            </div>
+        </div>
+    </div>
+
     <div class="layui-upload">
         <button type="button" class="layui-btn" id="imgfile">上传图片</button>
         <input type="hidden" name="imgurl" value="@Model.ImgUrl" />
@@ -43,6 +53,8 @@
 
 <script>
     var form, upload;
+
+    //获取标签
     function GetLabel() {
         var labelid = $(".classifyId").val();
         $.post("/Admin/ArticleManager/GetLabel").done(function (result) {
@@ -60,38 +72,58 @@
                 upload = layui.upload;
                 form.render();
                 //普通图片上传
-        var uploadInst = upload.render({
-            elem: '#imgfile'
-            , url: '/Admin/ArticleManager/Upload'
-            , before: function (obj) {
-                //预读本地文件示例，不支持ie8
-                obj.preview(function (index, file, result) {
-                    $('#imgurl').attr('src', result); //图片链接（base64）
+                var uploadInst = upload.render({
+                    elem: '#imgfile'
+                    , url: '/Admin/ArticleManager/Upload'
+                    , before: function (obj) {
+                        //预读本地文件示例，不支持ie8
+                        obj.preview(function (index, file, result) {
+                            $('#imgurl').attr('src', result); //图片链接（base64）
+                        });
+                    }
+                    , done: function (res) {
+                        //如果上传失败
+                        if (res.code > 0) {
+                            return layer.msg('上传失败');
+                        }
+                        //上传成功
+                        $("input[name=imgurl]:hidden").val(res.url);
+                    }
+                    , error: function () {
+                        //演示失败状态，并实现重传
+                        //var demoText = $('#demoText');
+                        //demoText.html('<span style="color: #FF5722;">上传失败</span> <a class="layui-btn layui-btn-xs demo-reload">重试</a>');
+                        //demoText.find('.demo-reload').on('click', function () {
+                        //    uploadInst.upload();
+                        //});
+                    }
                 });
-            }
-            , done: function (res) {
-                //如果上传失败
-                if (res.code > 0) {
-                    return layer.msg('上传失败');
-                }
-                //上传成功
-                $("input[name=imgurl]:hidden").val(res.url);
-            }
-            , error: function () {
-                //演示失败状态，并实现重传
-                //var demoText = $('#demoText');
-                //demoText.html('<span style="color: #FF5722;">上传失败</span> <a class="layui-btn layui-btn-xs demo-reload">重试</a>');
-                //demoText.find('.demo-reload').on('click', function () {
-                //    uploadInst.upload();
-                //});
-            }
-        });
             });
 
         })
     }
+
+    //获取菜单
+    function GetMenu() {
+        var menuid = $(".MenuId:hidden").val();
+        var menudom = $("[name=MenuId]");
+        $.post("/Admin/ArticleManager/GetMenu", {}, function (result) {
+            $(result).each(function (index, elm) {
+                var selected = ``;
+                if (result[index].ID == menuid) {
+                    selected = `selected`;
+                }
+                var optstr = `<option value="` + result[index].ID + `" ` + selected + `>` + result[index].ShowName + `</option>`;
+                menudom.append(optstr);
+            })
+            form.render();
+
+        })
+    }
+
     $(function () {
         GetLabel();
+        GetMenu();
         var testEditor = editormd("Content", {
             placeholder: '左边编写，右边预览',  //默认显示的文字
             width: "100%",//宽
@@ -112,7 +144,7 @@
         });
         testEditor.getMarkdown();
 
-        
+
 
     })
 </script>

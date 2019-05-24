@@ -1083,6 +1083,13 @@ function GetUserInfo() {
     });
 }
 
+//点击文章跳转
+$(document).on("click", ".acs", function (e) {
+    e.preventDefault();
+    var acid = $(this).attr("arc-id");
+    window.open("/Article/Index?id=" + acid);
+});
+
 class Frame {
     //转换时间
     static ToDateTime(time) {

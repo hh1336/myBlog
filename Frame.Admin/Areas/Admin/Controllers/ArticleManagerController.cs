@@ -129,6 +129,18 @@ namespace Frame.Admin.Areas.Admin.Controllers
         }
 
         /// <summary>
+        /// 获取菜单信息
+        /// </summary>
+        /// <returns></returns>
+        public async Task<IActionResult> GetMenu()
+        {
+            List<AdminMenu> result = await _service.GetAllMenu();
+            return Json(result, new Newtonsoft.Json.JsonSerializerSettings() {
+                ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
+            });
+        }
+
+        /// <summary>
         /// 上传地址
         /// </summary>
         /// <returns></returns>
