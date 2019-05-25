@@ -57,10 +57,15 @@ namespace Frame.Application.Services
             return result;
         }
 
-        public async Task<IPageList<Article>> GetArticles(SreachDtoBase data)
+        public async Task<IPageList<Article>> GetArticles(ArticleSreachDto data)
         {
-            var datalist = await _articleRepository.GetAllIncluding(s => s.Classify).Where(s => s.SortDel == 0).Sort(data.field, data.order).ToPageList(data.limit.Value, data.page.Value);
-            return datalist;
+            var datalist = _articleRepository.GetAllIncluding(s => s.Classify).Where(s => s.SortDel == 0);
+            if (!string.IsNullOrEmpty(data.AcName))
+            {
+                datalist = datalist.Where(s => s.AcName.Contains(data.AcName));
+            }
+
+            return await datalist.Sort(data.field, data.order).ToPageList(data.limit.Value, data.page.Value);
         }
     }
 }

@@ -68,7 +68,11 @@
 </nav>
 @section Scripts{
     <script>
-        var _limit = 4, _page = 1, _field = "CreateTime", _order = "desc";
+        var _limit = 4,
+            _page = 1,
+            _field = "CreateTime",
+            _order = "desc",
+            _acName = "@ViewData["AcName"]";
 
         $(document).on("click", ".pages>ul>li>a", function (e) {
             e.preventDefault();
@@ -82,8 +86,8 @@
             data.page = _page;
             data.field = _field;
             data.order = _order;
+            data.AcName = _acName;
             $.post("/Home/GetArticles", { data: data }).done(function (result) {
-                console.log(result);
                 $("#contentbody").html("");
                 $(".pages > ul").html("");
                 for (var i = 0, length = result.data.length; i < length; i++) {

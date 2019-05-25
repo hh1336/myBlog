@@ -28,9 +28,8 @@
                             <ul>
                                 <li><a asp-action="Index" asp-controller="Home">首页</a></li>
                                 <li><a asp-action="Index" asp-controller="MyNote">我的笔记</a></li>
-                                <li><a href="#">日志分享</a></li>
+                                <li><a asp-action="Index" asp-controller="MyLog">日志分享</a></li>
                                 <li><a href="#">留言和我</a></li>
-                                <li><a href="#">动态记录</a></li>
                             </ul>
                         </div>
                         <div class="nav-toggle">
@@ -43,9 +42,8 @@
                 <ul class="nav nav-pills">
                     <li><a asp-action="Index" asp-controller="Home">首页</a></li>
                     <li><a asp-action="Index" asp-controller="MyNote">我的笔记</a></li>
-                    <li><a href="#">日志分享</a></li>
+                    <li><a asp-action="Index" asp-controller="MyLog">日志分享</a></li>
                     <li><a href="#">留言和我</a></li>
-                    <li><a href="#">动态记录</a></li>
                 </ul>
             </div>
         </div>
@@ -72,11 +70,11 @@
                     </li>
                     <li>
                         <h3 style="border-bottom:1px solid #75c5ff; padding-bottom:0.5rem; color:#b2b2b2;">查找文章</h3>
-                        <form id="Serach">
+                        <div id="Serach">
                             <div class="form-group">
-                                <input type="text" class="form-control" name="Serach" placeholder="文章名...">
+                                <input type="text" class="form-control" name="Serach" placeholder="文章名..." value="">
                             </div>
-                        </form>
+                        </div>
                     </li>
 
                     <li style="padding:0;">

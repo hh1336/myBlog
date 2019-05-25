@@ -30,6 +30,6 @@ namespace Frame.Application.Interfaces
         /// 获取所有文章
         /// </summary>
         /// <returns></returns>
-        Task<IPageList<Article>> GetArticles(SreachDtoBase data);
+        Task<IPageList<Article>> GetArticles(ArticleSreachDto data);
     }
 }

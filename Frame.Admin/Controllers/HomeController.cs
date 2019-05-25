@@ -21,8 +21,9 @@ namespace Frame.Admin.Controllers
         {
             _service = service;
         }
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string acname)
         {
+            ViewData["AcName"] = acname;
             return View();
         }
 
@@ -40,7 +41,7 @@ namespace Frame.Admin.Controllers
         /// 获取所有文章
         /// </summary>
         /// <returns></returns>
-        public async Task<IActionResult> GetArticles(SreachDtoBase data)
+        public async Task<IActionResult> GetArticles(ArticleSreachDto data)
         {
             IPageList<Article> datalist = await _service.GetArticles(data);
             return Json(datalist,new Newtonsoft.Json.JsonSerializerSettings() {

@@ -1112,6 +1112,13 @@ class Frame {
     }
 }
 
+//监听搜索框
+$(document).on("keyup", "[name=Serach]", function (e) {
+    e.preventDefault();
+    if (e.keyCode == "13") {
+        window.location.href = "/Home/Index?acname=" + $(this).val();
+    }
+});
 
 /* 飞船 */
 //$(function () {

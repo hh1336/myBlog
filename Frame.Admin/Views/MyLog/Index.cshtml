@@ -1,5 +1,5 @@
 ﻿@{
-    ViewData["Title"] = "我的笔记";
+    ViewData["Title"] = "我的日志";
 }
 
 @section Styles{
@@ -135,7 +135,7 @@
 
         //加载标签
         function LoadLabel() {
-            $.post("/MyNote/GetAllLabel").done(function (result) {
+            $.post("/MyLog/GetAllLabel").done(function (result) {
                 var uldom = $(".content-top > ul");
                 $(result).each(function (index, data) {
                     var li = `<li data-id="` + data.id + `">` + data.name + `</li>`;
@@ -152,7 +152,7 @@
             data.page = _page;
             data.limit = _limit;
             data.LabelId = _labelId;
-            $.post("/MyNote/GetArticles", { data: data }).done(function (result) {
+            $.post("/MyLog/GetArticles", { data: data }).done(function (result) {
                 var acdom = $(".content-ac");
                 acdom.html("");
                 $(".pages > ul").html("");
